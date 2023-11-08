@@ -8,7 +8,7 @@ import entreprise.model.Employe;
 public class Test {
 
 	public static void main(String[] args) {
-		
+		//SUITE DU COURS JPA
 		//en dev, les types basiques => int,double,boolean,short,long => primitives
 		//surcouches => Wrappers => int => Integer , double => Double, boolean => Boolean, short => Short, long => Long
 		Departement d10 = new Departement(10, "Accounting", "New York");
