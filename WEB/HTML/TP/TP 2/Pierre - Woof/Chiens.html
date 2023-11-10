@@ -2,75 +2,89 @@
   <html lang="fr">
   <meta charset="UTF-8">
   <style>
-    body {
-      background: url('images/fond2.jpg');
+  body {
+    background: url('images/fond2.jpg');
 
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
 
-    header {
-      text-align: center;
-      padding: 20px;
-      font-size: 30px; /* Réduire la taille du texte */
-      border-radius: 10px; /* Coins arrondis*/
-      margin-bottom: 20px;
-    }
-    h1 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  header {
+    text-align: center;
+    padding: 20px;
+    font-size: 30px; /* Réduire la taille du texte */
+    border-radius: 10px; /* Coins arrondis*/
+    margin-bottom: 20px;
+  }
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .gif-left,
-    .gif-right {
-      max-height: 10%; /* Ajustez la hauteur au besoin */
-      margin-right: 10px; /* Espace entre le GIF et le texte */
-      margin-left: 10px;  /* Espace entre le GIF et le texte */
-    }
-    table {
-      width: 80%;
-      margin: auto;
-      border-collapse: collapse;
-      box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5); /* Ombre légère */
-    }
+  .gif-left,
+  .gif-right {
+    max-height: 10%; /* Ajustez la hauteur au besoin */
+    margin-right: 10px; /* Espace entre le GIF et le texte */
+    margin-left: 10px;  /* Espace entre le GIF et le texte */
+  }
+  table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5); /* Ombre légère */
+  }
 
-    th, td {
-      border: 1px solid #3498db; /* Bleu vif pour les bordures de cellules */
-      padding: 12px;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
+  th, td {
+    border: 1px solid #3498db; /* Bleu vif pour les bordures de cellules */
+    padding: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
 
-    th {
-      background-color: #2980b9; /* Bleu plus foncé pour l'arrière-plan de l'en-tête de colonne */
-      color: #fff;
-    }
+  th {
+    background-color: #2980b9; /* Bleu plus foncé pour l'arrière-plan de l'en-tête de colonne */
+    color: #fff;
+  }
 
-    tbody tr:nth-child(even) {
-      background-color: #badcf8; /* Nouvelle couleur pour les lignes paires */
-    }
+  tbody tr:nth-child(even) {
+    background-color: #badcf8; /* Nouvelle couleur pour les lignes paires */
+  }
 
-    tbody tr:nth-child(odd) {
-      background-color: #d1eaf3; /* Ancienne couleur pour les lignes impaires */
-    }
+  tbody tr:nth-child(odd) {
+    background-color: #d1eaf3; /* Ancienne couleur pour les lignes impaires */
+  }
 
-    img {
-      max-width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+  img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .table-row:hover img {
+    animation: moveImage 0.5s ease-in-out;
+  }
 
-    audio {
-      width: 100%;
-      margin-top: 10px;
+  @keyframes moveImage {
+    0% {
+      transform: translateX(0);
     }
+    50% {
+      transform: translateX(1000%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  audio {
+    width: 100%;
+    margin-top: 10px;
+  }
 
-    tbody tr:hover {
-      transform: scale(1.05);
-    }
+  tbody tr:hover {
+    transform: scale(1.05);
+  }
 
   </style>
 </head>
@@ -98,7 +112,7 @@
         </tr>
 
         <tbody>
-          <tr align="center">
+          <tr class="table-row" align="center">
             <td><img src="images/Scooby-doo.png" alt="Scooby-doo" width="100%" height="100%"></td>
             <td>Scooby-doo</td>
             <td>Mâle</td>
@@ -109,7 +123,7 @@
             <td><audio src="sons/Scooby-Doo.mp3" controls></audio></td>
           </tr>
 
-          <tr align="center">
+          <tr class="table-row" align="center">
             <td><img src="images/milou.gif" alt="Milou" width="100%" height="100%"></td>
             <td>Milou</td>
             <td>Mâle</td>
@@ -120,7 +134,7 @@
             <td><audio src="sons/Milou.mp3" controls></audio></td>
           </tr>
 
-          <tr align="center">
+          <tr class="table-row" align="center">
             <td><img src="images/Idefix.png" alt="Idéfix" width="100%" height="100%"></td>
             <td>Idéfix</td>
             <td>Mâle</td>
@@ -131,7 +145,7 @@
             <td><audio src="sons/Idefix.mp3" controls></audio></td>
           </tr>
 
-          <tr align="center">
+          <tr class="table-row" align="center">
             <td><img src="images/rex.png" alt="Rex" width="100%" height="100%"></td>
             <td>Inspektor Rex</td>
             <td>Mâle</td>
@@ -142,7 +156,7 @@
             <td><audio src="sons/Rex.mp3" controls></audio></td>
           </tr>
 
-          <tr align="center">
+          <tr class="table-row" align="center">
             <td><img src="images/beethoven.png" alt="Beethoven" width="100%" height="100%"></td>
             <td>Mâle</td>
             <td>Beethoven</td>
@@ -153,62 +167,62 @@
             <td><audio src="sons/Beethoven.mp3" controls></audio></td>
           </tr>
 
-          <tr align="center">
-            <td><img src="images/odie.png" alt="Odie" width="100%" height="100%"></td>
-            <td>Mâle</td>
-            <td>Odie</td>
-            <td>Beagle</td>
-            <td>Etats-Unis</td>
-            <td><b>Jon Arbuckle</b>, le propriétaire de Garfield.</td>
-            <td>Les croquettes.</td>
-            <td><audio src="sons/Odie.mp3" controls></td>
-            </tr>
-
-            <tr align="center">
-              <td><img src="images/laika.png" alt="Laïka" width="100%" height="100%"></td>
-              <td>Laïka</td>
-              <td>Femelle</td>
-              <td><p>Son véritable pédigree est bien évidemment inconnu, mais il est quasi certain qu'il s'agisse d'un croisement entre un husky (ou autre race nordique) et un terrier. La presse américaine l'avait surnommée Muttnik (« mutt » signifie « chien bâtard » + le suffixe -nik), calembour de Spoutnik !</p></td>
-              <td>Union Soviétique</td>
-              <td><p>Laïka n'avait <b>pas de maître</b> dans le sens traditionnel, car elle a été sélectionnée et formée par les scientifiques soviétiques pour le programme spatial.</p></td>
-              <td><p><b>Alimentation spéciale</b> pour chiens adaptée à ses besoins nutritionnels pendant son entraînement et son vol spatial.</p></td>
-              <td><audio src="sons/Laika.mp3" controls></td>
+          <tr class="table-row" align="center">
+            <td><a href="../Vincent - Zelda/zelda.html" target="_blank" ><img src="images/odie.png" alt="Odie" width="100%" height="100%"></td>
+              <td>Mâle</td>
+              <td>Odie</td>
+              <td>Beagle</td>
+              <td>Etats-Unis</td>
+              <td><b>Jon Arbuckle</b>, le propriétaire de Garfield.</td>
+              <td>Les croquettes.</td>
+              <td><audio src="sons/Odie.mp3" controls></td>
               </tr>
 
-              <tr align="center">
-                <td><img src="images/Hachiko.png" alt="Hachiko" width="100%" height="100%"></td>
-                <td>Hachiko</td>
-                <td>Mâle</td>
-                <td>Akita Inu</td>
-                <td>Japon</td>
-                <td><p>Hachiko appartenait au <b>professeur Hidesaburo Ueno</b>, qui enseignait à l'Université de Tokyo. Hachiko est surtout connu pour son attachement profond à son maître et pour attendre fidèlement son retour chaque jour à la gare de Shibuya, même après la mort du professeur.</p></td>
-                <td><p>Ses propres larmes...</p></td>
-                <td><audio src="sons/Hachiko.mp3" controls></td>
+              <tr class="table-row" align="center">
+                <td><img src="images/laika.png" alt="Laïka" width="100%" height="100%"></td>
+                <td>Laïka</td>
+                <td>Femelle</td>
+                <td><p>Son véritable pédigree est bien évidemment inconnu, mais il est quasi certain qu'il s'agisse d'un croisement entre un husky (ou autre race nordique) et un terrier. La presse américaine l'avait surnommée Muttnik (« mutt » signifie « chien bâtard » + le suffixe -nik), calembour de Spoutnik !</p></td>
+                <td>Union Soviétique</td>
+                <td><p>Laïka n'avait <b>pas de maître</b> dans le sens traditionnel, car elle a été sélectionnée et formée par les scientifiques soviétiques pour le programme spatial.</p></td>
+                <td><p><b>Alimentation spéciale</b> pour chiens adaptée à ses besoins nutritionnels pendant son entraînement et son vol spatial.</p></td>
+                <td><audio src="sons/Laika.mp3" controls></td>
                 </tr>
 
-                <tr align="center">
-                  <td><img src="images/Sanka.png" alt="Sanka" width="100%" height="100%"></td>
-                  <td>Sanka</td>
-                  <td>Femelle</td>
-                  <td>Spitz Loup</td>
-                  <td>France</td>
-                  <td><p><b>Corentin</b> qui éclaire mes journées avec son rire contagieux qui résonne joyeusement à chacune de mes blagues, transformant chaque instant en une aventure pleine de bonne humeur.</p></td>
-                  <td align="left"><ul><li>La bouffe de la petite Louison</li><li>Les poutits cacanou du chat</li><li>Les Dentastix à la menthe</li></ul></td>
-                  <td><audio src="sons/Sanka.mp3" controls></audio></td>
-                </tr>
-
-                <tr align="center">
-                  <td><a href="../Corentin - ApexLegends/Apex.html" target="_blank" ><img src="images/Corentin.png" alt="Corentin" width="100%" height="100%"></td>
-                  <td>Corentin</a></td>
+                <tr class="table-row" align="center">
+                  <td><img src="images/Hachiko.png" alt="Hachiko" width="100%" height="100%"></td>
+                  <td>Hachiko</td>
                   <td>Mâle</td>
-                  <td>Servant attentionné</td>
-                  <td>France</td>
-                  <td><p>Le grand Zoyberg, le seul, l'unique.</p></td>
-                  <td align="left"><ul><li>Les lasagnes de Garfield</li><li>Les croquettes de la marque JesuisnulaApex</li><li>Les Kinder Bueno</li></ul></td>
-                  <td><audio src="sons/Corentin.mp3" controls></audio></td>
-                </tr>
+                  <td>Akita Inu</td>
+                  <td>Japon</td>
+                  <td><p>Hachiko appartenait au <b>professeur Hidesaburo Ueno</b>, qui enseignait à l'Université de Tokyo. Hachiko est surtout connu pour son attachement profond à son maître et pour attendre fidèlement son retour chaque jour à la gare de Shibuya, même après la mort du professeur.</p></td>
+                  <td><p>Ses propres larmes...</p></td>
+                  <td><audio src="sons/Hachiko.mp3" controls></td>
+                  </tr>
 
-              </tbody>
-            </thead>
-          </table>
-        </body>
+                  <tr class="table-row" align="center">
+                    <td><img src="images/Sanka.png" alt="Sanka" width="100%" height="100%"></td>
+                    <td>Sanka</td>
+                    <td>Femelle</td>
+                    <td>Spitz Loup</td>
+                    <td>France</td>
+                    <td><p><b>Corentin</b> qui éclaire mes journées avec son rire contagieux qui résonne joyeusement à chacune de mes blagues, transformant chaque instant en une aventure pleine de bonne humeur.</p></td>
+                    <td align="left"><ul><li>La bouffe de la petite Louison</li><li>Les poutits cacanou du chat</li><li>Les Dentastix à la menthe</li></ul></td>
+                    <td><audio src="sons/Sanka.mp3" controls></audio></td>
+                  </tr>
+
+                  <tr class="table-row" align="center">
+                    <td><a href="../Corentin - ApexLegends/Apex.html" target="_blank" ><img src="images/Corentin.png" alt="Corentin" width="100%" height="100%"></td>
+                      <td>Corentin</a></td>
+                      <td>Mâle</td>
+                      <td>Servant attentionné</td>
+                      <td>France</td>
+                      <td><p>Le grand Zoyberg, le seul, l'unique.</p></td>
+                      <td align="left"><ul><li>Les lasagnes de Garfield</li><li>Les croquettes de la marque JesuisnulaApex</li><li>Les Kinder Bueno</li></ul></td>
+                      <td><audio src="sons/Corentin.mp3" controls></audio></td>
+                    </tr>
+
+                  </tbody>
+                </thead>
+              </table>
+            </body>
