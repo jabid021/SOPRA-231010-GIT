@@ -1,0 +1,88 @@
+body {
+  background-image: url("Assets/image.jpg");
+}
+table {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+thead {
+  text-align: center;
+  font-family: "Clash Royale Font", sans-serif;
+}
+
+th {
+  padding: 10px; /* Espacement interne  */
+  border: 1px solid #000;
+  color: rgb(255, 166, 50);
+  font-family: "Clash Royale Font", sans-serif;
+}
+
+td {
+  color: beige;
+  font-size: large;
+  border: 1px solid black;
+  text-align: center;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+.nom {
+  font-family: "Brush Script MT", cursive;
+  font-size: 24px;
+}
+.description {
+  font-family: "Lobster", cursive;
+  font-size: 18px;
+  text-align: left;
+}
+.categorie {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Pacifico", cursive;
+  font-size: 20px;
+}
+
+footer {
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 400px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.footer-info {
+  text-align: left;
+}
+
+.footer-info h3 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.footer-info p {
+  font-size: 16px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Espacement depuis le contenu au-dessus */
+}
+
+.icons img {
+  width: 30px; /* Taille des images */
+  margin: 0 10px; /* Espacement horizontal */
+}

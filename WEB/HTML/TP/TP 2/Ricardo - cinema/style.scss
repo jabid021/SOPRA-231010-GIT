@@ -1,0 +1,193 @@
+body{
+    background-color: darkgray;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 1s;
+
+    background-color: #cf00ff;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #48eed0, #cf00ff), repeating-radial-gradient(circle at center center, #48eed0, #48eed0, 31px, transparent 62px, transparent 31px);
+    background-blend-mode: multiply;
+}
+
+#bg_tint{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    z-index: -1;
+    top:0px;
+    left:0px;
+    opacity: 0.31;
+}
+
+h1{
+    text-align: center;
+    margin-top: 14vh;
+    font-size: 100px;
+    text-shadow: green 5px 5px;
+}
+
+table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    // box-shadow: 0 30px 40px black;
+    // table-layout: fixed;
+    thead{
+        position: sticky;
+        top: 20%; /* Don't forget this, required for the stickiness */
+        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+        z-index: 100;
+        text-shadow: green 1px 0 10px;;
+    }
+    th{
+        font-size: larger;
+        padding-bottom: 20px;
+    }
+    img{
+        width: 200px;
+        transition: 1s;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    tr{
+        // border-bottom: 10px solid black;
+        // box-shadow:  0 0 3px 3px red;
+        // border-radius: 50%;
+        position:relative;
+    }
+    .film_backdrop{
+        position:absolute;
+        transform: translateY(-50%);
+        display: none;
+        z-index: -1;
+        img{
+            width:120vw;
+    }
+        // animation: 10s backdrop_animation forwards;
+        &:before
+        {
+            display:block;
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            -moz-box-shadow:inset 0px 0px 80px 40px #cf00ff;
+            -webkit-box-shadow:inset 0px 0px 80px 40px #cf00ff;
+            box-shadow:inset 0px 0px 80px 40px #cf00ff;
+        }
+    }
+
+    td{
+        // padding: 10px;
+        position:relative;
+        padding:20px 0;
+        // border: 1px solid red;
+        text-align: center;
+        // box-shadow: 0 0 3px 3px red;
+        // box-shadow: 0px 15px 15px #888, 0px -15px 15px #888;
+        transition: 500ms;
+        &:hover{
+            background-color: lightblue;
+            color: black;
+        }
+        div{
+            margin: auto;
+        }
+        &:nth-child(1) div {
+            // background-color: red;
+          }
+        &:nth-child(2) div {
+            width: 150px;
+          }
+        &:nth-child(3) div {
+            width: 300px;
+          }
+    }
+}
+
+
+tr:first-child td:first-child { border-top-left-radius: 50px; }
+tr:first-child td:last-child { border-top-right-radius: 50px; }
+
+tr:last-child td:first-child { border-bottom-left-radius: 100px; }
+tr:last-child td:last-child { border-bottom-right-radius: 100px; }
+
+
+
+
+
+hr {
+    margin: 30px 0;
+    margin-top:100px;
+    height: 1px;
+    width: 100%;
+    border: none;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black));
+}
+
+.faded_row{
+    background-color: red;
+    opacity: 0.1;
+    transition: 2s;
+    transform: scale(0.5);
+    img{
+        filter: grayscale(1);
+        opacity:0;
+        transform: scale(0.1);
+    }
+}
+
+.focus_row{
+    background-color: blue;
+    opacity: 1;
+    transition: 2s;
+    transform: scale(1);
+    box-shadow:5px 5px 5px 5px black;
+}
+
+@keyframes backdrop_animation1 {
+    0%{
+        opacity: 0.2;
+        transform: scale(1) translate(-100vw,-50vh);
+    }
+    100%{
+        opacity: 0.9;
+        transform: scale(1.5) translate(-70vw,-100vh);
+    }
+}
+
+@keyframes backdrop_animation2 {
+    0%{
+        opacity: 0.2;
+        transform: scale(1.5) translate(-100vw,-50vh);
+    }
+    100%{
+        opacity: 0.9;
+        transform: scale(1) translate(-70vw,-100vh);
+    }
+}
+
+@keyframes backdrop_animation3 {
+    0%{
+        opacity: 0.2;
+        transform: scale(1) translate(-70vw,-100vh);
+    }
+    100%{
+        opacity: 0.9;
+        transform: scale(1.5) translate(-100vw,-50vh);
+    }
+}
+
+@keyframes backdrop_animation4 {
+    0%{
+        opacity: 0.2;
+        transform: scale(1.5) translate(-70vw,-100vh);
+    }
+    100%{
+        opacity: 0.9;
+        transform: scale(1) translate(-100vw,-50vh);
+    }
+}
