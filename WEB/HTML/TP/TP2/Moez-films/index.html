@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   
+    <style>
+        body {
+            background: url('file:///C:/Users/betmo/OneDrive/Bureau/FORMATION_AJC/1-WEB/TP1/images.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            animation: pulse 2s ease-in-out infinite;
+            font-weight: bold;
+            color: black;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }}
+            .btn-danger mt-8:hover {
+            transform: translateY(-5px); /* Déplace légèrement vers le haut au survol */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2 class="text-center">Top des meilleurs films de 2023</h2>
+        
+        <table class="table table-bordered table-striped table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Affiche</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>The Fabelmans
+                         <button onclick="window.location.href='https://www.youtube.com/watch?v=p8VN947nPzE'" type="button" class="btn btn-danger mt-8">Regarder</button></td>
+                    <td><p class="text-justify mb-0">The Fabelmans de Steven Spielberg est un portrait profondément personnel du jeune Sammy Fabelmans qui grandit dans l'Arizona après la Seconde Guerre mondiale. Au fil des années, Sammy capture les aventures de sa famille et se développe en tant que réalisateur de films amateurs mettant en scène ses sœurs et amis. À 16 ans, Sammy découvre une vérité déchirante sur sa mère qui change à jamais la dynamique familiale.</p></td>
+                    <td>
+                        <img src="TheFabelmans.jpg" class="img-fluid mx-auto d-block" width="150" height="80" alt="The Fabelmans">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Spider-Man : Seul Contre Tous
+                        <button onclick="window.location.href='https://www.youtube.com/watch?v=HOkEiRunwGc'" type="button" class="btn btn-danger mt-2">Regarder</button>
+                    </td>
+                    <td><p class="text-justify mb-0">Après avoir retrouvé Gwen Stacy, Spider-Man, le sympathique héros originaire de Brooklyn, est catapulté à travers le Multivers, où il rencontre une équipe de Spider-Héros chargée d'en protéger l'existence. Mais lorsque les héros s'opposent sur la façon de gérer une nouvelle menace, Miles se retrouve confronté à eux et doit redéfinir ce que signifie être un héros afin de sauver les personnes qu'il aime le plus.</p>
+                    </td>
+                    <td>
+                        <img src="spider-man-seul-contre-tous.jpg" class="img-fluid mx-auto d-block" width="100" height="50" alt="spider-man-seul-contre-tous">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Retour à Seoul <button onclick="window.location.href='https://www.youtube.com/watch?v=uHpx3QaFU-Y'" type="button" class="btn btn-danger mt-2">Regarder</button></td>
+                    <td><p class="text-justify mb-0">Sur un coup de tête, Freddie, 25 ans, retourne pour la première fois en Corée du Sud, où elle est née. La jeune femme se lance avec fougue à la recherche de ses origines dans ce pays qui lui est étranger, faisant basculer sa vie dans des directions nouvelles et inattendues.</p></td>
+                    <td>
+                        <img src="retour-a-seoul.jpg" class="img-fluid mx-auto d-block" width="100" height="50" alt="retour-a-seoul">
+                        
+                    </td>
+                </tr>
+                
+              
+            </tbody>
+        </table>
+    </div>
+
+   
+    
+</body>
+</html>
