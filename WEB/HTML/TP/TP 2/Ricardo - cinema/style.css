@@ -1,7 +1,9 @@
 body {
   background-color: darkgray;
   color: white;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Cartesian";
+  font-weight: normal;
+  font-style: normal;
   transition: 1s;
   background-color: #cf00ff;
   opacity: 1;
@@ -25,6 +27,9 @@ h1 {
   margin-top: 14vh;
   font-size: 100px;
   text-shadow: green 5px 5px;
+  font-family: "Super Brigade Laser";
+  font-weight: normal;
+  font-style: normal;
 }
 
 table {
