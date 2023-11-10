@@ -87,11 +87,10 @@
   <h1 align="center">Personnages d'Apex Legends</h1>
 
   <p>Si tu préfères les chiens, va voir le travail de cet énergumène</p>
-  <a href="../Pierre - Woof/Chiens.html" target="_blank"><img src="img/PL.jpg" alt="Chien" width="3.5%" id="dog-image"></a>
-  <audio src="sound/Les_dogs.mp3" id="dog-image">
+  <a href="../Pierre - Woof/Chiens.html" target="_blank"><img src="img/PL.jpg" alt="Chien" width="3.5%" id="dog-image"></img></a>
 
-  </audio>
-  
+
+
   <table border="1" align="center">
     <tr>
       <th class="character-description">Classe</th>
@@ -566,19 +565,13 @@
     </tr>
   </table>
   <script>
+
+
     document.getElementById('audioImage').addEventListener('click', function() {
       var audio = new Audio('sound/couin.mp3');
       audio.play();
     });
-    document.getElementById('dog-image').addEventListener('click', function() {
-      // Jouer le son de chien
-      var audio = new Audio('sound/aboiement.mp3');
-      audio.play();
 
-      // Redirection vers le lien après une courte pause (ajustez selon vos préférences)
-      setTimeout(function() {
-        window.location.href = '../Pierre - Woof/Chiens.html';
-      }, 1000); // Délai d'une seconde (1000 millisecondes)
     </script>
 
     <footer>
