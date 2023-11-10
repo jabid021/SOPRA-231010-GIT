@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Super Brigade Laser';
+    src: url('SuperBrigadeLaser.woff2') format('woff2'),
+        url('SuperBrigadeLaser.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cartesian';
+    src: url('Cartesian.woff2') format('woff2'),
+        url('Cartesian.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
