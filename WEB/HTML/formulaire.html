@@ -7,8 +7,13 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 -->
 
 
-
 <form>
+
+<fieldset>
+
+<legend>Mon formulaire</legend>
+
+
   <table>
     <tr>
       <td>Login : *</td>
@@ -40,6 +45,14 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
       <td><input placeholder="Saisir votre age" type="number" min="0" max="70" step="2"></td>
     </tr>
 
+</table>
+
+</fieldset>
+
+<fieldset>
+<legend>Partie 2</legend>
+<table>
+
     <tr>
       <td>Salaire : </td>
       <td><input required type="number" step="0.01"></td>
@@ -60,16 +73,22 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
       <td><input type="tel"></td>
     </tr>
 
+</table>
+</fieldset>
+
+<fieldset>
+  <legend>Je suis une</legend>
+  <table>
 
     <tr>
       <td>Informatique : </td>
-      <td>Java<input type="checkbox"> SQL<input type="checkbox"> HTML<input type="checkbox"></td>
+      <td>Java<input checked type="checkbox"> SQL<input type="checkbox"> HTML<input type="checkbox"></td>
     </tr>
 
 
     <tr>
       <td>Civilite : </td>
-      <td>Homme<input name="civ" type="radio"> Femme<input name="civ" type="radio"> NB<input name="civ" type="radio"></td>
+      <td>Homme<input name="civ" type="radio"> Femme<input checked name="civ" type="radio"> NB<input name="civ" type="radio"></td>
     </tr>
 
 
@@ -79,7 +98,7 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
         <select>
           <optgroup label="UNIX">
             <option>MacOs</option>
-            <option>Linux</option>
+            <option selected>Linux</option>
           </optgroup>
           <optgroup label="MSDOS">
             <option>Windows</option>
@@ -88,7 +107,36 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
       </td>
     </tr>
 
-  </table>
 
-  <input type="submit">
+
+    <tr>
+      <td>Commentaire : </td>
+      <td><textarea placeholder="Saisir votre commentaire" rows="10" cols="80">Texte de depart</textarea></td>
+    </tr>
+
+  </table>
+</fieldset>
+  <input onclick="texteRouge()" type="button" value="Texte en rouge">
+  <input type="submit" value="Inscription">
+  <input type="reset">
 </form>
+
+
+
+
+
+
+
+
+
+<script>
+
+function texteRouge()
+{
+  for(b of document.getElementsByTagName("input"))
+  {
+    b.style.color="red";
+  }
+}
+
+</script>
