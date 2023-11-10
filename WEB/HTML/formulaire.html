@@ -1,0 +1,94 @@
+<!--
+Zone de texte =>  input : text, password, date, number, time, week, email, url, tel (affiche uniquement les chiffres et + sur un tel)
+Liste deroulante => select
+button => submit / reset / button
+Zone de texte => textarea
+choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
+-->
+
+
+
+<form>
+  <table>
+    <tr>
+      <td>Login : *</td>
+      <td><input  required value="Jordan" placeholder="Saisir votre login" type="text"></td>
+    </tr>
+    <tr>
+      <td>Password : *</td>
+      <td><input placeholder="Saisir votre password" type="password" pattern="[A-z0-9!#@$&!*?]{4,8}" ></td>
+    </tr>
+
+    <tr>
+      <td>Naissance : *</td>
+      <td><input type="date"></td>
+    </tr>
+
+    <tr>
+      <td>RDV : </td>
+      <td><input type="time"></td>
+    </tr>
+
+
+    <tr>
+      <td>Conges : </td>
+      <td><input type="week"></td>
+    </tr>
+
+    <tr>
+      <td>Age : </td>
+      <td><input placeholder="Saisir votre age" type="number" min="0" max="70" step="2"></td>
+    </tr>
+
+    <tr>
+      <td>Salaire : </td>
+      <td><input required type="number" step="0.01"></td>
+    </tr>
+
+    <tr>
+      <td>Email : </td>
+      <td><input type="email"></td>
+    </tr>
+
+    <tr>
+      <td>Site web : </td>
+      <td><input type="url"></td>
+    </tr>
+
+    <tr>
+      <td>Tel : </td>
+      <td><input type="tel"></td>
+    </tr>
+
+
+    <tr>
+      <td>Informatique : </td>
+      <td>Java<input type="checkbox"> SQL<input type="checkbox"> HTML<input type="checkbox"></td>
+    </tr>
+
+
+    <tr>
+      <td>Civilite : </td>
+      <td>Homme<input name="civ" type="radio"> Femme<input name="civ" type="radio"> NB<input name="civ" type="radio"></td>
+    </tr>
+
+
+    <tr>
+      <td>OS</td>
+      <td>
+        <select>
+          <optgroup label="UNIX">
+            <option>MacOs</option>
+            <option>Linux</option>
+          </optgroup>
+          <optgroup label="MSDOS">
+            <option>Windows</option>
+          </optgroup>
+        </select>
+      </td>
+    </tr>
+
+  </table>
+
+  <input type="submit">
+</form>
