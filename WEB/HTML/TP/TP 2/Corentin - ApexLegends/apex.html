@@ -59,8 +59,23 @@
     p {
       color: red;
     }
-  </style>
+    footer {
+      color: white;
+    }
+    .nav-bar a {
+      display: inline-block;
+      margin-right: 10px; /* Espace entre les liens, ajustez selon vos besoins */
+      text-decoration: none;
+      color: #333; /* Couleur du texte */
+      padding: 5px 10px; /* Rembourrage du lien, ajustez selon vos besoins */
+      border: 1px solid #333; /* Bordure du lien, ajustez selon vos besoins */
+      border-radius: 5px; /* Bordure arrondie, ajustez selon vos besoins */
+    }
 
+    .nav-bar a:hover {
+      background-color: #eee; /* Couleur de fond au survol du lien */
+    }
+  </style>
 </head>
 <body>
 
@@ -72,8 +87,11 @@
   <h1 align="center">Personnages d'Apex Legends</h1>
 
   <p>Si tu préfères les chiens, va voir le travail de cet énergumène</p>
-  <a href="Pierre - Woof/Chiens.html" target="_blank"><img src="img/PL.jpg" alt="Chien" width="3.5%"></a>
+  <a href="../Pierre - Woof/Chiens.html" target="_blank"><img src="img/PL.jpg" alt="Chien" width="3.5%" id="dog-image"></a>
+  <audio src="sound/Les_dogs.mp3" id="dog-image">
 
+  </audio>
+  
   <table border="1" align="center">
     <tr>
       <th class="character-description">Classe</th>
@@ -102,7 +120,7 @@
         <b>Âge :</b> 40<br><br>
         <b>Monde d'origine :</b> Gridiron
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Lance-fumigène<br><br>
         <b>Compétence 2 :</b>Pas de charge<br><br>
         <b>Compétence 3 :</b>Tonnerre grondant<br><br>
@@ -119,7 +137,7 @@
         <b>Âge :</b> 122<br><br>
         <b>Monde d'origine :</b> Inconnu
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Piege à arc<br><br>
         <b>Compétence 2 :</b>Condamnation<br><br>
         <b>Compétence 3 :</b>Rupture phasique<br><br>
@@ -136,7 +154,7 @@
         <b>Âge :</b> 63<br><br>
         <b>Monde d'origine :</b> Gaea
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Sifflement<br><br>
         <b>Compétence 2 :</b>Bandoulière<br><br>
         <b>Compétence 3 :</b>Tempête<br><br>
@@ -153,7 +171,7 @@
         <b>Âge :</b> 55<br><br>
         <b>Monde d'origine :</b> Salvo
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Bombe à dispersion<br><br>
         <b>Compétence 2 :</b>Grenadier<br><br>
         <b>Compétence 3 :</b>Gros lot<br><br>
@@ -170,7 +188,7 @@
         <b>Âge :</b> 56<br><br>
         <b>Monde d'origine :</b> Salvo
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Pointe perçante<br><br>
         <b>Compétence 2 :</b>Colère de la guerre<br><br>
         <b>Compétence 3 :</b>Boule de démolition<br><br>
@@ -195,7 +213,7 @@
         <b>Âge :</b> 39 (à87 années près...)<br><br>
         <b>Monde d'origine :</b> Solace
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Ascenseur de gravité<br><br>
         <b>Compétence 2 :</b>Spationaute<br><br>
         <b>Compétence 3 :</b>Trou noir<br><br>
@@ -212,7 +230,7 @@
         <b>Âge :</b> 26<br><br>
         <b>Monde d'origine :</b> Psamathe
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Stimulant<br><br>
         <b>Compétence 2 :</b>Guérison rapide<br><br>
         <b>Compétence 3 :</b>Tremplin<br><br>
@@ -229,7 +247,7 @@
         <b>Âge :</b> 79<br><br>
         <b>Monde d'origine :</b> Psamathe
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Grappin<br><br>
         <b>Compétence 2 :</b>Délit d'initié<br><br>
         <b>Compétence 3 :</b>Lance-tyrolienne<br><br>
@@ -246,7 +264,7 @@
         <b>Âge :</b> 359<br><br>
         <b>Monde d'origine :</b> Inconnu
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Attaque fantôme<br><br>
         <b>Compétence 2 :</b>Instinct assassin<br><br>
         <b>Compétence 3 :</b>	Faux fantômes<br><br>
@@ -263,7 +281,7 @@
         <b>Âge :</b> 31<br><br>
         <b>Monde d'origine :</b> Angelia
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Salve de missiles<br><br>
         <b>Compétence 2 :</b>Jetpack<br><br>
         <b>Compétence 3 :</b>Saut céleste<br><br>
@@ -280,7 +298,7 @@
         <b>Âge :</b> 34<br><br>
         <b>Monde d'origine :</b> Typhon
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Dans le vide<br><br>
         <b>Compétence 2 :</b>Voix du Vide<br><br>
         <b>Compétence 3 :</b>Faille dimensionnelle<br><br>
@@ -304,7 +322,7 @@
         <b>Âge :</b> 40<br><br>
         <b>Monde d'origine :</b> Talos
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Œil du Faiseur d'Orages<br><br>
         <b>Compétence 2 :</b>Traqueur<br><br>
         <b>Compétence 3 :</b>Prédateur<br><br>
@@ -321,7 +339,7 @@
         <b>Âge :</b> 24<br><br>
         <b>Monde d'origine :</b> Gaea
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Drone de surveillance<br><br>
         <b>Compétence 2 :</b>Neurolien<br><br>
         <b>Compétence 3 :</b>Drone IEM<br><br>
@@ -338,7 +356,7 @@
         <b>Âge :</b> 27<br><br>
         <b>Monde d'origine :</b> Boréas
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Centre d'attention<br><br>
         <b>Compétence 2 :</b>Attrape-cœur<br><br>
         <b>Compétence 3 :</b>Exposition<br><br>
@@ -355,7 +373,7 @@
         <b>Âge :</b> 19<br><br>
         <b>Monde d'origine :</b> Págos
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Redéploiement ailé<br><br>
         <b>Compétence 2 :</b>Viseur de précision<br><br>
         <b>Compétence 3 :</b>	Marque de la snipeuse<br><br>
@@ -379,7 +397,7 @@
         <b>Âge :</b> 30<br><br>
         <b>Monde d'origine :</b> Boréas
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Bande perçante<br><br>
         <b>Compétence 2 :</b>	Renforcement<br><br>
         <b>Compétence 3 :</b>Ferrobarrière<br><br>
@@ -396,7 +414,7 @@
         <b>Âge :</b> 50<br><br>
         <b>Monde d'origine :</b> Gaea
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Piège à gaz Nox<br><br>
         <b>Compétence 2 :</b>Vision Nox<br><br>
         <b>Compétence 3 :</b>Grenade à gaz Nox<br><br>
@@ -413,7 +431,7 @@
         <b>Âge :</b> 23<br><br>
         <b>Monde d'origine :</b> Gaea
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Champ de force<br><br>
         <b>Compétence 2 :</b>Chargeur modifié<br><br>
         <b>Compétence 3 :</b>Mitrailleuse montée "Sheila"<br><br>
@@ -430,7 +448,7 @@
         <b>Âge :</b> 24<br><br>
         <b>Monde d'origine :</b> Solace
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Périmètre de sécurité<br><br>
         <b>Compétence 2 :</b>Éclair de génie<br><br>
         <b>Compétence 3 :</b>	Pylône d’interception<br><br>
@@ -454,7 +472,7 @@
         <b>Âge :</b> 27<br><br>
         <b>Monde d'origine :</b> Nexus
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Transfert radieux<br><br>
         <b>Compétence 2 :</b>	Sauvetage rapide<br><br>
         <b>Compétence 3 :</b>	Barricade d'énergie<br><br>
@@ -471,7 +489,7 @@
         <b>Âge :</b> 32<br><br>
         <b>Monde d'origine :</b> Solace
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Dôme protecteur<br><br>
         <b>Compétence 2 :</b>Blindage d'armement<br><br>
         <b>Compétence 3 :</b>	Pilonnage défensif<br><br>
@@ -488,7 +506,7 @@
         <b>Âge :</b> 26<br><br>
         <b>Monde d'origine :</b> Psamathe
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Drone d’Ostéo-Compassion DOC<br><br>
         <b>Compétence 2 :</b>Secouriste de combat<br><br>
         <b>Compétence 3 :</b>Pack de soutien<br><br>
@@ -505,7 +523,7 @@
         <b>Âge :</b> 36<br><br>
         <b>Monde d'origine :</b> Inconnu
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Monte-en-l’air<br><br>
         <b>Compétence 2 :</b>Regard aiguisé<br><br>
         <b>Compétence 3 :</b>	Boutique du Marché noir<br><br>
@@ -522,7 +540,7 @@
         <b>Âge :</b> 32<br><br>
         <b>Monde d'origine :</b> Solace
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Dissuasion<br><br>
         <b>Compétence 2 :</b>	Insaisissable<br><br>
         <b>Compétence 3 :</b>	Extravagance<br><br>
@@ -539,19 +557,48 @@
         <b>Âge :</b> 41<br><br>
         <b>Monde d'origine :</b> Gridiron
       </td>
-      <td cless="skills-cell">
+      <td class="skills-cell">
         <b>Compétence 1 :</b>Bouclier mobile<br><br>
         <b>Compétence 2 :</b>Médecine de guerre<br><br>
         <b>Compétence 3 :</b>	Mur fortifié<br><br>
       </td>
       <td class="video-cell"><iframe width="560" height="315" src="https://www.youtube.com/embed/MXU-wrFNzyE?si=GsGrIcueCmbUSkBq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></td>
     </tr>
+  </table>
+  <script>
+    document.getElementById('audioImage').addEventListener('click', function() {
+      var audio = new Audio('sound/couin.mp3');
+      audio.play();
+    });
+    document.getElementById('dog-image').addEventListener('click', function() {
+      // Jouer le son de chien
+      var audio = new Audio('sound/aboiement.mp3');
+      audio.play();
 
-    <script>
-      document.getElementById('audioImage').addEventListener('click', function() {
-        var audio = new Audio('sound/couin.mp3');
-        audio.play();
-      });
+      // Redirection vers le lien après une courte pause (ajustez selon vos préférences)
+      setTimeout(function() {
+        window.location.href = '../Pierre - Woof/Chiens.html';
+      }, 1000); // Délai d'une seconde (1000 millisecondes)
     </script>
 
-  </table>
+    <footer>
+      <h3>Autres participants :</h3>
+      <ul>
+        <a href="URL_participant_1">Augustin</a>
+        <a href="URL_participant_2">Baptiste</a>
+        <a href="URL_participant_2">Benjamin</a>
+        <a href="URL_participant_2">Camille</a>
+        <a href="URL_participant_2">Chloé</a>
+        <a href="URL_participant_2">Dorine</a>
+        <a href="URL_participant_2">Emilie</a>
+        <a href="URL_participant_2">Ismail</a>
+        <a href="URL_participant_2">Issa</a>
+        <a href="URL_participant_2">Lorys</a>
+        <a href="URL_participant_2">Moez</a>
+        <a href="URL_participant_2">Raphael</a>
+        <a href="URL_participant_2">Ricardo</a>
+        <a href="URL_participant_2">Thi Tham</a>
+        <a href="URL_participant_2">Vincent</a>
+      </ul>
+    </footer>
+  </body>
