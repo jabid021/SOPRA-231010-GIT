@@ -1,0 +1,115 @@
+<meta charset="UTF-8">
+<style>
+    body {
+        background-color: #F4EFE7
+    }
+    header {
+        background-color: rgb(0, 0, 44) ;
+        color:#ffffff;
+        text-align:center;
+        padding:1px;
+        font-size:20px;
+    }
+    table {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<header><h1 align="center"><img src="assets/img/ninho.jpg" width="3%" valign="middle" onclick="playAudio('assets/audio/ninho.mp3')" style="cursor: pointer;"><audio class="audioPlayer" src="assets/audio/ninho.mp3" style="display: none;" controls></audio>SALUT C'EST NINHO</h1></header>
+
+<body>
+<br>
+    <div style="text-align: center;"><button onclick="stopAllAudio()" style="color: rgb(255, 255, 255); background-color: rgb(134, 62, 62);">&#127925; &nbsp;<b>STOP</b>&nbsp; &#10060; </button></div>
+    <br><br>
+
+    <table width="70%" align="center" border>
+        <thead>
+            <tr>
+                <th>meme</th>
+                <th>Date de sortie</th>
+                <th>Plateformes</th>
+                <th>sons</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td nowrap align="center"><a target="_blank">COUCOU</a></td>
+                <td nowrap align="center">PokeMANIA</td>
+                <td><ul><br><li>youtube</li><li>tiktok</li><li>vimeo</li><li>rutube</li><li>daylimotion</li><li>vine</li><li>telegramme</li></ul></td>
+                <td align="center">
+                    <img src="assets/img/jirachi.jpg" alt="tloz main theme" width="80" height="80"
+                        onclick="playAudio('assets/audio/coucou.mp3')" style="cursor: pointer;">
+                    <audio class="audioPlayer" src="assets/audio/coucou.mp3" style="display: none;" controls></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td nowrap align="center"><a target="_blank">Triple MONSTRE</a></td>
+                <td nowrap align="center">Brodwich</td>
+              <td><ul><br><li>youtube</li><li>tiktok</li><li>vimeo</li><li>rutube</li><li>daylimotion</li><li>vine</li><li>telegramme</li></ul></td>
+                <td align="center">
+                    <img src="assets/img/morta.jpg" alt="alttp main theme" width="80" height="80"
+                        onclick="playAudio('assets/audio/morta.mp3')" style="cursor: pointer;">
+                    <audio class="audioPlayer" src="assets/audio/morta.mp3" style="display: none;" controls></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td nowrap align="center"><a  target="_blank">COLERE</a></td>
+                <td nowrap align="center">le jour ou ta pas les sauces au mac do !!!!</td>
+                <td><ul><br><li>youtube</li><li>tiktok</li><li>vimeo</li><li>colere d'un homme</li><li>daylimotion</li><li>vine</li><li>telegramme</li></ul></td>
+                <td align="center">
+                    <img src="assets/img/colere.jpg" alt="oot main theme" width="80" height="80"
+                        onclick="playAudio('assets/audio/colere.mp3')" style="cursor: pointer;">
+                    <audio class="audioPlayer" src="assets/audio/colere.mp3" style="display: none;" controls></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td nowrap align="center"><a href="https://www.amazon.fr/Temps-Temp%C3%AAtes-Nicolas-Sarkozy/dp/B08BWFVX53" target="_blank">sarko</a></td>
+                <td nowrap align="center">13 À compter du 16 mai 2007 j’étais seul Bien sûr, il y avait le peuple français, mais sa force collective ne s’exprime pas dans le <br>
+                  quotidien des décisions à prendre, ou des nominations à effectuer J’avais une équipe, des conseillers, des amis, des visiteurs du soir, mais j’étais seul à prendre<br>
+                   et à assumer la décision finale C’est le premier sentiment qui m’a envahi après avoir raccompagné Jacques Chirac à sa voiture et être remonté dans le bureau présidentiel<br>
+                    qui était devenu le mien pour les cinq années à venir Je l’avais voulu, espéré, rêvé Maintenant j’y étais Comment ne pas décevoir tous les Français qui venaient de me faire<br>
+                     confiance Qu’est ce qui m’attendait J’ai fermé les yeux Tout d’un coup, la gravité et, surtout, la solitude propre à la fonction me tombaient sur les épaules C’était plus brutal <br>
+                     que je ne l’avais imaginé Soudain, mon passé avait disparu comme s’il n’avait jamais existé, seuls comptaient désormais le présent et l’avenir C’était vertigineux, tellement fort<br>
+                      que cela ne provoquait bizarrement aucune excitation intérieure J’étais tout à la fois calme et parfaitement conscient d’être au bord d’un précipice. 2002</td>
+                <td><ul><br><li>youtube</li><li>tiktok</li><li>vimeo</li><li>ELYSE TOUT LES MERCREDI</li><li>daylimotion</li><li>vine</li><li>telegramme</li></ul></td>
+                <td align="center"><img src="assets/img/sarko.jpg" alt="tww main theme" width="80" height="80"
+                        onclick="playAudio('assets/audio/sarko.mp3')" style="cursor: pointer;">
+                    <audio class="audioPlayer" src="assets/audio/sarko.mp3" style="display: none;" controls></audio>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+    <br>
+    <br>
+    <div style="text-align: center;"><button onclick="stopAllAudio()" style="color: rgb(255, 255, 255); background-color: rgb(134, 62, 62);">&#127925; &nbsp;<b>STOP</b>&nbsp; &#10060; </button></div>
+
+    <!-- CHAT GPT -->
+    <script>
+        var audioPlayers = document.querySelectorAll('.audioPlayer');
+
+        function playAudio(audioSrc) {
+            audioPlayers.forEach(function (player) {
+                player.pause();
+            });
+
+            var audioToPlay = document.querySelector('[src="' + audioSrc + '"]');
+            if (audioToPlay) {
+                audioToPlay.play();
+            }
+        }
+
+        function stopAllAudio() {
+            audioPlayers.forEach(function (player) {
+                player.pause();
+                player.currentTime = 0;
+            });
+        }
+    </script>
+
+</body>
