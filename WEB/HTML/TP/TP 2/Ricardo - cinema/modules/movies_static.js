@@ -10,14 +10,14 @@ export async function renderMovies() {
         onAppear.forEach(function(elem) {
             // console.log(elem)
             var animationArray = [
-                "10s backdrop_animation1 ",
-                "10s backdrop_animation2 ",
-                "10s backdrop_animation3 ",
-                "10s backdrop_animation4 ",
-                "20s backdrop_animation1 ",
-                "20s backdrop_animation2 ",
-                "20s backdrop_animation3 ",
-                "20s backdrop_animation4 ",
+                "10s backdrop_animation1 forwards",
+                "10s backdrop_animation2 forwards",
+                "10s backdrop_animation3 forwards",
+                "10s backdrop_animation4 forwards",
+                "20s backdrop_animation1 forwards",
+                "20s backdrop_animation2 forwards",
+                "20s backdrop_animation3 forwards",
+                "20s backdrop_animation4 forwards",
             ];
             var randomNumber = Math.floor(Math.random()*animationArray.length);
             // console.log(randomNumber);
