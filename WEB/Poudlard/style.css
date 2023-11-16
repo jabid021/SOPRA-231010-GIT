@@ -46,6 +46,10 @@ td::after{
     z-index: -1;
 }
 
+#add_form input{
+    width:100%
+}
+
 .modifier{
     order: 0;
     line-height: 2.5;
