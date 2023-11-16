@@ -1,0 +1,75 @@
+
+<form method="POST" action="matchs.html">
+    <table>
+        <tr hidden>
+            <td>
+                id
+            </td>
+            <td>
+                <input required type="number" value="1" name="id"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                ScoreDom
+            </td>
+            <td>
+                <input required type="number" min=0 value="2" name="ScoreDom"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                ScoreExt
+            </td>
+            <td>
+                <input required type="number" min=0 value="0" name="ScoreExt"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Rencontre
+            </td>
+            <td>
+                <input required type="Date" value="2020-11-16" name="Rencontre"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Horaire
+            </td>
+            <td>
+                <input required type="Time" value="11:45" name="Horaire"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Exterieur
+            </td>
+            <td>
+                <select>
+                    <option value="">Choisir une equipe exterieur</option>
+                    <option selected value="1">Equipe1</option>
+                    <option value="2">Equipe2</option>
+                    <option value="3">Equipe3</option>
+                    <option value="4">Equipe4</option>
+                </select>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Domicile
+            </td>
+            <td>
+                <select>
+                    <option value="">Choisir une equipe domicile</option>
+                    <option value="1">Equipe1</option>
+                    <option  selected value="2">Equipe2</option>
+                    <option value="3">Equipe3</option>
+                    <option value="4">Equipe4</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Ajouter"/>
+</form>
