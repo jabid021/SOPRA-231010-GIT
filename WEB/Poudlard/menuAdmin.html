@@ -10,3 +10,27 @@
   <li><a href="joueurs.html">Gestion des joueurs</a></li>
   <li><a href="matchs.html">Gestion des matchs</a></li>
 </ul>
+
+
+<audio  id="themeHP" src="assets/audio/theme.mp3" loop></audio>
+
+
+
+<script>
+
+
+setTimeout(lancerAudio,3000);
+
+setTimeout(stopAudio,35000);
+
+function lancerAudio()
+{
+  themeHP.play();
+}
+
+function stopAudio()
+{
+  themeHP.pause();
+}
+
+</script>

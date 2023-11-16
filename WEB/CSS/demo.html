@@ -1,0 +1,175 @@
+<!--
+Comment appliquer du css :
+1 - css inline  (A EVITER)
+2 - css externe a part (soit en haut de votre page dans une balise <style>, soit dans un fichier css à part
+
+pour faire une modif css :
+prop : value
+
+plusieurs facons de pointer une / des balises :
+
+tags => p, a, img,h1
+id => #titre-bordure
+class => .element-center
+
+s'il y a des conflicts sur les props entre class / tag / id / inline
+
+ tags < class < id < inline
+
+-->
+<style>
+
+
+body
+{
+background-color  : #F4EFE7;
+}
+
+
+
+
+  p
+  {
+    color:red;
+    background-color:cyan;
+    font-family:Arial;
+  }
+
+
+  p
+  {
+    color:brown;
+  }
+
+  h2
+  {
+    color: red;
+    background-color: lightgreen;
+  }
+
+
+  h2
+  {
+    color: white!important;
+  }
+
+
+  #titre-bordure
+  {
+    color:purple;
+    border:solid black 2px;
+  }
+
+.element-center
+{
+  color:yellow;
+  text-align:center;
+}
+
+
+.wait
+{
+  height:150px;
+  cursor:wait;
+  font-style: italic;
+}
+
+
+
+#input-login
+{
+  background-color:lightblue;
+  color:orange;
+}
+
+#input-login:hover
+{
+  background-color:pink;
+  color:grey;
+}
+
+#input-login:focus
+{
+  background-color:green;
+  color:red;
+}
+
+
+
+.zoom-in:hover
+{
+  font-size:30px;
+  transform : rotate(180deg);
+  transition-duration : 0.8s;
+}
+
+a
+{
+  color: red;
+}
+
+a:visited
+{
+  color:grey;
+}
+
+
+/*
+odd=>impair
+even => pair
+
+ */
+tr:nth-of-type(odd)
+{
+  background-color:lightgreen;
+}
+
+tr:nth-of-type(even)
+{
+  background-color:lightgrey;
+}
+
+tr:nth-of-type(5n)
+{
+  background-color:lightyellow;
+}
+</style>
+
+
+
+<h1>Demo HTML</h1>
+
+
+<p style="font-size:25px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="element-center wait zoom-in"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p style="font-size:25px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2 style="color:red" id="titre-bordure" class="element-center">Zog Zog</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p class="element-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+<h2>Titre 2</h2>
+
+
+<a href="">Click ici</a> <br>
+Login : <input id="input-login" type="text">
+
+
+
+
+
+<table border>
+
+<tr><th>Case 1</th><th>Case 2</th><th>Case 3</th></tr>
+
+<tr><td>Element 1</td><td>Element 1</td><td>Element 1</td></tr>
+<tr><td>Element 2</td><td>Element 2</td><td>Element 2</td></tr>
+<tr><td>Element 3</td><td>Element 3</td><td>Element 3</td></tr>
+<tr><td>Element 4</td><td>Element 4</td><td>Element 4</td></tr>
+<tr><td>Element 5</td><td>Element 5</td><td>Element 5</td></tr>
+</table>
