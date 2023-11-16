@@ -23,17 +23,17 @@
         margin: 0;
         }
         body {
-           
+
             background-repeat: no-repeat;
             height: 100%;
-            
+
             background-color: bisque;
             background-image: url(https://images-ext-2.discordapp.net/external/tUnWd0uOc1rTysmgOvdXeYMBlkjD-EXuDTQ2QEKPHsE/https/w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg?width=1020&height=436);
-            
+
             background-size: cover;
 
-            
-        
+
+
 
         }
 
@@ -44,11 +44,11 @@
         .btn-lg{
             width: 80%;
             padding: 10px;
-            
+
             box-sizing: border-box; /* Pour inclure le padding dans la largeur du bouton */
-            
+
             text-align: center;
-            
+
 
             }
         .btn{
@@ -64,20 +64,17 @@
         <br>
 
         <table align="center">
-            <tr>
-                <td>
-                    <input type="hidden" value="12">
-                </td>
-            </tr>
+
+            <input type="hidden" name="id" value="12">
 
             <tr>
-                <td  >Libelle :</td>
-                <td><input type="text" placeholder="Entrez le nouveau nom d'Equipe" class="form-control" ></td>
+                <td>Libelle :</td>
+                <td><input required name="libelle" type="text" placeholder="Entrez le nouveau nom d'Equipe" class="form-control" ></td>
             </tr>
             <tr>
                 <td>Maison : </td>
                 <td>
-                    <select  title="Vous devez choisir une maison" label="CHOIX DE VOTRE MAISON!" required name="masion" class="form-select" aria-label="Default select example" >
+                    <select  title="Vous devez choisir une maison" required name="maison.id" class="form-select" aria-label="Default select example" >
                         <option value="">Faire un choix</option>
                         <option value="1">Gryffondor</option>
                         <option value="2">Serpentard</option>
@@ -87,16 +84,16 @@
                 </td>
             </tr>
 
-        
 
-    
+
+    <tr align="center">  <td colspan="2"><button type="submit" class="btn btn-primary btn-lg"  >Valider</button></td></tr>
 
 
         </table>
         <br>
 
-        <td><button type="submit" class="btn btn-primary btn-lg"  >Valider</button></td>
-        
+
+
 
     </form>
 
