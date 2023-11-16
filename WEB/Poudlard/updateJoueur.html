@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifier joueur</title>
+  <style>
+    body {
+      background-image: url('https://w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #8B4513;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      color: #8B4513;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      margin-top: 0;
+    }
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #FFF;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="text"],
+    select,
+    input[type="date"],
+    input[type="submit"],
+    input[type="button"] {
+      width: calc(100% - 12px);
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      background-color: #FFF;
+      color: #8B4513;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      background-color: #8B4513;
+      color: #FFF;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    /* Réduire la largeur du bouton "Retour" */
+    .small-button {
+      width: 100px;
+      padding: 6px 12px; /* Ajustez le rembourrage selon vos préférences */
+    }
+
+    /* Liens stylisés */
+    a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+
+    /* Lien visité */
+    a:visited {
+      color: #8A2BE2;
+    }
+
+    /* Lien au survol */
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+      color: #8B4513;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Modifier un joueur</h1>
+
+  <form action="joueurs.html" method="POST">
+    <fieldset>
+      <legend>Modifier joueur 1</legend>
+      <table>
+        <tr>
+          <td>Capitaine</td>
+          <td><input type="checkbox" name="capitaine" title="Le joueur est-il capitaine ?" checked></td>
+        </tr>
+        <tr>
+          <td>Admission</td>
+          <td><input required type="date" name="admission" title="Quel jour a été admis le joueur?" value="2023-10-10"></td>
+        </tr>
+        <tr>
+          <td>Eleve</td>
+          <td>
+            <select required name="eleve.id">
+              <option value="">Sélectionner l'id de l'élève qui devient joueur?</option>
+              <option selected value="1">1-John Doe</option>
+              <option value="2">2-Jane Doe</option>
+              <option value="3">3-toto tata</option>
+              <option value="4">4-ahah eheh</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Equipe</td>
+          <td>
+            <select required name="equipe.id">
+              <option value="">Sélectionner l'équipe du joueur?</option>
+              <option selected value="1">1-lion</option>
+              <option value="2">2-cobra</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Poste</td>
+          <td>
+            <input checked required name="poste" value="poursuiveur" id="poursuiveur" type="radio"><label for="poursuiveur">Poursuiveur</label>
+            <input required name="poste" value="batteur" id="batteur" type="radio"><label for="batteur">Batteur</label>
+            <input required name="poste" value="gardien" id="gardien" type="radio"><label for="gardien">Gardien</label>
+            <input required name="poste" value="attrapeur" id="attrapeur" type="radio"><label for="attrapeur">Attrapeur</label>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" name="Modifier" value="Enregistrer les modifications">
+    </fieldset>
+  </form>
+
+  <!-- Bouton "Retour" centré sous le fieldset -->
+  <div class="small-button" style="text-align: center; margin-top: 20px;">
+    <a href="joueurs.html"><input type="button"  value="Retour"></a>
+  </div>
+</body>
+
+</html>

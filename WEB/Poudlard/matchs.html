@@ -1,0 +1,130 @@
+
+<header>
+    <title>Matchs</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="preload" href="harry_potter_webfont/HarryP.woff" as="font" type="font/woff2" crossorigin>
+</header>
+
+<h1>Liste de matchs</h1>
+
+<table id="liste" border="1">
+<tr>
+    <th>id</th>
+    <th>scoreDom</th>
+    <th>ScoreExt</th>
+    <th>rencontre</th>
+    <th>horaire</th>
+    <th>exterieur</th>
+    <th>domicile</th>
+</tr>
+<tr>
+    <td>1</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2020-11-16</td>
+    <td>11:45</td>
+    <td>1 - Equipe1</td>
+    <td>2 - Equipe2</td>
+    <td><a href="updateMatch.html?id=1"><input class="modifier" type="button" value="Modifier"></a><a href="match?id=1&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>4</td>
+    <td>5</td>
+    <td>2020-11-15</td>
+    <td>11:40</td>
+    <td>2 - Equipe2</td>
+    <td>3 - Equipe3</td>
+    <td><a href="updateMatch.html?id=2"><input class="modifier"  type="button" value="Modifier"></a><a href="match?id=2&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>4</td>
+    <td>7</td>
+    <td>2020-11-13</td>
+    <td>9:40</td>
+    <td>1 - Equipe1</td>
+    <td>3 - Equipe3</td>
+    <td><a href="updateMatch.html?id=3"><input class="modifier" type="button" value="Modifier"></a><a href="match?id=3&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
+</tr>
+
+</table>
+
+
+<h1>Ajouter un match</h1>
+
+<form method="POST" action="matchs.html">
+    <table id="add_form">
+        <tr hidden >
+            <td>
+                id
+            </td>
+            <td>
+                <input required type="number" name="id"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                ScoreDom
+            </td>
+            <td>
+                <input required type="number" min=0 name="scoreDom"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                ScoreExt
+            </td>
+            <td>
+                <input required type="number" min=0 name="scoreExt"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Rencontre
+            </td>
+            <td>
+                <input required type="Date" name="rencontre"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Horaire
+            </td>
+            <td>
+                <input required type="Time" name="horaire"/>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Exterieur
+            </td>
+            <td>
+                <select name="exterieur.id" required>
+                    <option value="">Choisir une equipe exterieur</option>
+                    <option value="1">1 - Equipe1</option>
+                    <option value="2">2 - Equipe2</option>
+                    <option value="3">3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
+                </select>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                Domicile
+            </td>
+            <td>
+                <select name="domicile.id" required>
+                    <option value="">Choisir une equipe domicile</option>
+                    <option value="1">1 - Equipe1</option>
+                    <option value="2">2 - Equipe2</option>
+                    <option value="3">3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+    <input type="submit" class="ajouter" value="Ajouter"/>
+</form>
+    <a href="menuAdmin.html"><input type="button" value="Retour"></a>

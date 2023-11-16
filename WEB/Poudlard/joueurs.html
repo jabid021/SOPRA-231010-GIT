@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des joueurs</title>
+  <style>
+  body {
+    background-image: url('https://w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #8B4513;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #8B4513;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin-top: 0;
+  }
+
+  table#liste {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+  }
+  table#formulaire {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+  }
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #8B4513;
+  }
+
+  th {
+    background-color: #8B4513;
+    color: #FFF;
+  }
+
+  input[type="button"],
+  input[type="submit"] {
+    background-color: #8B4513;
+    color: #FFF;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="text"],
+  select,
+  input[type="date"] {
+    width: calc(100% - 24px);
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  /* Formulaire et ses éléments */
+  form {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Liens stylisés */
+  a {
+    color: #FFD700;
+    text-decoration: none;
+  }
+
+  /* Lien visité */
+  a:visited {
+    color: #8A2BE2;
+  }
+
+  /* Lien au survol */
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Nouveau style pour centrer le bouton Ajouter */
+  form fieldset {
+    text-align: center; /* Centrage horizontal du contenu */
+  }
+
+  form input[type="submit"] {
+    /* Ajouter des marges pour l'espacement et centrer le bouton */
+    display: block;
+    margin: 20px auto;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>Liste des joueurs</h1>
+
+  <table id="liste">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Capitaine</th>
+        <th>Admission</th>
+        <th>Eleve</th>
+        <th>Equipe</th>
+        <th>Poste</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>true</td>
+        <td>2023-10-10</td>
+        <td>1-John Doe</td>
+        <td>1-lion</td>
+        <td>Poursuiveur</td>
+        <td>
+          <a href="updateJoueur.html?id=1"><input type="button" value="Modifier"></a>
+          <a href="joueurs?id=1&delete"><input type="button" value="Supprimer"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>false</td>
+        <td>2023-10-10</td>
+        <td>2-Jane Doe</td>
+        <td>1-lion</td>
+        <td>Batteur</td>
+        <td>
+          <a href="updateJoueur.html?id=2"><input type="button" value="Modifier"></a>
+          <a href="joueurs?id=2&delete"><input type="button" value="Supprimer"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form action="joueurs.html" method="POST">
+    <fieldset>
+      <legend>Ajouter un joueur</legend>
+      <table id="formulaire">
+        <tr>
+          <td>Capitaine</td>
+          <td><input type="checkbox" name="capitaine" title="Le joueur est-il capitaine ?"></td>
+        </tr>
+        <tr>
+          <td>Admission</td>
+          <td><input required type="date" name="admission" title="Quel jour a été admis le joueur?"></td>
+        </tr>
+        <tr>
+          <td>Eleve</td>
+          <td>
+            <select required name="eleve.id">
+              <option value="">Sélectionner l'id de l'élève qui devient joueur?</option>
+              <option value="3">3-toto tata</option>
+              <option value="4">4-ahah eheh</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Equipe</td>
+          <td>
+            <select required name="equipe.id">
+              <option value="">Sélectionner l'équipe du joueur?</option>
+              <option value="1">1-lion</option>
+              <option value="2">2-cobra</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Poste</td>
+          <td>
+            <input required name="poste" value="poursuiveur" id="poursuiveur" type="radio"><label for="poursuiveur">Poursuiveur</label>
+            <input required name="poste" value="batteur" id="batteur" type="radio"><label for="batteur">Batteur</label>
+            <input required name="poste" value="gardien" id="gardien" type="radio"><label for="gardien">Gardien</label>
+            <input required name="poste" value="attrapeur" id="attrapeur" type="radio"><label for="attrapeur">Attrapeur</label>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" name="ajouter" value="Ajouter">
+    </fieldset>
+  </form>
+  <div class="small-button" style="margin-top: 20px;">
+    <a href="menuAdmin.html"><input type="button" value="Retour"></a>
+  </div>
+</body>
+
+</html>
