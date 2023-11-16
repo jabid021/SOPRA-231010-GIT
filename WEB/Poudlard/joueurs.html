@@ -1,3 +1,4 @@
+<meta charset="UTF-8"/>
 <fieldset>
   <legend>Liste de joueurs</legend>
 
@@ -18,12 +19,9 @@
       <td>1-John Doe</td>
       <td>1-lion</td>
       <td>Poursuiveur</td>
-      <td><button type="button" name="Modifier">
-        <a href="updateJoueur.html?id=1">Modifier</a>
-      </button>
-      <button type="button" name="Supprimer">
-        <a href="joueurs?id=1&delete">Supprimer</a>
-      </button>
+      <td>
+      <a href="updateJoueur.html?id=1"><input type="button" value="Modifier"></a>
+      <a href="joueurs?id=1&delete"><input type="button" value="Supprimer"></a>
     </td>
   </tr>
   <tr>
@@ -33,19 +31,15 @@
     <td>2-Jane Doe</td>
     <td>1-lion</td>
     <td>Batteur</td>
-    <td><button type="button" name="Modifier">
-      <a href="updateJoueurs.html?id=2">Modifier</a>
-    </button>
-    <button type="button" name="Supprimer">
-      <a href="joueurs?id=2&delete">Supprimer</a>
-    </button>
+    <td>
+    <a href="updateJoueur.html?id=2"><input type="button" value="Modifier"></a>
+    <a href="joueurs?id=2&delete"><input type="button" value="Supprimer"></a>
   </td>
 </tr>
 </table>
 </fieldset>
 
 <form action="joueurs.html" method="POST">
-
   <fieldset>
     <legend>Ajouter un joueur</legend>
     <table>
@@ -85,3 +79,4 @@
     </table>
     <input type="submit" name="ajouter" value="Ajouter">
   </fieldset>
+  </form>
