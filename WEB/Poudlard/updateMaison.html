@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesMaison.css" />
+    <title>Document</title>
+</head>
+<body>
+  
+    <form action="maisons.html" method="post">
+      <input type="hidden" name="id" value="1">
+        <fieldset>
+            <h2>Modifier maison 1</h2>
+            <table>
+                <tr>
+                  
+                    <td>Nom : </td>
+                    <td><input type="text" name="nom" required placeholder="Saisir votre nom" value="Gryffondor"></td>
+                  </tr>
+                  <tr>
+                    <td>Points : </td>
+                    <td><input  name="points"  required type="number" placeholder="Saisir un nombre de points" min="0" value="100"></td>
+                  </tr>
+            
+                  <tr>
+                    <td> Professeur : </td>
+                    <td>
+                    <select  required name="professeur.id" >
+                        
+                        <option value="">Choisir un professeur :</option>
+                          
+                          <option selected value="3">3- Minerva Mcgonagall</option>
+                          <option value="4">4- Severus Rogue</option>
+                        
+                    </td>
+                    <tr>
+                        <td><input type="submit" value="Modifier" class="btn-modifier" />
+                          <a href="maisons.html"><input
+                            type="button"
+                            value="Retour"
+                            class="btn-retour"
+                            
+                          /></td></a>
+                    </tr>
+                  </tr>
+            
+                  </table>
+            
+        </table>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
