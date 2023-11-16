@@ -5,7 +5,10 @@ button => submit / reset / button
 Zone de texte => textarea
 choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 -->
+<a href="updateSorcier.html?id=2">Modifier fiche sorcicer 2</a>
+<a href="updateSorcier.html?id=3">Modifier fiche sorcicer 3</a>
 
+<a href="updateSorcier.html/3">Modifier fiche sorcicer 3</a>
 
 <form action="pageCible.html" method="POST">
 
@@ -99,7 +102,7 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 
       <tr>
         <td>Civilite : </td>
-        <td>Homme<input name="civ" value="homme" type="radio"> Femme<input checked value="femme" name="civ" type="radio"> NB<input name="civ" value="nb" type="radio"></td>
+        <td>Homme<input required name="civ" value="homme" type="radio"> Femme<input value="femme" name="civ" type="radio"> NB<input name="civ" value="nb" type="radio"></td>
       </tr>
 
       <tr>
@@ -111,10 +114,11 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
       <tr>
         <td>OS</td>
         <td>
-          <select name="os" >
+          <select title="Vous devez choisir un OS"  label="CHOIX DE VOTRE OS!" required name="os" >
+            <option value="">Faire un choix</option>
             <optgroup label="UNIX">
               <option value="1">MacOs</option>
-              <option value="2" selected>Linux</option>
+              <option value="2">Linux</option>
             </optgroup>
             <optgroup label="MSDOS">
               <option value="5">Windows</option>
@@ -141,10 +145,10 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 
 
 
-      <tr>
+    <!--  <tr>
         <td>CV</td>
         <td><input name="cv" type="file"> </td>
-      </tr>
+      </tr>-->
 
     </table>
   </fieldset>
