@@ -40,7 +40,7 @@
       <a href="joueurs?id=2&delete">Supprimer</a>
     </button>
   </td>
-  </tr>
+</tr>
 </table>
 </fieldset>
 
@@ -50,8 +50,38 @@
     <legend>Ajouter un joueur</legend>
     <table>
       <tr>
-        <td>id</td>
-        <td><input type="text" name="" value=""></td>
+        <td>Capitaine</td>
+        <td><input type="checkbox" name="capitaine" title="Le joueur est-il capitaine ?"></td>
+      </tr>
+      <tr>
+        <td>Admission</td>
+        <td><input required type="date" name="admission" title="Quel jour a été admis le joueur?"></td>
+      </tr>
+      <tr>
+        <td>Eleve</td>
+        <td><select required name="eleve">
+          <option value="">Sélectionner l'id de l'élève qui devient joueur?</option>
+          <option value="3">3-toto tata</option>
+          <option value="4">4-ahah eheh</option>
+        </select>
+      </tr>
+      <tr>
+        <td>Equipe</td>
+        <td><select required name="eleve">
+          <option value="">Sélectionner l'équipe du joueur?</option>
+          <option value="1">1-lion</option>
+          <option value="2">2-cobra</option>
+        </select>
+      </tr>
+      <tr>
+        <td>Poste</td>
+        <td>
+          <input required name="poste" id="poursuiveur" type="radio"><label for="poursuiveur">Poursuiveur</label>
+          <input required name="poste" id="batteur" type="radio"><label for="batteur">Batteur</label>
+          <input required name="poste" id="gardien" type="radio"><label for="gardien">Gardien</label>
+          <input required name="poste" id="attrapeur" type="radio"><label for="attrapeur">Attrapeur</label>
+        </td>
       </tr>
     </table>
+    <input type="submit" name="Ajouter" value="Ajouter">
   </fieldset>
