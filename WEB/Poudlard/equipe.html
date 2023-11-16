@@ -36,12 +36,12 @@
     }
 
     th {
-      background-color: #8B4513; /* Couleur marron foncé pour les en-têtes */
+      background-color: #8B4513;
       color: #FFF;
     }
 
     td {
-      border-bottom: 1px solid #8B4513; /* Ligne séparatrice entre les lignes du tableau */
+      border-bottom: 1px solid #8B4513;
     }
 
     input[type="button"], input[type="submit"] {
@@ -154,21 +154,16 @@
 
   <form action="">
     <table>
-      <tr>
-        <td>id : </td>
-        <td>
-          <input type="number" >
-        </td>
-      </tr>
+
 
       <tr>
         <td>Libelle :</td>
-        <td><input type="text" placeholder="Entrez votre nom d'Equipe"></td>
+        <td><input required name="libelle" type="text" placeholder="Entrez votre nom d'Equipe"></td>
       </tr>
       <tr>
         <td>Maison : </td>
         <td>
-          <select title="Vous devez choisir une maison" label="CHOIX DE VOTRE MAISON!" required name="masion">
+          <select  title="Vous devez choisir une maison" required name="maison.id">
             <option value="">Faire un choix</option>
             <option value="1">Gryffondor</option>
             <option value="2">Serpentard</option>
