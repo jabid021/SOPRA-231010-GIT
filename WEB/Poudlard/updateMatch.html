@@ -1,4 +1,10 @@
 
+<header>
+    <title>Modifier match</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</header>
+
+
 <form method="POST" action="matchs.html">
     <table>
         <tr hidden>
@@ -14,7 +20,7 @@
                 ScoreDom
             </td>
             <td>
-                <input required type="number" min=0 value="2" name="ScoreDom"/>
+                <input required type="number" min=0 value="2" name="scoreDom"/>
             </td>
         </tr>
         <tr >
@@ -22,7 +28,7 @@
                 ScoreExt
             </td>
             <td>
-                <input required type="number" min=0 value="0" name="ScoreExt"/>
+                <input required type="number" min=0 value="0" name="scoreExt"/>
             </td>
         </tr>
         <tr >
@@ -30,7 +36,7 @@
                 Rencontre
             </td>
             <td>
-                <input required type="Date" value="2020-11-16" name="Rencontre"/>
+                <input required type="Date" value="2020-11-16" name="rencontre"/>
             </td>
         </tr>
         <tr >
@@ -38,7 +44,7 @@
                 Horaire
             </td>
             <td>
-                <input required type="Time" value="11:45" name="Horaire"/>
+                <input required type="Time" value="11:45" name="horaire"/>
             </td>
         </tr>
         <tr >
@@ -46,12 +52,12 @@
                 Exterieur
             </td>
             <td>
-                <select>
+                <select name="exterieur.id" required>
                     <option value="">Choisir une equipe exterieur</option>
-                    <option selected value="1">Equipe1</option>
-                    <option value="2">Equipe2</option>
-                    <option value="3">Equipe3</option>
-                    <option value="4">Equipe4</option>
+                    <option selected value="1">1 - Equipe1</option>
+                    <option value="2">2 - Equipe2</option>
+                    <option value="3">3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
                 </select>
             </td>
         </tr>
@@ -60,16 +66,18 @@
                 Domicile
             </td>
             <td>
-                <select>
+                <select name="domicile.id" required>
                     <option value="">Choisir une equipe domicile</option>
-                    <option value="1">Equipe1</option>
-                    <option  selected value="2">Equipe2</option>
-                    <option value="3">Equipe3</option>
-                    <option value="4">Equipe4</option>
+                    <option value="1"> 1 - Equipe1</option>
+                    <option  selected value="2">2 - Equipe2</option>
+                    <option value="3"> 3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
                 </select>
             </td>
         </tr>
 
     </table>
-    <input type="submit" value="Ajouter"/>
+    <input type="submit" class="modifier" value="Modifier"/>
+
+    <a href="matchs.html">  <input class="retour" type="button" value="Retour"></a>
 </form>

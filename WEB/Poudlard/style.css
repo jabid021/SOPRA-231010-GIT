@@ -1,0 +1,136 @@
+
+@font-face {
+    font-family: 'Harry P';
+    src: url('harry_potter_webfont/HarryP.woff2') format('woff2'),
+        url('harry_potter_webfont/HarryP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    /* background-color: pink; */
+    background: url("https://i.pinimg.com/originals/dc/ef/f6/dceff6eb8639f46f68f25c36125bdbeb.jpg");
+    background-size: 100%;
+}
+
+h1{
+    color:rgb(85, 54, 0);
+    margin: auto;
+    width:30%;
+    padding: 50px;
+    font-family: 'Harry P';
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.modifier{
+    order: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(220, 139, 0);
+    background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+    );
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+a .supprimer{
+    order: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(255, 0, 0);
+    background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+    );
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+
+.ajouter{
+    order: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(21, 255, 0);
+    background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+    );
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+.retour{
+    order: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(48, 104, 255);
+    background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+    );
+    box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+
+
+#liste .supprimer:hover {
+background-color: rgb(255, 152, 152);
+}
+
+.modifier:hover {
+background-color: rgb(252, 193, 90);
+}
+
+.ajouter:hover {
+    background-color: rgb(134, 255, 184);
+    }
+
+.retour:hover {
+    background-color: rgb(134, 223, 255);
+    }
+
+#liste input:active {
+box-shadow:
+inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}

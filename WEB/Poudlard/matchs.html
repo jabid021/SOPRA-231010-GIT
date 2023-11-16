@@ -1,19 +1,13 @@
 
-<style>
-
-    h1{
-        color:red;
-        margin: auto;
-        width:30%;
-        padding: 50px;
-    }
-
-
-</style>
+<header>
+    <title>Matchs</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="preload" href="harry_potter_webfont/HarryP.woff" as="font" type="font/woff2" crossorigin>
+</header>
 
 <h1>Liste de matchs</h1>
 
-<table border="1">
+<table id="liste" border="1">
 <tr>
     <th>id</th>
     <th>scoreDom</th>
@@ -31,7 +25,7 @@
     <td>11:45</td>
     <td>1 - Equipe1</td>
     <td>2 - Equipe2</td>
-    <td><a href="updateMatch.html?id=1"><input type="button" value="Modifier"></a><a href="match?id=1&delete"><input type="button" value="Supprimer"></a></td>
+    <td><a href="updateMatch.html?id=1"><input class="modifier" type="button" value="Modifier"></a><a href="match?id=1&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
 </tr>
 <tr>
     <td>2</td>
@@ -41,7 +35,7 @@
     <td>11:40</td>
     <td>2 - Equipe2</td>
     <td>3 - Equipe3</td>
-    <td><a href="updateMatch.html?id=2"><input type="button" value="Modifier"></a><a href="match?id=2&delete"><input type="button" value="Supprimer"></a></td>
+    <td><a href="updateMatch.html?id=2"><input class="modifier"  type="button" value="Modifier"></a><a href="match?id=2&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
 </tr>
 <tr>
     <td>3</td>
@@ -51,7 +45,7 @@
     <td>9:40</td>
     <td>1 - Equipe1</td>
     <td>3 - Equipe3</td>
-    <td><a href="updateMatch.html?id=3"><input type="button" value="Modifier"></a><a href="match?id=3&delete"><input type="button" value="Supprimer"></a></td>
+    <td><a href="updateMatch.html?id=3"><input class="modifier" type="button" value="Modifier"></a><a href="match?id=3&delete"><input class="supprimer" type="button" value="Supprimer"></a></td>
 </tr>
 
 </table>
@@ -74,7 +68,7 @@
                 ScoreDom
             </td>
             <td>
-                <input required type="number" min=0 name="ScoreDom"/>
+                <input required type="number" min=0 name="scoreDom"/>
             </td>
         </tr>
         <tr >
@@ -82,7 +76,7 @@
                 ScoreExt
             </td>
             <td>
-                <input required type="number" min=0 name="ScoreExt"/>
+                <input required type="number" min=0 name="scoreExt"/>
             </td>
         </tr>
         <tr >
@@ -90,7 +84,7 @@
                 Rencontre
             </td>
             <td>
-                <input required type="Date" name="Rencontre"/>
+                <input required type="Date" name="rencontre"/>
             </td>
         </tr>
         <tr >
@@ -98,7 +92,7 @@
                 Horaire
             </td>
             <td>
-                <input required type="Time" name="Horaire"/>
+                <input required type="Time" name="horaire"/>
             </td>
         </tr>
         <tr >
@@ -106,12 +100,12 @@
                 Exterieur
             </td>
             <td>
-                <select>
+                <select name="exterieur.id" required>
                     <option value="">Choisir une equipe exterieur</option>
-                    <option value="1">Equipe1</option>
-                    <option value="2">Equipe2</option>
-                    <option value="3">Equipe3</option>
-                    <option value="4">Equipe4</option>
+                    <option value="1">1 - Equipe1</option>
+                    <option value="2">2 - Equipe2</option>
+                    <option value="3">3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
                 </select>
             </td>
         </tr>
@@ -120,16 +114,16 @@
                 Domicile
             </td>
             <td>
-                <select>
+                <select name="domicile.id" required>
                     <option value="">Choisir une equipe domicile</option>
-                    <option value="1">Equipe1</option>
-                    <option value="2">Equipe2</option>
-                    <option value="3">Equipe3</option>
-                    <option value="4">Equipe4</option>
+                    <option value="1">1 - Equipe1</option>
+                    <option value="2">2 - Equipe2</option>
+                    <option value="3">3 - Equipe3</option>
+                    <option value="4">4 - Equipe4</option>
                 </select>
             </td>
         </tr>
 
     </table>
-    <input type="submit" value="Ajouter"/>
+    <input type="submit" class="ajouter" value="Ajouter"/>
 </form>
