@@ -1,0 +1,56 @@
+<meta charset="utf-8">
+
+
+<form>
+
+  <fieldset>
+    <legend>Informations personnelles</legend>
+    <table>
+      <tr><td><label for="email">Email</label></td><td><input id="email" type="text" placeholder="lorem@mail.fr" maxlength="10" size="80"></td></tr>
+      <tr><td>Mot de passe</td><td><input type="password" placeholder="********"></td></tr>
+      <tr>
+        <td>Sexe</td>
+        <td>
+          <select>
+            <option>Homme</option>
+            <option selected>Femme</option>
+            <option>NB</option>
+          </select>
+        </td>
+      </tr>
+      <tr><td>Date de naissance</td><td><input type="date" value="2000-01-01"></td></tr>
+    </table>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>Préférences</legend>
+    <table>
+      <tr><td>Couleurs favorite</td>
+        <td>
+          <input id="rouge" type="radio" name="couleur"><label for="rouge">Rouge</label>
+          <input id="vert" type="radio" name="couleur"><label for="vert">Vert</label>
+          <input id="bleu" type="radio" name="couleur"><label for="bleu">Bleu</label>
+        </td>
+      </tr>
+      <tr><td>Centre d'intérêts</td>
+        <td>
+          <input id="sport" type="checkbox"><label for="sport"> Sport
+          <input id="danse" type="checkbox"><label for="danse"> Danse
+          <input id="musique" type="checkbox"><label for="musique"> Musique
+          <input id="informatique" type="checkbox"><label for="informatique"> Informatique
+        </td>
+      </tr>
+    </table>
+  </fieldset>
+
+
+  <fieldset>
+    <legend>Commentaires</legend>
+    <table>
+      <tr><td>Message</td><td><textarea rows="4" cols="25"></textarea></td></tr>
+    </table>
+  </fieldset>
+
+  <input type="submit" value="Envoyer">
+</form>

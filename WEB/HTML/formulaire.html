@@ -5,117 +5,153 @@ button => submit / reset / button
 Zone de texte => textarea
 choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 -->
+<a href="updateSorcier.html?id=2">Modifier fiche sorcicer 2</a>
+<a href="updateSorcier.html?id=3">Modifier fiche sorcicer 3</a>
+
+<a href="updateSorcier.html/3">Modifier fiche sorcicer 3</a>
+
+<form action="pageCible.html" method="POST">
+
+  ID <input readonly type="number" value="1"><br>
+  ID <input disabled type="number" value="1">
+  <input autofocus name="id" type="hidden" value="1">
+
+  <fieldset>
+
+    <legend>Mon formulaire</legend>
 
 
-<form>
+    <table>
+      <tr>
+        <td>Login : *</td>
+        <td><input  name="login" required title="Saisir votre login" value="Jordan"  maxlength="15" minlength="5" size="15" placeholder="Saisir votre login" type="text"></td>
+      </tr>
+      <tr>
+        <td>Password : *</td>
+        <td><input  name="password" placeholder="Saisir votre password" type="password" pattern="[A-z0-9!#@$&!*?]{4,8}" ></td>
+      </tr>
 
-<fieldset>
+      <tr>
+        <td>Naissance : *</td>
+        <td><input  name="naissance" value="2023-10-30" step="7" type="date"></td>
+      </tr>
 
-<legend>Mon formulaire</legend>
-
-
-  <table>
-    <tr>
-      <td>Login : *</td>
-      <td><input  required value="Jordan" placeholder="Saisir votre login" type="text"></td>
-    </tr>
-    <tr>
-      <td>Password : *</td>
-      <td><input placeholder="Saisir votre password" type="password" pattern="[A-z0-9!#@$&!*?]{4,8}" ></td>
-    </tr>
-
-    <tr>
-      <td>Naissance : *</td>
-      <td><input type="date"></td>
-    </tr>
-
-    <tr>
-      <td>RDV : </td>
-      <td><input type="time"></td>
-    </tr>
+      <tr>
+        <td>RDV : </td>
+        <td><input  name="rdv" min="08:07"  max="19:07" value="08:07" step="900" type="time"></td>
+      </tr>
 
 
-    <tr>
-      <td>Conges : </td>
-      <td><input type="week"></td>
-    </tr>
+      <tr>
+        <td>Conges : </td>
+        <td><input type="week"></td>
+      </tr>
 
-    <tr>
-      <td>Age : </td>
-      <td><input placeholder="Saisir votre age" type="number" min="0" max="70" step="2"></td>
-    </tr>
-
-</table>
-
-</fieldset>
-
-<fieldset>
-<legend>Partie 2</legend>
-<table>
-
-    <tr>
-      <td>Salaire : </td>
-      <td><input required type="number" step="0.01"></td>
-    </tr>
-
-    <tr>
-      <td>Email : </td>
-      <td><input type="email"></td>
-    </tr>
-
-    <tr>
-      <td>Site web : </td>
-      <td><input type="url"></td>
-    </tr>
-
-    <tr>
-      <td>Tel : </td>
-      <td><input type="tel"></td>
-    </tr>
-
-</table>
-</fieldset>
-
-<fieldset>
-  <legend>Je suis une</legend>
-  <table>
-
-    <tr>
-      <td>Informatique : </td>
-      <td>Java<input checked type="checkbox"> SQL<input type="checkbox"> HTML<input type="checkbox"></td>
-    </tr>
+      <tr>
+        <td>Age : </td>
+        <td><input autofocus placeholder="Saisir votre age" type="number" min="0" max="70" step="2"></td>
+      </tr>
 
 
-    <tr>
-      <td>Civilite : </td>
-      <td>Homme<input name="civ" type="radio"> Femme<input checked name="civ" type="radio"> NB<input name="civ" type="radio"></td>
-    </tr>
+      <tr>
+        <td>Couleur : </td>
+
+        <td><input value="#4285f4" type="color"></td>
+      </tr>
+
+    </table>
+
+  </fieldset>
+
+  <fieldset>
+    <legend>Partie 2</legend>
+    <table>
+
+      <tr>
+        <td>Salaire : </td>
+        <td><input required type="number" step="0.01"></td>
+      </tr>
+
+      <tr>
+        <td>Email : </td>
+        <td><input type="email"></td>
+      </tr>
+
+      <tr>
+        <td>Site web : </td>
+        <td><input type="url"></td>
+      </tr>
+
+      <tr>
+        <td>Tel : </td>
+        <td><input type="tel"></td>
+      </tr>
+
+    </table>
+  </fieldset>
+
+  <fieldset>
+    <legend>Je suis une</legend>
+    <table>
+
+      <tr>
+        <td>Informatique : </td>
+        <td>Java<input  name="informatique" value="java" checked type="checkbox"> SQL<input name="informatique" value="sql" type="checkbox"> HTML<input name="informatique" value="html" type="checkbox"></td>
+      </tr>
 
 
-    <tr>
-      <td>OS</td>
-      <td>
-        <select>
-          <optgroup label="UNIX">
-            <option>MacOs</option>
-            <option selected>Linux</option>
-          </optgroup>
-          <optgroup label="MSDOS">
-            <option>Windows</option>
-          </optgroup>
-        </select>
-      </td>
-    </tr>
+      <tr>
+        <td>Civilite : </td>
+        <td>Homme<input required name="civ" value="homme" type="radio"> Femme<input value="femme" name="civ" type="radio"> NB<input name="civ" value="nb" type="radio"></td>
+      </tr>
+
+      <tr>
+        <td>Note : </td>
+        <td><input name="note" type="range" min="0" max="10"></td>
+      </tr>
+
+
+      <tr>
+        <td>OS</td>
+        <td>
+          <select title="Vous devez choisir un OS"  label="CHOIX DE VOTRE OS!" required name="os" >
+            <option value="">Faire un choix</option>
+            <optgroup label="UNIX">
+              <option value="1">MacOs</option>
+              <option value="2">Linux</option>
+            </optgroup>
+            <optgroup label="MSDOS">
+              <option value="5">Windows</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>OS</td>
+        <td>
+          <select name="os2" multiple>
+            <optgroup label="UNIX">
+              <option value="1">MacOs</option>
+              <option value="2" selected>Linux</option>
+            </optgroup>
+            <optgroup label="MSDOS">
+              <option value="5">Windows</option>
+            </optgroup>
+          </select>
+        </td>
+      </tr>
 
 
 
-    <tr>
-      <td>Commentaire : </td>
-      <td><textarea placeholder="Saisir votre commentaire" rows="10" cols="80">Texte de depart</textarea></td>
-    </tr>
 
-  </table>
-</fieldset>
+
+    <!--  <tr>
+        <td>CV</td>
+        <td><input name="cv" type="file"> </td>
+      </tr>-->
+
+    </table>
+  </fieldset>
   <input onclick="texteRouge()" type="button" value="Texte en rouge">
   <input type="submit" value="Inscription">
   <input type="reset">
@@ -131,12 +167,12 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 
 <script>
 
-function texteRouge()
-{
-  for(b of document.getElementsByTagName("input"))
+  function texteRouge()
   {
-    b.style.color="red";
+    for(b of document.getElementsByTagName("input"))
+    {
+      b.style.color="red";
+    }
   }
-}
 
 </script>
