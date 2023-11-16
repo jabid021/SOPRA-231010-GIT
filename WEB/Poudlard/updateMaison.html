@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesMaison.css" />
+    <title>Document</title>
+</head>
+<body>
+    <form action="tabmaisons.html" method="post">
+        <fieldset>
+            <h2>Modifier maison</h2>
+            <table>
+                <tr>
+                    <td>Nom : </td>
+                    <td><input type="text" name="nom" required placeholder="Saisir votre nom"></td>
+                  </tr>
+                  <tr>
+                    <td>Points : </td>
+                    <td><input  name="points"  required type="number" placeholder="Saisir un nombre de points" min="0"></td>
+                  </tr>
+            
+                  <tr>
+                    <td> Professeur : </td>
+                    <td>
+                    <select  required name="professeur" >
+                        
+                        <option value="">Choisir un professeur :</option>
+                        
+                          <option value="3">3- Minerva Mcgonagall</option>
+                          <option value="4">4- Severus Rogue</option>
+                        
+                    </td>
+                    <tr>
+                        <td><input type="submit" value="Modifier" class="btn-modifier" /><input
+                            type="submit"
+                            value="Retour"
+                            class="btn-retour"
+                            
+                          /></td>
+                    </tr>
+                  </tr>
+            
+                  </table>
+            
+        </table>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
