@@ -17,23 +17,53 @@
 
 
     <style>
+
+        html, body {
+        height: 100%;
+        margin: 0;
+        }
         body {
+           
+            background-repeat: no-repeat;
+            height: 100%;
+            
             background-color: bisque;
+            background-image: url(https://images-ext-2.discordapp.net/external/tUnWd0uOc1rTysmgOvdXeYMBlkjD-EXuDTQ2QEKPHsE/https/w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg?width=1020&height=436);
+            
+            background-size: cover;
 
-
-        .bouton{
-            background-color: yellow;
-            border-radius: 10%;
+            
+        
 
         }
 
+        table{
+
+            table-layout: fixed;
+        }
+        .btn-lg{
+            width: 80%;
+            padding: 10px;
+            
+            box-sizing: border-box; /* Pour inclure le padding dans la largeur du bouton */
+            
+            text-align: center;
+            
+
+            }
+        .btn{
+            justify-items: center;
         }
     </style>
 
 
 
     <form method="post" action="">
-        <table >
+
+        <h1 align = center >Modifier une equipe</h1>
+        <br>
+
+        <table align="center">
             <tr>
                 <td>
                     <input type="hidden" value="12">
@@ -41,7 +71,7 @@
             </tr>
 
             <tr>
-                <td>Libelle :</td>
+                <td  >Libelle :</td>
                 <td><input type="text" placeholder="Entrez le nouveau nom d'Equipe" class="form-control" ></td>
             </tr>
             <tr>
@@ -63,8 +93,9 @@
 
 
         </table>
+        <br>
 
-        <td><button type="submit" class="btn btn-primary btn-lg"   >Valider</button></td>
+        <td><button type="submit" class="btn btn-primary btn-lg"  >Valider</button></td>
         
 
     </form>
