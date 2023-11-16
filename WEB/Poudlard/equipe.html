@@ -1,0 +1,192 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipe de Poudlard</title>
+  <style>
+    body {
+      background-image: url('https://w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #8B4513;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+
+    }
+
+    h1 {
+      text-align: center;
+      color: #8B4513;
+      background: rgba(255, 255, 255, 0.5); /* Couleur de fond avec opacité */
+  padding: 20px;
+  margin-top: 0; /* Supprime la marge par défaut du titre */
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #FFF;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      table-layout: fixed;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #8B4513; /* Couleur marron foncé pour les en-têtes */
+      color: #FFF;
+    }
+
+    td {
+      border-bottom: 1px solid #8B4513; /* Ligne séparatrice entre les lignes du tableau */
+    }
+
+    input[type="button"], input[type="submit"] {
+      background-color: #8B4513;
+      color: #FFF;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="number"], input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Formulaire et ses éléments */
+    form {
+      max-width: 500px;
+      margin: 20px auto;
+
+    }
+
+    /* Liens stylisés */
+    a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+
+    /* Lien visité */
+    a:visited {
+      color: #8A2BE2; /* Couleur violet foncé pour les liens visités */
+    }
+
+    /* Lien au survol */
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+
+<h1 align="center">Equipe de Poudlard</h1>
+
+<table width = "80%" align="center" border>
+
+  <thead>
+    <tr>
+      <th>ID Equipe</th>
+      <th>Libelle Equipe</th>
+      <th>ID Maison</th>
+      <th>Nom Maison</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>equipe1</th>
+      <td>lion</td>
+      <td>gryffondor</td>
+      <td>gryffondor</td>
+      <td><a href="updateEquipe.html?id=1">    <input type="button" value="Modifier"></a><a href="equipe?id=1&delete">    <input type="button" value="Supprimer"></a></td>
+    </tr>
+
+    <tr>
+      <th>equipe2</th>
+      <td>cobra</td>
+      <td>serpentard</td>
+      <td>serpentard</td>
+      <td><a href="updateEquipe.html?id=1">    <input type="button" value="Modifier"></a><a href="equipe?id=1&delete">    <input type="button" value="Supprimer"></a></td>
+    </tr>
+
+    <tr>
+      <th>equipe3</th>
+      <td>aigle</td>
+      <td>serdaigle</td>
+      <td>serdaigle</td>
+      <td><a href="updateEquipe.html?id=1">    <input type="button" value="Modifier"></a><a href="equipe?id=1&delete">    <input type="button" value="Supprimer"></a></td>
+
+    </tr>
+
+    <tr>
+      <th>equipe4</th>
+      <td>blaireau</td>
+      <td>poufsouffle</td>
+      <td>poufsouffle</td>
+      <td><a href="updateEquipe.html?id=1">    <input type="button" value="Modifier"></a><a href="equipe?id=1&delete">    <input type="button" value="Supprimer"></a></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    body {}
+  </style>
+
+
+
+  <form action="">
+    <table>
+      <tr>
+        <td>id : </td>
+        <td>
+          <input type="number" >
+        </td>
+      </tr>
+
+      <tr>
+        <td>Libelle :</td>
+        <td><input type="text" placeholder="Entrez votre nom d'Equipe"></td>
+      </tr>
+      <tr>
+        <td>Maison : </td>
+        <td>
+          <select title="Vous devez choisir une maison" label="CHOIX DE VOTRE MAISON!" required name="masion">
+            <option value="">Faire un choix</option>
+            <option value="1">Gryffondor</option>
+            <option value="2">Serpentard</option>
+            <option value="3">Poufsouffle</option>
+            <option value="4">Serdaigle</option>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td><input type="submit" value="Ajouter"></td>
+        </tr>
+
+
+
+
+      </table>
+
+
+
+    </form>
