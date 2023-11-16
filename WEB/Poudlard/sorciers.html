@@ -1,0 +1,128 @@
+<title>Liste des sorciers</title>
+<h1>Liste des sorciers</h1>
+
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Promotion</th>
+    <th>Familier</th>
+    <th>Maison</th>
+    <th>Actions</th>
+  </tr>
+
+  <tr>
+    <td>1</td>
+    <td>eleve1</td>
+    <td>eleve1</td>
+    <td>Harry</td>
+    <td>Potter</td>
+    <td>Eleve</td>
+    <td>1</td>
+    <td>Jordan (canard)</td>
+    <td>1 - Gryffondor</td>
+    <td><a href="updateSorcier.html?id=1"><input type="button" value="Modifier"></a><a href="sorcier?id=1&delete"><input type="button" value="Supprimer"></a></td>
+  </tr>
+
+  <tr>
+    <td>2</td>
+    <td>eleve2</td>
+    <td>eleve2</td>
+    <td>Hermione</td>
+    <td>Granger</td>
+    <td>Eleve</td>
+    <td>1</td>
+    <td>Pattenrond (chat)</td>
+    <td>NULL</td>
+    <td><a href="updateSorcier.html?id=2"><input type="button" value="Modifier"></a><a href="sorcier?id=2&delete"><input type="button" value="Supprimer"></a></td>
+  </tr>
+
+  <tr>
+    <td>3</td>
+    <td>prof1</td>
+    <td>prof1</td>
+    <td>Minerva</td>
+    <td>Mcgonagall</td>
+    <td>Professeur</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td><a href="updateSorcier.html?id=3"><input type="button" value="Modifier"></a><a href="sorcier?id=3&delete"><input type="button" value="Supprimer"></a></td>
+  </tr>
+
+  <tr>
+    <td>4</td>
+    <td>prof2</td>
+    <td>prof2</td>
+    <td>Severus</td>
+    <td>Rogue</td>
+    <td>Professeur</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td><a href="updateSorcier.html?id=4"><input type="button" value="Modifier"></a><a href="sorcier?id=4&delete"><input type="button" value="Supprimer"></a></td>
+  </tr>
+</table>
+
+<hr>
+
+<form action="sorcier" method="POST">
+
+  <table>
+    <tr><td>Type Sorcier</td><td><input required checked onChange="changeType('Eleve')" type="radio" id="type-eleve" name="type-sorcier" value="Eleve"><label for="type-eleve">Eleve</label><input required onChange="changeType('Professeur')" type="radio"  id="type-professeur" name="type-sorcier" value="Professeur"><label for="type-professeur">Professeur</label></td></tr>
+    <tr><td>Login</td><td><input required type="text" name="login" placeholder="Saisir login"></td></tr>
+    <tr><td>Password</td><td><input required type="password" name="passord" placeholder="Saisir password"></td></tr>
+    <tr><td>Prenom</td><td><input required type="text" name="prenom" placeholder="Saisir prenom"></td></tr>
+    <tr><td>Nom</td><td><input required type="text" name="nom" placeholder="Saisir nom"></td></tr>
+    <tr class="ligne-eleve"><td>Promotion</td><td><input required id="input-promotion" type="number" min="1" name="promotion" placeholder="Saisir promotion"></td></tr>
+    <tr class="ligne-eleve"><td>Nom du Familier</td><td><input required id="input-nom-familier" type="text" name="familier.nom" placeholder="Saisir nom du familier"></td></tr>
+    <tr class="ligne-eleve"><td>Race du Familier</td><td><input required id="input-race-familier" type="text" name="familier.race" placeholder="Saisir race du familier"></td></tr>
+    <tr class="ligne-eleve"><td>Maison</td>
+      <td>
+        <select name="maison.id">
+          <option value="">Affecter une maison</option>
+          <option value="1">1 - Gryffondor</option>
+          <option value="2">2 - Serpentard</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Ajouter sorcier">
+</form>
+
+
+
+
+<script>
+
+
+  function changeType(typeSorcier)
+  {
+    if(typeSorcier=="Eleve")
+    {
+      for(balise of document.getElementsByClassName("ligne-eleve"))
+      {
+        balise.style.display="table-row";
+      }
+      document.getElementById("input-promotion").required=true;
+      document.getElementById("input-nom-familier").required=true;
+      document.getElementById("input-race-familier").required=true;
+    }
+    else
+    {
+      for(balise of document.getElementsByClassName("ligne-eleve"))
+      {
+        balise.style.display="none";
+      }
+      document.getElementById("input-promotion").required=false;
+      document.getElementById("input-nom-familier").required=false;
+      document.getElementById("input-race-familier").required=false;
+    }
+  }
+
+</script>
