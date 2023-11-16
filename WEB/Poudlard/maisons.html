@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesMaison.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Maisons</h1>
+    <table border="1" align="center">
+      <tr>
+        <th>id</th>
+        <th>Nom</th>
+        <th>Points</th>
+        <th>Professeur</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Gryffondor</td>
+        <td>100</td>
+        <td>3- Minerva Mcgonagall</td>
+        <td>
+         <a  href="updateMaison.html"> <input type="submit" value="Modifier" class="btn-modifier"/><input
+            type="submit"
+            value="supprimer"
+            class="btn-supprimer"
+          /></a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Serpentard</td>
+        <td>0</td>
+        <td>4- Severus Rogue</td>
+        <td>
+          <a href="updateMaison.html"><input type="submit" value="Modifier" class="btn-modifier" /><input
+            type="submit"
+            value="supprimer"
+            class="btn-supprimer"
+          /></a>
+        </td>
+      </tr>
+    </table>
+    <h2>Ajouter nouvelle Maison</h2>
+    <form action="maisons.html" method="post">
+    <fieldset>
+        <table>
+            <tr>
+                <td>Nom : </td>
+                <td><input type="text" name="nom" required placeholder="Saisir votre nom"></td>
+              </tr>
+              <tr>
+                <td>Points : </td>
+                <td><input  name="points"  required type="number" placeholder="Saisir un nombre de points" min="0"></td>
+              </tr>
+
+              <tr>
+                <td> Professeur : </td>
+                <td>
+                <select  required name="professeur.id" >
+
+                    <option value="">Choisir un professeur :</option>
+
+                      <option value="3">3- Minerva Mcgonagall</option>
+                      <option value="4">4- Severus Rogue</option>
+
+                </td>
+                <tr>
+                    <td><input type="submit" value="Ajouter" class="btn-Ajouter" /></td>
+                </tr>
+              </tr>
+
+              </table>
+
+    </table>
+    </fieldset>
+</form>
+<a href="menuAdmin.html"><input type="button" value="Retour"></a>
+  </body>
+</html>

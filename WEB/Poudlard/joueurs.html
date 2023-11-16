@@ -6,106 +6,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liste des joueurs</title>
   <style>
-    body {
-      background-image: url('https://w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: #8B4513;
-      font-family: 'Arial', sans-serif;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
-    }
+  body {
+    background-image: url('https://w.forfun.com/fetch/5c/5c3d1b4cc035b34f298095b2b234e1f2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #8B4513;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
 
-    h1 {
-      text-align: center;
-      color: #8B4513;
-      background: rgba(255, 255, 255, 0.5);
-      padding: 20px;
-      margin-top: 0;
-    }
+  h1 {
+    text-align: center;
+    color: #8B4513;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin-top: 0;
+  }
 
-    table#liste {
-      width: 80%;
-      margin: 20px auto;
-      border-collapse: collapse;
-      background-color: #FFF;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      table-layout: fixed;
-    }
-    table#formulaire {
-      width: 100%;
-      margin: 20px auto;
-      border-collapse: collapse;
-      background-color: #FFF;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      table-layout: fixed;
-    }
-    th,
-    td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #8B4513;
-    }
+  table#liste {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+  }
+  table#formulaire {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed;
+  }
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #8B4513;
+  }
 
-    th {
-      background-color: #8B4513;
-      color: #FFF;
-    }
+  th {
+    background-color: #8B4513;
+    color: #FFF;
+  }
 
-    input[type="button"],
-    input[type="submit"] {
-      background-color: #8B4513;
-      color: #FFF;
-      padding: 8px 12px;
-      border: none;
-      cursor: pointer;
-    }
+  input[type="button"],
+  input[type="submit"] {
+    background-color: #8B4513;
+    color: #FFF;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+  }
 
-    input[type="text"],
-    select,
-    input[type="date"] {
-      width: calc(100% - 24px);
-      padding: 8px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
+  input[type="text"],
+  select,
+  input[type="date"] {
+    width: calc(100% - 24px);
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
 
-    /* Formulaire et ses éléments */
-    form {
-      max-width: 800px;
-      margin: 20px auto;
-      background-color: #FFF;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  /* Formulaire et ses éléments */
+  form {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-    /* Liens stylisés */
-    a {
-      color: #FFD700;
-      text-decoration: none;
-    }
+  /* Liens stylisés */
+  a {
+    color: #FFD700;
+    text-decoration: none;
+  }
 
-    /* Lien visité */
-    a:visited {
-      color: #8A2BE2;
-    }
+  /* Lien visité */
+  a:visited {
+    color: #8A2BE2;
+  }
 
-    /* Lien au survol */
-    a:hover {
-      text-decoration: underline;
-    }
-    /* Nouveau style pour centrer le bouton Ajouter */
-    form fieldset {
-     text-align: center; /* Centrage horizontal du contenu */
-   }
+  /* Lien au survol */
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Nouveau style pour centrer le bouton Ajouter */
+  form fieldset {
+    text-align: center; /* Centrage horizontal du contenu */
+  }
 
-   form input[type="submit"] {
-     /* Ajouter des marges pour l'espacement et centrer le bouton */
-     display: block;
-     margin: 20px auto;
-   }
+  form input[type="submit"] {
+    /* Ajouter des marges pour l'espacement et centrer le bouton */
+    display: block;
+    margin: 20px auto;
+  }
   </style>
 </head>
 
@@ -138,17 +138,17 @@
         </td>
       </tr>
       <tr>
-    <td>2</td>
-    <td>false</td>
-    <td>2023-10-10</td>
-    <td>2-Jane Doe</td>
-    <td>1-lion</td>
-    <td>Batteur</td>
-    <td>
-    <a href="updateJoueur.html?id=2"><input type="button" value="Modifier"></a>
-    <a href="joueurs?id=2&delete"><input type="button" value="Supprimer"></a>
-  </td>
-</tr>
+        <td>2</td>
+        <td>false</td>
+        <td>2023-10-10</td>
+        <td>2-Jane Doe</td>
+        <td>1-lion</td>
+        <td>Batteur</td>
+        <td>
+          <a href="updateJoueur.html?id=2"><input type="button" value="Modifier"></a>
+          <a href="joueurs?id=2&delete"><input type="button" value="Supprimer"></a>
+        </td>
+      </tr>
     </tbody>
   </table>
 
@@ -197,7 +197,9 @@
       <input type="submit" name="ajouter" value="Ajouter">
     </fieldset>
   </form>
-
+  <div class="small-button" style="margin-top: 20px;">
+    <a href="menuAdmin.html"><input type="button" value="Retour"></a>
+  </div>
 </body>
 
 </html>

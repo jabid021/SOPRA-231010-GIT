@@ -1,0 +1,16 @@
+body {
+  background-color: beige;
+  /* background-image: url("https://maatgeek.files.wordpress.com/2018/12/maison.png"); */
+}
+.btn-modifier {
+  background-color: rgb(189, 189, 13);
+}
+.btn-supprimer {
+  background-color: rgb(188, 38, 38);
+}
+.btn-Ajouter {
+  background-color: rgb(69, 187, 69);
+}
+.btn-retour {
+  background-color: rgb(7, 151, 223);
+}
