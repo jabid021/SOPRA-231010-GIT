@@ -1,4 +1,4 @@
-<!--
+<body><!--
 Zone de texte =>  input : text, password, date, number, time, week, email, url, tel (affiche uniquement les chiffres et + sur un tel)
 Liste deroulante => select
 button => submit / reset / button
@@ -7,7 +7,9 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 -->
 
 
-<form action="pageCible.html" method="POST">
+<form action="pageCible.html" method="POST"> 
+  <!--  méthode GET : paramètres passent dans l'url (www.blabla.fr/contact.html?argum1=blabla&login=blabla&etc) 
+        méthode POST : les paramètres n'apparaissent pas dans l'url (transmission via le serveur) -->
 
   ID <input readonly type="number" value="1"><br>
   ID <input disabled type="number" value="1">
@@ -172,3 +174,4 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
   }
 
 </script>
+</body>
