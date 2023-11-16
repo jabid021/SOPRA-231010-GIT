@@ -53,7 +53,7 @@
       </tr>
       <tr>
         <td>Eleve</td>
-        <td><select required name="eleve">
+        <td><select required name="eleve.id">
           <option value="">Sélectionner l'id de l'élève qui devient joueur?</option>
           <option value="3">3-toto tata</option>
           <option value="4">4-ahah eheh</option>
@@ -61,7 +61,7 @@
       </tr>
       <tr>
         <td>Equipe</td>
-        <td><select required name="eleve">
+        <td><select required name="equipe.id">
           <option value="">Sélectionner l'équipe du joueur?</option>
           <option value="1">1-lion</option>
           <option value="2">2-cobra</option>
@@ -70,10 +70,10 @@
       <tr>
         <td>Poste</td>
         <td>
-          <input required name="poste" id="poursuiveur" type="radio"><label for="poursuiveur">Poursuiveur</label>
-          <input required name="poste" id="batteur" type="radio"><label for="batteur">Batteur</label>
-          <input required name="poste" id="gardien" type="radio"><label for="gardien">Gardien</label>
-          <input required name="poste" id="attrapeur" type="radio"><label for="attrapeur">Attrapeur</label>
+          <input required name="poste" value="poursuiveur" id="poursuiveur" type="radio"><label for="poursuiveur">Poursuiveur</label>
+          <input required name="poste" value="batteur" id="batteur" type="radio"><label for="batteur">Batteur</label>
+          <input required name="poste" value="gardien" id="gardien" type="radio"><label for="gardien">Gardien</label>
+          <input required name="poste" value="attrapeur" id="attrapeur" type="radio"><label for="attrapeur">Attrapeur</label>
         </td>
       </tr>
     </table>
