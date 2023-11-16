@@ -1,32 +1,57 @@
-  <fieldset>
-    <legend>Liste de joueurs</legend>
+<fieldset>
+  <legend>Liste de joueurs</legend>
 
-    <table width="80%" align="center">
+  <table width="80%" align="center">
+    <tr>
+      <th>Id</th>
+      <th>Capitaine</th>
+      <th>Admission</th>
+      <th>Eleve</th>
+      <th>Equipe</th>
+      <th>Poste</th>
+      <th>Options</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>true</td>
+      <td>2023-10-10</td>
+      <td>1-John Doe</td>
+      <td>1-lion</td>
+      <td>Poursuiveur</td>
+      <td><button type="button" name="Modifier">
+        <a href="updateJoueurs.html?id=1">Modifier</a>
+      </button>
+      <button type="button" name="Supprimer">
+        <a href="joueurs?id=1&delete">Supprimer</a>
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>false</td>
+    <td>2023-10-10</td>
+    <td>2-Jane Doe</td>
+    <td>1-lion</td>
+    <td>Batteur</td>
+    <td><button type="button" name="Modifier">
+      <a href="updateJoueurs.html?id=2">Modifier</a>
+    </button>
+    <button type="button" name="Supprimer">
+      <a href="joueurs?id=2&delete">Supprimer</a>
+    </button>
+  </td>
+  </tr>
+</table>
+</fieldset>
+
+<form action="joueurs.html" method="POST">
+
+  <fieldset>
+    <legend>Ajouter un joueur</legend>
+    <table>
       <tr>
         <td>id</td>
-        <td>capitaine</td>
-        <td>admission</td>
-        <td>eleve</td>
-        <td>equipe</td>
-        <td>poste</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>true</td>
-        <td>2023-10-10</td>
-        <td>1-John Doe</td>
-        <td>1-lion</td>
-        <td>Poursuiveur</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>false</td>
-        <td>2023-10-10</td>
-        <td>2-Jane Doe</td>
-        <td>1-lion</td>
-        <td>Batteur</td>
+        <td><input type="text" name="" value=""></td>
       </tr>
     </table>
   </fieldset>
-
-<form action="joueurs.html" method="POST">
