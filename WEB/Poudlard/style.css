@@ -1,8 +1,8 @@
 
 @font-face {
     font-family: 'Harry P';
-    src: url('harry_potter_webfont/HarryP.woff2') format('woff2'),
-        url('harry_potter_webfont/HarryP.woff') format('woff');
+    src: url('assets/fonts/HarryP.woff2') format('woff2'),
+        url('assets/fonts/HarryP.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
