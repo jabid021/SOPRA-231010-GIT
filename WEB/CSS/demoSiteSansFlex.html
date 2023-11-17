@@ -1,24 +1,51 @@
 <style>
+  body
+  {
+    margin:0;
+  }
   #header
   {
-  border:solid red 3px;
+  background-color:grey;
+  border:solid black 1px;
   }
+
   #logo
   {
     display:inline-block;
-    width:20%;
-    background-color:cyan;
+    width:15%;
+    background-color:white;
+    height:140px;
+    text-align:center;
+    font-weight:bold;
+    float:left;
   }
+
+#texteLogo
+{
+  position:relative;
+  top:58px;
+  font-size:26px;
+}
 
   #accueil
   {
     display:inline-block;
-    width:78%;
-    background-color:grey;
+    width:84%;
+    height:140px;
+    text-align:center;
   }
+
+#texteAccueil
+{
+  font-size:20px;
+  text-transform:uppercase;
+  position:relative;
+  top:42%;
+}
+
 
 </style>
 <div id="header">
-  <div id="logo">Logo</div>
-  <div id="accueil">Accueil</div>
+  <div id="logo"><span id="texteLogo">Logo</span></div>
+  <div id="accueil"><span id="texteAccueil">Accueil</span></div>
 </div>
