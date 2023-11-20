@@ -1,0 +1,96 @@
+body
+{
+  margin:0;
+}
+
+header
+{
+  display:flex;
+  border:solid black 1px;
+  height:140px;
+}
+
+header div:nth-of-type(1)
+{
+  width:15%;
+  font-weight:bold;
+  font-size:60px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+header div:nth-of-type(2)
+{
+  width:85%;
+  background-color:grey;
+  text-transform:uppercase;
+  font-size:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+main
+{
+  display:flex;
+  min-height:100%;
+}
+
+main nav
+{
+  margin-top : 10px;
+  width:17%;
+  display:flex;
+  flex-direction:column;
+}
+
+main nav a
+{
+
+  margin-left:35px;
+}
+
+main section
+{
+  width:68%;
+}
+
+aside
+{
+  width:15%;
+}
+
+aside ul
+{
+  list-style-type: none;
+}
+
+footer
+{
+  background-color:yellow;
+  height:10%;
+  display:flex;
+}
+
+footer nav, footer div
+{
+    display:flex;
+    width:50%;
+   align-items:center;
+}
+
+footer nav a
+{
+margin-left:5px;
+}
+
+footer:hover
+{
+  background-color:salmon;
+}
+
+footer:active
+{
+background-color:cyan;
+}
