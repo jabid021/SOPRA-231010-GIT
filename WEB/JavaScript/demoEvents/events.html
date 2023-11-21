@@ -1,0 +1,141 @@
+
+<script src="parag.js" defer></script>
+<script src="tab.js" defer></script>
+<script src="car.js" defer></script>
+
+
+
+
+<style>
+
+  #paragPrinci
+  {
+    border:solid red 2px;
+  }
+  #spoil
+  {
+    border : black 2px solid;
+    height:40px;
+
+  }
+  #spoil span
+  {
+    display:none;
+  }
+
+  #loginStatut
+  {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background-color:red;
+
+  }
+
+  #voiture
+ {
+   position:absolute;
+   bottom:0;
+   right:0;
+   //transition: transform 0.8s;
+ }
+
+</style>
+
+<meta charset="utf-8">
+
+<p id="paragPrinci" onmouseover="demoEvent(event,15)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p id="spoil"> <span>Ceci est un spoil</span></p>
+<input type="text" id="inputLogin">
+<input type="color" id="couleurTexte">
+<input type="button" id="resetCouleur" value="Reset">
+<br><br><br>
+
+<table id="tableau" border>
+  <tr><th>Prenom</th></tr>
+
+  <tbody id="corpTableau">
+    <tr><td>Jordan</td></tr>
+    <tr><td>John</td></tr>
+    <tr><td>toto</td></tr>
+  </tbody>
+  <tr><th>Prenom</th></tr>
+</table>
+
+<br>
+
+<input type="text" id="inputPrenom" placeholder="Saisir prenom">
+<input type="button" id="btnAjouter" disabled value="Ajouter au tableau">
+<div id="loginStatut"></div>
+
+
+<br><br>
+<input type="button" id="startCar" value="Lancer course">
+<div id="voiture"><img id="imgCar" width="380px" src="red.gif"></div>
+
+
+
+
+<script charset="utf-8">
+
+
+
+  /*
+  events souris => dblclick, mousedown, mouseup, click, mouseover, mouseout,mousemove
+  events clavier => keypress, keydown, keyup
+  events formulaire => change
+  */
+
+
+  //paragPrinci.ondblclick  = function(){console.log("dblClick");};
+  //paragPrinci.onmousedown = function(){console.log();};
+  //paragPrinci.onmouseup = function(){console.log("up");};
+  //paragPrinci.onclick = function(){console.log("click");};
+  //paragPrinci.onmouseout = function(){console.log("out");};
+  //paragPrinci.onmousemove = function(){console.log("move");};
+
+
+
+/*  paragPrinci.ondblclick  = demoEvent;
+  paragPrinci.onmousedown = demoEvent;
+  paragPrinci.onmouseup = demoEvent;
+  paragPrinci.onclick = demoEvent;
+  paragPrinci.onmouseout = demoEvent;
+
+  inputLogin.onkeyup = demoClavier;
+  //paragPrinci.onmousemove = function(){console.log("move");};
+
+
+
+  //Listner => une fonction qui est en attente d'un evenement pour se declencher
+*/
+  function demoEvent(event,nb)
+  {
+
+    if(event.ctrlKey==true){console.log("ctrl");}
+    else{}
+    switch(event.type)
+    {
+      case "click" : console.log("click");break;
+      case "dblClick" : console.log("dblclick");break;
+      case "mouseup" : console.log("up");break;
+      case "mousedown" : console.log("down");break;
+    //  case "mouseover" : console.log("over "+nb);cbreak;
+      case "mouseout" : console.log("out");break;
+    }
+
+  }
+
+/*
+
+  function demoClavier(event)
+  {
+    console.log(event.key);
+  }
+
+*/
+
+
+</script>
