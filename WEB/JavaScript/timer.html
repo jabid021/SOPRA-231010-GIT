@@ -1,0 +1,100 @@
+<meta charset="utf-8">
+
+<h1 id="message">Ce message s'autodetruira dans 5 secondes....</h1>
+
+<input id="btnDisarm" type="button" value="Désamorcer">
+
+<p id="sapin">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
+
+<script charset="utf-8">
+
+var couleur="red";
+
+
+
+//setInterval(briller,500);
+setInterval(function()
+{
+  if(couleur=="red")
+  {
+    couleur="green";
+  }
+  else
+  {
+    couleur="red";
+  }
+  sapin.style.color=couleur;
+}
+,500);
+
+
+
+
+function briller()
+{
+  if(couleur=="red")
+  {
+    couleur="green";
+  }
+  else
+  {
+    couleur="red";
+  }
+  sapin.style.color=couleur;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+btnDisarm.onclick=desamorcer;
+var secondes=5;
+
+var interval = setInterval(decompte,1000);
+var timer = setTimeout(exploser,5000);
+
+function desamorcer()
+{
+  //on stop l'explosion
+  clearTimeout(timer);
+  //on stop le decompte
+  clearInterval(interval);
+  document.getElementById("message").style.color="green";
+}
+
+function exploser()
+{
+    clearInterval(interval);
+    document.getElementById("message").innerText="BOUM!";
+    document.getElementById("message").style.color="red";
+    btnDisarm.disabled=true;
+}
+
+function decompte()
+{
+  secondes--;
+  document.getElementById("message").innerText=`Ce message s'autodetruira dans ${secondes} secondes....`;
+  /*if(secondes==0)
+  {
+    clearInterval(interval);
+    document.getElementById("message").innerText="BOUM!";
+    document.getElementById("message").style.color="red";
+  }*/
+}
+
+
+
+
+
+</script>
