@@ -18,10 +18,33 @@
 </body>
 
 
-<script>
+<script charset="utf-8">
 
-
-
+var typeElement = prompt("Choisir un type d'element : (id/class/tag)");
+var value = prompt("Choisir la couleur de l'element "+typeElement);
+var balise;
+if(typeElement=="id")
+{
+  document.getElementById("paragPrinci").style.color=value;
+}
+else if(typeElement=="class")
+{
+  for(balise of document.getElementsByClassName("secondaire"))
+  {
+      balise.style.setProperty("color",value);
+  }
+}
+else if(typeElement=="tag")
+{
+  for(balise of document.getElementsByTagName("p"))
+  {
+      balise.style.setProperty("color",value);
+  }
+}
+else
+{
+  alert(`Ce type d'element (${typeElement}) n'existe pas`);
+}
 
 
 </script>
