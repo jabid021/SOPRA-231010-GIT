@@ -1,0 +1,148 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+</head>
+
+
+
+<body>
+
+  <h2>Zog zog 1</h2>
+
+
+  <p class="demoPointeur"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <h2>Zog Zog 2</h2>
+
+
+  <div id="idParag"> <p>Lorem ipsum dolor sit amet, consectetur <b>adipisicing elit</b>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+
+  <br>
+  Login : <input class="demoPointeur class1 class2" id="idInput" type="text" monattribut="demo" value="Jordan" placeholder="Saisir login"> <br>
+  Pierre est gentil ? <input id="idCheckbox" type="checkbox">
+
+
+  <select id="select1">
+    <option>MacOs</option>
+    <option>Linux</option>
+    <option selected>Windows</option>
+  </select>
+
+
+  <select id="select2">
+    <option value="h">Homme</option>
+    <option  value="f">Femme</option>
+    <option value="nb">N-B</option>
+  </select>
+
+</body>
+
+
+
+
+</html>
+
+
+
+
+<script charset="utf-8">
+var messageTitle = "LE DOM";
+setInterval(remplacerTitle,2000);
+
+
+function remplacerTitle()
+{
+  if(messageTitle == "LE DOM"){messageTitle="(1) Nouveau Message";}
+  else{messageTitle = "LE DOM";}
+  document.title=messageTitle;
+}
+
+//En JS, on peut pointer une balise sur son id de deux facons : document.getElementById("x").style / x.style
+//Attention, ne surtout pas avoir d'autres elements (variables / fonctions) ayant le meme nom que l'id "x"
+var balise = document.getElementById("idParag");
+balise.style.color="red";
+
+idParag.style.color="blue";
+idParag.style.backgroundColor = "lightgrey";
+idParag.style.fontSize="38px";
+
+//var choix = prompt("Choisir une prop ?");
+//var value = prompt("Quelle value pour "+choix);
+
+idParag.style.choix="red"; // Ne marchera pas, js va chercher une propriete css "choix" qui n'existe pas
+
+idParag.style.setProperty("color","red");
+idParag.style.setProperty("background-color","lightgrey");
+//idParag.style.setProperty(choix,value);
+
+
+//avec innerHTML, on peut injecter n'importe quoi (texte, balises...)
+//avec innerText / textContent, uniquement le text sera traité
+console.log(idParag.innerHTML);
+idParag.innerHTML = "NOUVEAU TEXTE";
+idParag.innerHTML = "<ul><li>aaaa</li><li>aa</li></ul>";
+console.log(idParag.innerText);
+
+idParag.innerText = "Nouveau Text";
+idParag.innerText = "<ul><li></li><li></li></ul>";
+
+//var saisieHTML = prompt("Saisir le contenu du message");
+//idParag.innerHTML=saisieHTML;
+//idParag.textContent="pour firefox dans les anciennes versions";
+
+
+
+console.log(document.getElementById("idInput").value);
+idInput.value="TOTO";
+//idInput.value=""; // remet à vide le formulaire
+
+//getAttribute => return la / les value(s) de cet attribut
+//setAttribute => modifier / ajouter l'attribut
+//removeAttribute => retire du dom l'attribut
+console.log(idInput.getAttribute("type"));
+console.log(idInput.getAttribute("placeholder"));
+console.log(idInput.getAttribute("test"));
+
+idInput.setAttribute("type","password");
+idInput.setAttribute("disabled","disabled");
+
+idInput.removeAttribute("disabled");
+
+idInput.classList.add("class3");
+idInput.classList.remove("class2");
+
+
+idInput.disabled=true; //equivalent de setAttribute
+idInput.disabled=false; //equivalent de removeAttribute;
+
+
+idInput.required=true;
+idCheckbox.checked=true;
+idCheckbox.checked=false;
+
+console.log(select1.value);
+select1.value="Linux";
+console.log(select1.value);
+
+select2.value="nb";
+
+
+
+console.log(idInput);
+
+var tabBalises =  document.getElementsByClassName("demoPointeur");
+
+for(b of tabBalises)
+{
+  b.style.color="red";
+}
+
+tabBalises =  document.getElementsByTagName("h2");
+
+for(b of tabBalises)
+{
+  b.style.border="solid green 3px";
+}
+
+</script>

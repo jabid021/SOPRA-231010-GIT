@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+
+
+<script charset="utf-8">
+
+  var score=0;
+  //var p1 = {"nom" : "France","capitale":"Paris"};
+  //var p2 = {"nom" : "Allemagne","capitale":"Berlin"};
+  var p3 = {"nom" : "Angleterre","capitale":"Londres"};
+  var p4 = {"nom" : "Espagne","capitale":"Madrid"};
+
+  var pays = [
+    {"nom" : "France","capitale":"Paris"},
+    {"nom" : "Allemagne","capitale":"Berlin"},
+    p3,
+    p4
+  ];
+
+
+
+for(index in pays)
+{
+  index = parseInt(index);
+
+  let question = pays[index];
+  let reponse = prompt(`${index+1}/${pays.length} Quelle est la capitale du pays suivant : ${question.nom} ?`);
+  if(reponse==question.capitale)
+  {
+    score++;
+    alert("Bonne réponse !");
+  }
+  else
+  {
+    alert("Mauvaise répone");
+  }
+}
+console.log(`Votre score est de ${score}/${pays.length}`);
+
+
+</script>

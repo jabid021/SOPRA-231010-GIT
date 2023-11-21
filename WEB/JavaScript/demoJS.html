@@ -1,0 +1,202 @@
+<meta charset="utf-8">
+
+
+<script charset="utf-8">
+
+//var en js => static en java
+//let => scope limite
+//const => final en java
+/*var age = "20";
+age++;
+alert(age);
+
+const pi = 3.14;
+
+var nb = 28;
+ console.log(" result "+(nb+100)); // sans les (), nb + 100 => 10100 (concat au lieu du calcul)
+
+//prenom  = "Jordan";
+/*
+prenom = true;
+prenom = 2;
+prenom = new Array();
+
+
+
+if("20" === 20)
+{
+  console.log("'20'==20");
+}
+else
+{
+  console.log("'20'!=20");
+}
+
+if(age>18)
+{
+  console.log("Vous etes majeur");
+}
+else if(age==18){console.log("BRAVO")}
+else{
+  console.log("Vous etes mineur");
+}
+
+
+switch(age)
+{
+  case 14 : break;
+  case 41 : break;
+  default : break;
+}
+
+isMajeur = (age>=18) ? "Majeur" : "Mineur";
+
+
+
+for(let cpt=0; cpt<=10;cpt++)
+{
+
+nb = parseInt("21");
+nb++;
+nb+=80;
+
+if(nb%2==0){console.log("Nb est pair");}
+
+  console.log("Hello world "+(cpt+1)+" - ");
+  console.log(`Hello world ${cpt+1}`);
+}
+
+
+
+for(let cpt=1; cpt<=10;cpt++)
+{
+  console.log(`Hello world ${cpt}`);
+}
+
+var cpt=1;
+do
+{
+    console.log(`Hello world ${cpt}`);
+    cpt++;
+}
+while(cpt<=10);
+
+cpt=1;
+while(cpt<=10)
+{
+  console.log(`Hello world ${cpt}`);
+  cpt++;
+}
+
+console.log(Math.PI);
+
+var result = etreMajeur(50);
+alert(etreMajeur(18));
+
+
+function etreMajeur(age)
+{
+  if(age>=18){
+      return "Majeur";
+  }
+  return "Mineur";
+}*/
+
+
+
+
+
+var personne = new Object();
+personne.prenom = "Jordan";
+personne.age= 30;
+personne.nom="Abid";
+
+personne1 = {"nom":"Abid","prenom":"Jordan","age": 30};
+
+personne2 = {"nom":"Abid","prenom":"Jordan","age": 30};
+
+personne3 = {"nom":"Abid","prenom":"Jordan","age": 30};
+
+
+var tabObj = [personne1,personne2,personne3];
+
+
+choix = prompt("Choisir un attribut");
+
+console.log("prenom "+personne.nom+" ,  nom : "+personne["prenom"]+", votre choix : "+personne[choix]);
+
+
+console.log(personne);
+
+var tab1 = new Array(15);
+tab1 = Array(15);
+tab1 = [1,18,7,9.2, "Toto",true,[14,"titi"]];
+var classroom = ["Jordan","John","Jane","Titi"];
+
+var notes = [15,20,6,0,18,7];
+
+//tab1.length=2;
+//tab1.length=40;
+console.log(tab1.length);
+
+console.log(tab1[3]);
+classroom[classroom.length]="Pierre";
+
+classroom.push("Augustin"); // Ajoute comme dernier element du tableau
+//classroom.pop(); // retire le dernier element du tableau
+//classroom.shift() // retire le 1er element du tableau
+classroom.unshift("Jordan")//Ajoute au début du tableau
+classroom[15] = "Toto";
+
+console.log(notes);
+notes.sort();
+console.log(notes);
+
+
+
+notes.sort(trierNumeriqueCroissant);
+
+console.log(notes);
+
+function trierStringLength(value2,value1)
+{
+  return value2.length  - value1.length;
+}
+
+
+function trierNumeriqueCroissant(value2, value1)
+{
+  return value2-value1;
+}
+
+//alert(classroom.join("------"));
+
+/*
+console.log(classroom);
+classroom.reverse();
+console.log(classroom);
+
+classroom.sort();
+console.log(classroom);
+classroom.reverse();
+console.log(classroom);
+
+*/
+
+classroom.sort(trierStringLength);
+console.log(classroom);
+//alert(tab1);
+
+
+console.log("----------------\nListe des personnes \n")
+for(prenom of classroom)
+{
+  console.log(prenom);
+}
+
+for(index in classroom)
+{
+    console.log(index+" - "+ classroom[index]);
+}
+
+</script>
