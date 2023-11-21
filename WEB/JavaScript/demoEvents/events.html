@@ -34,44 +34,46 @@
   }
 
   #voiture
- {
-   position:absolute;
-   bottom:0;
-   right:0;
-   //transition: transform 0.8s;
- }
+  {
+    position:absolute;
+    bottom:0;
+    right:0;
+    //transition: transform 0.8s;
+  }
 
 </style>
 
 <meta charset="utf-8">
 
-<p id="paragPrinci" onmouseover="demoEvent(event,15)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div id="resteDeLaPage">
+  <p id="paragPrinci" onmouseover="demoEvent(event,15)">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-<p id="spoil"> <span>Ceci est un spoil</span></p>
-<input type="text" id="inputLogin">
-<input type="color" id="couleurTexte">
-<input type="button" id="resetCouleur" value="Reset">
-<br><br><br>
+  <p id="spoil"> <span>Ceci est un spoil</span></p>
+  <input type="text" id="inputLogin">
+  <input type="color" id="couleurTexte">
+  <input type="button" id="resetCouleur" value="Reset">
+  <br><br><br>
 
-<table id="tableau" border>
-  <tr><th>Prenom</th></tr>
+  <table id="tableau" border>
+    <tr><th>Prenom</th></tr>
 
-  <tbody id="corpTableau">
-    <tr><td>Jordan</td></tr>
-    <tr><td>John</td></tr>
-    <tr><td>toto</td></tr>
-  </tbody>
-  <tr><th>Prenom</th></tr>
-</table>
+    <tbody id="corpTableau">
+      <tr><td>Jordan</td></tr>
+      <tr><td>John</td></tr>
+      <tr><td>toto</td></tr>
+    </tbody>
+    <tr><th>Prenom</th></tr>
+  </table>
 
-<br>
+  <br>
 
-<input type="text" id="inputPrenom" placeholder="Saisir prenom">
-<input type="button" id="btnAjouter" disabled value="Ajouter au tableau">
-<div id="loginStatut"></div>
+  <input type="text" id="inputPrenom" placeholder="Saisir prenom">
+  <input type="button" id="btnAjouter" disabled value="Ajouter au tableau">
+  <div id="loginStatut"></div>
 
 
-<br><br>
+  <br><br>
+</div>
 <input type="button" id="startCar" value="Lancer course">
 <div id="voiture"><img id="imgCar" width="380px" src="red.gif"></div>
 
@@ -98,7 +100,7 @@
 
 
 
-/*  paragPrinci.ondblclick  = demoEvent;
+  /*  paragPrinci.ondblclick  = demoEvent;
   paragPrinci.onmousedown = demoEvent;
   paragPrinci.onmouseup = demoEvent;
   paragPrinci.onclick = demoEvent;
@@ -110,7 +112,7 @@
 
 
   //Listner => une fonction qui est en attente d'un evenement pour se declencher
-*/
+  */
   function demoEvent(event,nb)
   {
 
@@ -122,18 +124,18 @@
       case "dblClick" : console.log("dblclick");break;
       case "mouseup" : console.log("up");break;
       case "mousedown" : console.log("down");break;
-    //  case "mouseover" : console.log("over "+nb);cbreak;
+      //  case "mouseover" : console.log("over "+nb);cbreak;
       case "mouseout" : console.log("out");break;
     }
 
   }
 
-/*
+  /*
 
   function demoClavier(event)
   {
-    console.log(event.key);
-  }
+  console.log(event.key);
+}
 
 */
 
