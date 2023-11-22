@@ -1,4 +1,4 @@
-<!--
+<body><!--
 Zone de texte =>  input : text, password, date, number, time, week, email, url, tel (affiche uniquement les chiffres et + sur un tel)
 Liste deroulante => select
 button => submit / reset / button
@@ -13,7 +13,9 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
 
 <a href="updateSorcier.html/3">Modifier fiche sorcicer 3</a>
 
-<form action="pageCible.html" method="POST">
+<form action="pageCible.html" method="POST"> 
+  <!--  méthode GET : paramètres passent dans l'url (www.blabla.fr/contact.html?argum1=blabla&login=blabla&etc) 
+        méthode POST : les paramètres n'apparaissent pas dans l'url (transmission via le serveur) -->
 
   ID <input readonly type="number" value="1"><br>
   ID <input disabled type="number" value="1">
@@ -102,7 +104,7 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
         <td>Java<input  name="informatique" value="java" checked type="checkbox"> SQL<input name="informatique" value="sql" type="checkbox"> HTML<input name="informatique" value="html" type="checkbox"></td>
       </tr>
 
-
+      <!-- Mettre required sur un input qui partage le même "name" que d'autres input fait qu'il faut en renseigner au moins un -->
       <tr>
         <td>Civilite : </td>
         <td>Homme<input required name="civ" value="homme" type="radio"> Femme<input value="femme" name="civ" type="radio"> NB<input name="civ" value="nb" type="radio"></td>
@@ -179,3 +181,4 @@ choix à cocher =>  checkbox (choix multiple 0-*) , radio (choix unique 0-1)
   }
 
 </script>
+</body>
