@@ -40,16 +40,18 @@ function jouerSon()
   son.play();
 }
 
-/*function imageMick()
+function imageMick()
 {
   mickPika1.setAttribute("style","display:block")
   mickPika2.setAttribute("style","display:block")
-  setTimeOut(()=>
-  {
-    mickPika1.setAttribute("style","display:none")
-    mickPika2.setAttribute("style","display:none")
-  },500);
-}*/
+  setTimeOut(cacher,500);
+}
+
+function cacher()
+{
+  mickPika1.setAttribute("style","display:none")
+  mickPika2.setAttribute("style","display:none")
+}
 
 function getRandomSound() {
   michaelSounds = ["Hee_Hee", "1", "2", "3","4"];
@@ -89,7 +91,7 @@ function deplacement(event)
     {
       posX -= mouvement;
       jouerSon();
-      //imageMick;
+      imageMick();
     }
     direction="Right";
   }
@@ -99,7 +101,7 @@ function deplacement(event)
     {
       posX += mouvement;
       jouerSon();
-      //imageMick();
+      imageMick();
     }
     direction="Left";
   }
