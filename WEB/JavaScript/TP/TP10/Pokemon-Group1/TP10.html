@@ -1,0 +1,86 @@
+<style>
+
+  body
+  {
+    background-image : url("assets/img/water.png");
+    background-size:100% 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  #grass
+  {
+    position: relative;
+    display:none;
+    width:700px;
+    height:700px;
+  }
+
+  #pikachu
+  {
+    position:relative;
+    top:0;
+    left:0;
+    display:inline-block;
+    transition: 0.2s;
+  }
+
+  #eclair{
+    position: absolute;
+    top:-150;
+    left:-60;
+    opacity: 0;
+    transition: 0.5s;
+    /* display: none; */
+  }
+
+  /* #pikachu img{
+    width: 100px;
+  } */
+
+  #effetEclair{
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image : url("assets/img/Grass.png");
+  }
+
+  #eclairRandom, #eclairRandom2{
+    opacity: 0;
+    transition: opacity 0.5s;
+    position: absolute;
+    display: block;
+    z-index: 100000;
+  }
+
+
+
+</style>
+
+
+<script defer src="pikachu.js" charset="utf-8"></script>
+
+
+<body>
+    <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
+    <audio id="thunder1" src="assets/audio/mixkit-cinematic-impact-thunder-1286.wav"></audio>
+    <audio id="thunder1" src="assets/audio/mixkit-cinematic-thunder-1283.wav"></audio>
+
+
+  <div id="formStart">
+    <input id="inputName" type="text" placeholder="pikachu">
+    <input id="btnStart" disabled type="button" value="Start !">
+  </div>
+
+  <div id="grass">
+    <div id="effetEclair"> </div>
+    <img id="eclairRandom" src="assets/img/eclair2.png">
+    <img id="eclairRandom2" src="assets/img/eclair3.png">
+    <div id="pikachu">
+      <img id="imgPikachu" src="assets/img/pikachuDown.png">
+      <img id="eclair" src="assets/img/eclair.png">
+    </div>
+
+  </div>
+</body>
