@@ -34,11 +34,30 @@
     /* display: none; */
   }
 
+  .eclairAnimation{
+    transform-origin: center;
+    animation: eclair 0.4s forwards;
+  }
+
+  .eclairAnimation2{
+    transform-origin: center;
+    animation: eclair 1s forwards;
+  }
+
+  @keyframes eclair{
+    0%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(1.5)translate(-5%,-10%);
+    }
+  }
+
   /* #pikachu img{
     width: 100px;
   } */
 
-  #effetEclair{
+  #effetEclairGrass{
 
     position: absolute;
     width: 100%;
@@ -46,7 +65,16 @@
     background-image : url("assets/img/Grass.png");
   }
 
-  #eclairRandom, #eclairRandom2{
+#effetEclairSea{
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image : url("assets/img/water.png");
+  background-size:100% 100%;
+}
+
+  #eclairRandom, #eclairRandom2, #eclairRandom3, #eclairRandom4,#eclairRandom5, #eclairRandom6, #eclairRandom7, #eclairRandom8{
     opacity: 0;
     transition: opacity 0.5s;
     position: absolute;
@@ -65,7 +93,7 @@
 <body>
     <audio id="themePokemon" src="assets/audio/theme.mp3"></audio>
     <audio id="thunder1" src="assets/audio/mixkit-cinematic-impact-thunder-1286.wav"></audio>
-    <audio id="thunder1" src="assets/audio/mixkit-cinematic-thunder-1283.wav"></audio>
+    <audio id="thunder2" src="assets/audio/mixkit-cinematic-thunder-1283.wav"></audio>
 
 
   <div id="formStart">
@@ -73,14 +101,22 @@
     <input id="btnStart" disabled type="button" value="Start !">
   </div>
 
+  <div id="effetEclairSea"> </div>
   <div id="grass">
-    <div id="effetEclair"> </div>
-    <img id="eclairRandom" src="assets/img/eclair2.png">
-    <img id="eclairRandom2" src="assets/img/eclair3.png">
+    <div id="effetEclairGrass"> </div>
+
     <div id="pikachu">
       <img id="imgPikachu" src="assets/img/pikachuDown.png">
       <img id="eclair" src="assets/img/eclair.png">
     </div>
 
+    <img id="eclairRandom" src="assets/img/eclair2.png">
+    <img id="eclairRandom2" src="assets/img/eclair3.png">
+    <img id="eclairRandom3" src="assets/img/eclair2.png">
+    <img id="eclairRandom4" src="assets/img/eclair3.png">
+    <img id="eclairRandom5" src="assets/img/eclair2.png">
+    <img id="eclairRandom6" src="assets/img/eclair3.png">
+    <img id="eclairRandom7" src="assets/img/eclair2.png">
+    <img id="eclairRandom8" src="assets/img/eclair3.png">
   </div>
 </body>
