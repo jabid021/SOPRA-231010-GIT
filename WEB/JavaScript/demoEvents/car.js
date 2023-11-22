@@ -9,6 +9,7 @@ var couleurVoiture="red";
 startCar.onclick=function()
 {
   document.body.onkeydown = bougerVoiture;
+  resteDeLaPage.style.display="none";
 }
 
 

@@ -15,8 +15,6 @@ inputPrenom.onkeyup = function(event)
     if(event.key=="Enter")
     {
       ajouterTableau();
-      btnAjouter.disabled=true;
-      loginStatut.style.backgroundColor="red";
     }
   }
 }
@@ -28,4 +26,6 @@ function ajouterTableau()
   var prenom = inputPrenom.value;
   corpTableau.innerHTML+=`<tr><td>${prenom}</td></tr>`
   inputPrenom.value="";
+  btnAjouter.disabled=true;
+  loginStatut.style.backgroundColor="red";
 }
