@@ -40,6 +40,7 @@ function jouerSon()
   son.play();
 }
 
+
 function imageMick(display)
 {
   mickPika1.setAttribute("style",`display:${display}`)
@@ -86,7 +87,6 @@ function deplacement(event)
     {
       posX -= mouvement;
       jouerSon();
-      
     }
     direction="Right";
     imageMick("block");
@@ -97,7 +97,6 @@ function deplacement(event)
     {
       posX += mouvement;
       jouerSon();
-      
     }
     direction="Left";
     imageMick("block");
