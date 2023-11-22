@@ -8,10 +8,10 @@ public class Patient implements Serializable {
 	private String nom;
 	private String prenom;
 	
-	public Patient(Integer id, String login, String password) {
+	public Patient(Integer id, String nom, String prenom) {
 		this.id = id;
-		this.nom = login;
-		this.prenom = password;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 
 	public Integer getId() {
