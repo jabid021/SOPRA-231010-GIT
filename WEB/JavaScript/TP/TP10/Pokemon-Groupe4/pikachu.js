@@ -40,16 +40,11 @@ function jouerSon()
   son.play();
 }
 
-/*function imageMick()
+function imageMick(display)
 {
-  mickPika1.setAttribute("style","display:block")
-  mickPika2.setAttribute("style","display:block")
-  setTimeOut(()=>
-  {
-    mickPika1.setAttribute("style","display:none")
-    mickPika2.setAttribute("style","display:none")
-  },500);
-}*/
+  mickPika1.setAttribute("style",`display:${display}`)
+  mickPika2.setAttribute("style",`display:${display}`)
+}
 
 function getRandomSound() {
   michaelSounds = ["Hee_Hee", "1", "2", "3","4"];
@@ -74,6 +69,7 @@ function deplacement(event)
       posY -= mouvement;
     }
     direction="Up";
+    imageMick("none");
   }
   else if(event.key=="ArrowDown" || event.key=="s" )
   {
@@ -82,6 +78,7 @@ function deplacement(event)
       posY += mouvement;
     }
     direction="Down";
+    imageMick("none");
   }
   else if(event.key=="ArrowLeft" || event.key=="q")
   {
@@ -89,9 +86,10 @@ function deplacement(event)
     {
       posX -= mouvement;
       jouerSon();
-      //imageMick;
+      
     }
     direction="Right";
+    imageMick("block");
   }
   else if(event.key=="ArrowRight" || event.key=="d" )
   {
@@ -99,9 +97,10 @@ function deplacement(event)
     {
       posX += mouvement;
       jouerSon();
-      //imageMick();
+      
     }
     direction="Left";
+    imageMick("block");
   }
 
   pikachu.style.top=posY+"px";
