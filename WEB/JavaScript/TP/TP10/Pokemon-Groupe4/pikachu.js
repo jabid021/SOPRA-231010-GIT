@@ -9,6 +9,7 @@ var posY=0;
 var mouvement=30;
 var pokemon="pikachu";
 var direction="Down";
+const son = document.getElementById("son");
 imgPikachu.setAttribute("src","assets/img/"+pokemon+direction+".png");
 
 inputName.onkeyup = function(event)
@@ -31,6 +32,30 @@ inputName.onkeyup = function(event)
 
 btnStart.onclick=entrerJeux;
 
+function jouerSon()
+{
+  var sound = getRandomSound();
+  son.setAttribute("src", `assets/audio/${sound}.mp3`)
+  son.currentTime = 0; // Réinitialise la piste audio pour permettre une lecture répétée
+  son.play();
+}
+
+/*function imageMick()
+{
+  mickPika1.setAttribute("style","display:block")
+  mickPika2.setAttribute("style","display:block")
+  setTimeOut(()=>
+  {
+    mickPika1.setAttribute("style","display:none")
+    mickPika2.setAttribute("style","display:none")
+  },500);
+}*/
+
+function getRandomSound() {
+  michaelSounds = ["Hee_Hee", "1", "2", "3","4"];
+  var r = Math.floor(Math.random() * michaelSounds.length);
+  return michaelSounds[r];
+}
 
 
 function entrerJeux(event)
@@ -63,6 +88,8 @@ function deplacement(event)
     if(posX>0)
     {
       posX -= mouvement;
+      jouerSon();
+      //imageMick;
     }
     direction="Right";
   }
@@ -71,6 +98,8 @@ function deplacement(event)
     if(posX<grass.clientWidth-40)
     {
       posX += mouvement;
+      jouerSon();
+      //imageMick();
     }
     direction="Left";
   }
