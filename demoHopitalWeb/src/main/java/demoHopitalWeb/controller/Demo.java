@@ -1,7 +1,6 @@
 package demoHopitalWeb.controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -42,7 +41,7 @@ public class Demo extends HttpServlet {
 		response.getWriter().println("<input type='submit' value='GO'>");
 		response.getWriter().println("</form>");
 		response.getWriter().println("</body>");
-		response.getWriter().println("</html>");
+		response.getWriter().println("</html>"); 	
 	}
 
 	
@@ -54,7 +53,8 @@ public class Demo extends HttpServlet {
 		Patient p = new Patient(id,nom,prenom);
 		Singleton.getInstance().getDaoPatient().insert(p);
 		
-		response.sendRedirect("demo");
+		request.getRequestDispatcher("/patients.jsp").forward(request, response);
+		//response.sendRedirect("demo");
 	}
 
 }

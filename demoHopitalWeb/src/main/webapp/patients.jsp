@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ page import="java.util.List" %>   
-  <%@ page import="hopital.model.*" %>  
-   <%@ page import="hopital.context.Singleton" %>  
+  <%@ page import="hopital.model.Patient" %>  
+   <%@ page import="hopital.dao.jdbc.DAOPatientJDBC" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,13 +11,14 @@
 </head>
 <body>
 
-<h1>Page demo</h1>
+<h1>Page Patients</h1>
 
 		<table border>
 		<tr><th>Id</th><th>Nom</th><th>Prenom</th></tr>
 		
 		<%
-		List<Patient> patients = Singleton.getInstance().getDaoPatient().findAll();
+		DAOPatientJDBC daoPatient = new DAOPatientJDBC();
+		List<Patient> patients =  daoPatient.findAll();
 		
 		for(Patient p : patients) 
 		{
