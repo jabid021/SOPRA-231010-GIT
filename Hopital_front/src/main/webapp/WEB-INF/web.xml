@@ -8,7 +8,7 @@
  <!-- Configuration de la page d'erreur 404 -->
     <error-page>
         <error-code>404</error-code>
-        <location>/maPage404.html</location>
+        <location>/maPage404.jsp</location>
     </error-page>
  
  
