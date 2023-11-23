@@ -25,7 +25,7 @@ public class PatientController extends HttpServlet {
 			List<Patient> patientsBdd = daoPatient.findAll();
 			request.setAttribute("patients", patientsBdd);
 			
-			request.getRequestDispatcher("/patients.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/patients.jsp").forward(request, response);
 		}
 		else 
 		{
@@ -38,7 +38,7 @@ public class PatientController extends HttpServlet {
 				
 				request.setAttribute("patient", patientBdd);
 			
-				request.getRequestDispatcher("/updatePatient.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/updatePatient.jsp").forward(request, response);
 			}
 			//delete
 			else 
