@@ -12,7 +12,13 @@
     </error-page>
  
  
-
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/include.jsp</include-prelude>
+			<!--  <include-coda>footer.jsp</include-coda>-->
+		</jsp-property-group>
+	</jsp-config>
 
 
 </web-app>

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +5,7 @@
 <title>Menu Medecin</title>
 </head>
 <body>
-
+<h1>Bienvenue (${connected.id} - ${connected.login})</h1>
 <a href="">EN COURS DE TRAVAUX</a><br>
 
 <a href="home?disconnect">Se deconnecter</a>
