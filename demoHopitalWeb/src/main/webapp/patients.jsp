@@ -28,6 +28,13 @@
 		
 		%>
 		
+		<%
+	
+			out.println("<tr><td></td></tr>");
+		
+
+		
+		%>
 		</table>
 		<form action='demo' method='post'>
 		<input type='number' name='id' placeholder='Saisir id'>

@@ -1,6 +1,10 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des Matieres</title>
+</head>
+<body>
 
 <div id="content">
 <h1>Liste des Matieres</h1>
@@ -17,25 +21,17 @@
            </tr>
        </thead>
        <tbody>
-         <tr>
-           <td>1</td>
-           <td>Algo avec Java</td>
-           <td>7245</td>
-           <td>
-             <a href="matiere?id=1"><input type="button" class ="btn btn-warning" value="Modifier"></a>
-             <a href="matiere?id=1&delete"><input type="button" class ="btn btn-danger" value="Supprimer"></a>
-           </td>
-         </tr>
-
-         <tr>
-           <td>2</td>
-           <td>SQL</td>
-           <td>4352</td>
-           <td>
-             <a href="matiere?id=2"><input type="button" class ="btn btn-warning" value="Modifier"></a>
-              <a href="matiere?id=2&delete"><input type="button" class ="btn btn-danger" value="Supprimer"></a>
-           </td>
-         </tr>
+        <c:forEach items="${matieres}" var="matiere">
+	         <tr>
+	           <td>${matiere.id}</td>
+	           <td>${matiere.libelle}</td>
+	           <td>${matiere.quest}</td>
+	           <td>
+	             <a href="matiere?id=${matiere.id}"><input type="button" class ="btn btn-warning" value="Modifier"></a>
+	             <a href="matiere?id=${matiere.id}&delete"><input type="button" class ="btn btn-danger" value="Supprimer"></a>
+	           </td>
+	         </tr>
+		</c:forEach>
        </tbody>
      </table>
 
@@ -53,6 +49,9 @@
         </div>
 
 </div>
+</body>
+</html>
+
 
 <script>
 
