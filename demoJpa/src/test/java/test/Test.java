@@ -29,15 +29,14 @@ public class Test {
 		em.close();
 		
 		
+	
 		
-		
-		
-		em = emf.createEntityManager();
+	/*	em = emf.createEntityManager();
 		
 			System.out.println(em.find(Boisson.class, 1));
 		
 		em.close();
-		
+	*/	
 	
 		
 		emf.close();
