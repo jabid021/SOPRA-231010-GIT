@@ -1,0 +1,142 @@
+<script src="goblin.js" defer></script>
+
+<style>
+  #goblin {
+    position: relative;
+    transform-origin: center;
+    bottom: -435;
+    right: -700;
+    transition: transform 0.1s;
+    z-index:3;
+  }
+
+  #ground {
+    position: fixed;
+    bottom: 0;
+    right: 960;
+  }
+
+  .imgBackground {
+    position: absolute;
+    bottom: 60;
+    right: -960;
+    
+  }
+
+  .imgBackground2 {
+    position: absolute;
+    bottom: 60;
+    right: 960;
+    
+  }
+
+  .imgBackground3 {
+    position: absolute;
+    bottom: 60;
+    right: 0;
+    
+  }
+
+  #blackOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 1); /* Black with 70% opacity */
+      z-index: 0;
+    }
+
+    #blackOverlay2 {
+      position: fixed;
+      bottom: 0;
+      right: 1920;
+      width: 1920;
+      height: 605;
+      background-color: rgba(0, 0, 0, 1); /* Black with 70% opacity */
+      z-index:3;
+    }
+
+    #blackOverlay3 {
+      position: fixed;
+      bottom: 0;
+      right: -960;
+      width: 1920;
+      height: 605;
+      background-color: rgba(0, 0, 0, 1); /* Black with 70% opacity */
+      z-index: 3;
+    }
+
+    #transparentSquare2 {
+      position: fixed;
+      bottom: 0; /* Set your Y position */
+      right: 960; /* Set your X position */
+      width: 960; /* Set your square width */
+      height: 600; /* Set your square height */
+      background-color: transparent;
+      border: 2px solid white; /* Optional: Add a white border to make the square visible */
+      z-index: 4; /* Higher z-index to keep it on top of the black overlay */
+    }
+
+    #transparentSquare {
+      position: fixed;
+      bottom: 0; /* Set your Y position */
+      right: 960; /* Set your X position */
+      width: 960; /* Set your square width */
+      height: 600; /* Set your square height */
+      background-color: transparent;
+      border: 2px solid white; /* Optional: Add a white border to make the square visible */
+      z-index: 2; /* Higher z-index to keep it on top of the black overlay */
+    }
+</style>
+
+<meta charset="utf-8" />
+
+<div id="blackOverlay"></div>
+<div id="blackOverlay2"></div>
+<div id="blackOverlay3"></div>
+
+<!-- Transparent square -->
+<div id="transparentSquare2"></div>
+<div id="transparentSquare">
+  <div id="goblin">
+    <img id="imgGob" width="115px" src="assets/goblin/goblin_still2_right.gif" />
+  </div>
+  <div id="ground">
+    <img id="imgGround" width="320px" src="assets/background/ground.png" /><img
+      id="imgGround"
+      width="320px"
+      src="assets/background/ground.png"
+    /><img id="imgGround" width="320px" src="assets/background/ground.png" />
+  </div>
+  <div id="background" width="1000px" height="1000px">
+
+    <img class="imgBackground1 imgBG" data-speed="0" width="960px" src="assets/background/plx-1.png" />
+    <img class="imgBackground3 imgBG" data-speed="0" width="960px" src="assets/background/plx-1.png" />
+    <img class="imgBackground2 imgBG" data-speed="0" width="960px" src="assets/background/plx-1.png" />
+    
+    <img class="imgBackground imgBG" data-speed="0.1"width="960px" src="assets/background/plx-2.png" />
+    <img class="imgBackground2 imgBG" data-speed="0.1"width="960px" src="assets/background/plx-2.png" />
+    <img class="imgBackground3 imgBG" data-speed="0.1"width="960px" src="assets/background/plx-2.png" />
+  
+    <img class="imgBackground imgBG" data-speed="0.3"width="960px" src="assets/background/plx-3.png" />
+    <img class="imgBackground3 imgBG" data-speed="0.3"width="960px" src="assets/background/plx-3.png" />
+    <img class="imgBackground2 imgBG" data-speed="0.3"width="960px" src="assets/background/plx-3.png" />
+  
+    <img class="imgBackground imgBG" data-speed="0.6"width="960px" src="assets/background/plx-4.png" />
+    <img class="imgBackground2 imgBG" data-speed="0.6"width="960px" src="assets/background/plx-4.png" />
+    <img class="imgBackground3 imgBG" data-speed="0.6"width="960px" src="assets/background/plx-4.png" />
+    
+    <img class="imgBackground imgBG" data-speed="1"width="960px" src="assets/background/plx-5.png" />
+    <img class="imgBackground2 imgBG" data-speed="1"width="960px" src="assets/background/plx-5.png" />
+    <img class="imgBackground3 imgBG" data-speed="1"width="960px" src="assets/background/plx-5.png" />
+  
+  
+  
+    
+  </div>
+</div>
+<div>
+
+</div>
+<script charset="utf-8"></script>
