@@ -1,0 +1,10 @@
+const CANVAS_WIDTH = 768;
+const CANVAS_HEIGHT = 432;
+const STATES = {
+  STILL: 0,
+  RUNNING: 1,
+  JUMPING: 2,
+  FALLING: 3,
+};
+
+export { CANVAS_WIDTH, CANVAS_HEIGHT, STATES }
