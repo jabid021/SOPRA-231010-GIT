@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("orc")
-public class Orc extends Race {
+public class Orc extends Personnage {
 
 	@Column(name="strength")
 	private int force;
@@ -16,13 +16,13 @@ public class Orc extends Race {
 	public Orc() {
 	}
 
-	public Orc(Integer id, String nom, LocalDate creation, Arme arme,int force) {
-		super(id, nom, creation,arme);
+	public Orc(Integer id, String nom, LocalDate creation, Arme arme,int force,Monture monture,Boisson fav) {
+		super(id, nom, creation,arme,monture,fav);
 		this.force = force;
 	}
 
-	public Orc(String nom, LocalDate creation, Arme arme,int force) {
-		super(nom, creation,arme);
+	public Orc(String nom, LocalDate creation, Arme arme,int force,Monture monture,Boisson fav) {
+		super(nom, creation,arme,monture,fav);
 		this.force = force;
 	}
 
@@ -36,10 +36,13 @@ public class Orc extends Race {
 
 	@Override
 	public String toString() {
-		return "Orc [id=" + id + ", nom=" + nom + ", creation=" + creation + ", arme=" + arme + ", force=" + force
-				+ "]";
+		return "Orc [id=" + id + ", nom=" + nom + ", creation=" + creation + ", arme=" + arme + ", monture=" + monture
+				+ ", fav=" + fav + ", force=" + force + "]";
 	}
 
+	
+
+	
 	
 	
 	

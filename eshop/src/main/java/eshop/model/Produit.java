@@ -1,18 +1,25 @@
 package eshop.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 //JPA Va creer une table "produit" (pour Windows / Linux), "Produit" 
+@Table(name="product")
 public class Produit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; // col int id
+	
+	@Column(name="label", nullable = false, length = 50)
 	private String libelle; //varchar (255) libelle 
+	
+	@Column(name="price", nullable=false,columnDefinition = "DECIMAL(6,2)")
 	private double prix; // double  prix
 	
 	

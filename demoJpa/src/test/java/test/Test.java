@@ -1,6 +1,7 @@
 package test;
 
 import java.time.LocalDate;
+import java.util.Collections;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +10,10 @@ import javax.persistence.Persistence;
 import model.Arme;
 import model.Boisson;
 import model.Humain;
+import model.Item;
+import model.Monture;
 import model.Orc;
-import model.Race;
+import model.Personnage;
 import model.TypeArme;
 
 public class Test {
@@ -25,8 +28,23 @@ public class Test {
 		Arme arme1 = new Arme("Sulfuras", TypeArme.Magique);
 		Arme arme2 = new Arme("Arc legendaire des hunts",TypeArme.Distance);
 		
-		Race perso1 = new Orc("Jaxx",LocalDate.parse("2000-01-01"),arme1,150);
-		Race perso2 = new Humain("Jdoe",LocalDate.now(),arme2);
+		Monture monture1 = new Monture("Galopa",300);
+		
+		Item objet1 = new Item("Potion");
+		Item objet2 = new Item("Corde de sortie");
+		Item objet3 = new Item("Pokeball");
+		Item objet4 = new Item("Pokedex");
+		Item objet5 = new Item("Rappel");
+		
+		Personnage perso1 = new Orc("Jaxx",LocalDate.parse("2000-01-01"),arme1,150,monture1,boisson1);
+		Personnage perso2 = new Humain("Jdoe",LocalDate.now(),arme2,null,boisson2);
+		
+		Collections.addAll(perso1.getInventaire(), objet1,objet1,objet1,objet3,objet4);
+		Collections.addAll(perso2.getInventaire(), objet1,objet3,objet3,objet4);
+		
+		//boisson1.getAmateurs().add(perso1);
+		//boisson1.getAmateurs().add(perso2);
+		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		
@@ -34,11 +52,18 @@ public class Test {
 		
 		em.getTransaction().begin();
 		
-			//em.persist(boisson1);
-			//em.persist(boisson2);
+			em.persist(objet1);
+			em.persist(objet2);
+			em.persist(objet3);
+			em.persist(objet4);
+			em.persist(objet5);
+			em.persist(monture1);
+			em.persist(boisson1);
+			em.persist(boisson2);
 			em.persist(perso1);
 			em.persist(perso2);
-		
+			
+			
 		em.getTransaction().commit();
 		
 		em.close();
