@@ -1,6 +1,8 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -11,17 +13,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="race")
+@Table(name="player")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_race",columnDefinition = "ENUM('orc','humain')")
-public abstract class Race {
+public abstract class Personnage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_race")
+	@Column(name="id_player")
 	protected Integer id;
 	
 	@Column(nullable = false, length = 25, unique = true)
@@ -31,22 +36,42 @@ public abstract class Race {
 	protected LocalDate creation;
 	
 	@Embedded
-	protected Arme arme; 
+	protected Arme arme;
 	
-	public Race() {
+	
+	@ManyToMany
+	protected List<Item> inventaire = new ArrayList();
+	
+	
+	//une monture est lie a X perso ?
+	//un perso a Y monture ?
+	//One / Many
+	
+	@OneToOne
+	protected Monture monture;
+	
+	
+	@ManyToOne
+	protected Boisson fav;
+	
+	public Personnage() {
 	}
 
-	public Race(Integer id, String nom, LocalDate creation,Arme arme) {
+	public Personnage(Integer id, String nom, LocalDate creation,Arme arme,Monture monture,Boisson fav) {
 		this.id = id;
 		this.nom = nom;
 		this.creation = creation;
 		this.arme=arme;
+		this.monture=monture;
+		this.fav=fav;
 	}	
 
-	public Race(String nom, LocalDate creation,Arme arme) {
+	public Personnage(String nom, LocalDate creation,Arme arme,Monture monture,Boisson fav) {
 		this.nom = nom;
 		this.creation = creation;
 		this.arme=arme;
+		this.monture=monture;
+		this.fav=fav;
 	}
 
 	public Integer getId() {
@@ -83,11 +108,31 @@ public abstract class Race {
 		this.arme = arme;
 	}
 
-	@Override
-	public String toString() {
-		return "Race [id=" + id + ", nom=" + nom + ", creation=" + creation + ", arme=" + arme + "]";
+	public Monture getMonture() {
+		return monture;
 	}
 
+	public void setMonture(Monture monture) {
+		this.monture = monture;
+	}
+
+	public Boisson getFav() {
+		return fav;
+	}
+
+	public void setFav(Boisson fav) {
+		this.fav = fav;
+	}
+
+	public List<Item> getInventaire() {
+		return inventaire;
+	}
+
+	public void setInventaire(List<Item> inventaire) {
+		this.inventaire = inventaire;
+	}
+
+	
 	
 	
 }
