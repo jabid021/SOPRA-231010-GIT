@@ -23,14 +23,24 @@ public class Test {
 
 		Fournisseur fournisseur1 = new Fournisseur("Abid","Charly",adresse1,"AJC");
 
-		Produit produit = new Produit("Formation JPA",1600);
+		Produit produit1 = new Produit("Formation JPA",1600,fournisseur1);
+		Produit produit2 = new Produit("Formation SQL",1000,fournisseur1);
+		Produit produit3 = new Produit("Formation Angular",2200,fournisseur1);
 
+		
+		client1.getAchats().add(produit1);
+		client1.getAchats().add(produit2);
+		client1.getAchats().add(produit3);
+		client1.getAchats().add(produit3);
+		
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
 
 		em.persist(client1);
-		em.persist(produit);
+		em.persist(produit1);
+		em.persist(produit2);
+		em.persist(produit3);
 		em.persist(fournisseur1);
 		
 		em.getTransaction().commit();

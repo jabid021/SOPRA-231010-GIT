@@ -8,15 +8,19 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="player")
@@ -40,6 +44,13 @@ public abstract class Personnage {
 	
 	
 	@ManyToMany
+	@JoinTable
+	(
+			name="inventaire",
+			joinColumns = @JoinColumn(name="joueur") , // represente l'id de la classe actuelle (Personnage)
+			inverseJoinColumns = @JoinColumn(name="objet") // represente l'id de l'autre classe (Item)
+			//,uniqueConstraints = @UniqueConstraint(columnNames = {"joueur","objet"}) //impossible pour un joueur d'avoir 2 fois le meme objet !
+	)
 	protected List<Item> inventaire = new ArrayList();
 	
 	
@@ -48,10 +59,12 @@ public abstract class Personnage {
 	//One / Many
 	
 	@OneToOne
+	@JoinColumn(name="monture", foreignKey = @ForeignKey(name="player_mount_fk"))
 	protected Monture monture;
 	
 	
 	@ManyToOne
+	@JoinColumn(name="favorie", nullable=false)
 	protected Boisson fav;
 	
 	public Personnage() {

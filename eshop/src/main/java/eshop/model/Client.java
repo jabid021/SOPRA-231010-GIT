@@ -1,10 +1,13 @@
 package eshop.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 @Entity
 @DiscriminatorValue("customer")
 public class Client extends Personne {
@@ -14,6 +17,9 @@ public class Client extends Personne {
 	
 	@Column(name="birthdate")
 	private LocalDate dateNaissance;
+	
+	@ManyToMany
+	private List<Produit> achats = new ArrayList();
 	
 	public Client() {}
 	
@@ -37,6 +43,15 @@ public class Client extends Personne {
 
 	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
+	}
+
+	
+	public List<Produit> getAchats() {
+		return achats;
+	}
+
+	public void setAchats(List<Produit> achats) {
+		this.achats = achats;
 	}
 
 	@Override
