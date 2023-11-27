@@ -6,13 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+//JPA Va creer une table "produit" (pour Windows / Linux), "Produit" 
 public class Produit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String libelle;
-	private double prix;
+	private Integer id; // col int id
+	private String libelle; //varchar (255) libelle 
+	private double prix; // double  prix
+	
 	
 	public Produit() {}
 
