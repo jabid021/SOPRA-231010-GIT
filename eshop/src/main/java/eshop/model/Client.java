@@ -20,12 +20,12 @@ public class Client extends Personne {
 	@Column(name="birthdate")
 	private LocalDate dateNaissance;
 	
-	@OneToMany
-	@JoinTable(
+	@OneToMany(mappedBy = "client")
+	/*@JoinTable(
 			name="achats",
 			joinColumns = @JoinColumn(name="acheteur"), 
 			inverseJoinColumns = @JoinColumn(name="achat")
-			)
+			)*/
 	private List<Achat> achats = new ArrayList();
 	
 	public Client() {}

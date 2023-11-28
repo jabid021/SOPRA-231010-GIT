@@ -1,5 +1,7 @@
 package hopital.model;
 
+import javax.persistence.Entity;
+
 public abstract class Compte {
 
 	protected Integer id;
