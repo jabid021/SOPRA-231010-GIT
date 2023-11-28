@@ -24,6 +24,7 @@ export class Enemy {
   yOffset: number;
   x: any;
   y: number;
+  weight: number;
   speedX: number;
   maxFrameCol: number;
   maxFrameRow: number;
@@ -36,10 +37,16 @@ export class Enemy {
   frameTimer: number;
   game: Game;
   hitboxRadius: number;
+  hitboxXOffset: number;
+  hitboxYOffset: number;
+  hurt:boolean;
+  hurtTimer:number
+  deathTimer: number;
   markedForDeletion: boolean;
   animation: Animations;
   facing: Facings;
   images: AnimationSide | null;
+
 
   constructor(game: Game) {
     this.game = game;
@@ -50,6 +57,10 @@ export class Enemy {
     this.yOffset = -17; // account for character offset on sprite
     this.y = this.game.height - this.height + this.yOffset;
     this.speedX = 2;
+    this.weight = 0.2;
+    this.hurt = false;
+    this.hurtTimer = 0;
+    this.deathTimer = 850;
     this.maxFrameCol = 4; // number of columns on spritesheet
     this.maxFrameRow = 2; // number or rows on spritesheet
     this.sourceWidth = 124; // width of each sprite on spritesheet
@@ -60,10 +71,13 @@ export class Enemy {
     this.fps = 15;
     this.frameTimer = 0;
     this.hitboxRadius = this.width / 2.35;
+    this.hitboxXOffset = 2;
+    this.hitboxYOffset = 2;
     this.markedForDeletion = false;
     this.animation = "running";
     this.facing = "L";
     this.images = {
+
       still: {
         L: null,
         R: null,
@@ -141,11 +155,11 @@ export class Enemy {
 
   draw(context: CanvasRenderingContext2D) {
     if (this.game.debug) {
-      // context.strokeRect(this.x, this.y, this.width, this.height);
+     
       context.beginPath();
       context.arc(
-        this.x + this.width / 2,
-        this.y + this.height / 2,
+        this.x + this.width / this.hitboxXOffset,
+        this.y + this.height / this.hitboxYOffset,
         this.hitboxRadius,
         0,
         Math.PI * 2
@@ -165,11 +179,23 @@ export class Enemy {
     );
   }
 
+  checkForCoward() {
+    if(this.game.player.x === this.game.player.leftLimit) {
+      this.fps = 22;
+    }
+    else {
+      this.fps = 13;
+    }
+
+  }
+
   checkForDeletion() {
+    this.game.reduceEnemyInterval();
     if (this.x < 0 - this.width) {
       this.markedForDeletion = true;
       this.game.score++;
     }
+    
   }
 
   update(deltaTime: number) {
@@ -190,8 +216,16 @@ export class Enemy {
       this.frameTimer += deltaTime;
     }
 
+    if(this.hurt) {
+      this.hurtTimer += this.game.deltaTime;
+      if(this.hurtTimer >= this.deathTimer) {
+        this.markedForDeletion = true;
+      }
+    }
+
     // horizontal movement
     this.x -= this.speedX * this.game.speed;
     this.checkForDeletion();
+    this.checkForCoward();
   }
 }
