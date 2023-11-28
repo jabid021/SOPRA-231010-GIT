@@ -1,6 +1,9 @@
+import { STATES } from "../const/const";
 import { Background } from "./Background";
+import { Enemy } from "./Enemy";
 import { Game } from "./Game";
-import { State, Running, Jumping, Falling, Still } from "./States";
+import { InputHandler } from "./InputHandler";
+import { State, Running, Jumping, Falling, Still, Attacking } from "./States";
 
 type Animations = "alerted" | "still" | "running" | "attacking";
 type Facings = "L" | "R";
@@ -12,9 +15,10 @@ type AnimationSide = {
 };
 
 export class Player {
-  image: HTMLImageElement | null;
   facing: Facings;
   animation: Animations;
+  healthpoints: number;
+  startingHealthpoints: number;
   width: number;
   height: number;
   leftLimit: number;
@@ -26,7 +30,10 @@ export class Player {
   y: number;
   speedX: number;
   speedXModifier: number;
+  speedXAirModifier: number;
   speedY: number;
+  jumpCooldown: number;
+  lastJump: number;
   weight: number;
   sourceWidth: number;
   sourceHeight: number;
@@ -42,33 +49,36 @@ export class Player {
   states: State[];
   currentState: any;
   hitboxRadius: number;
+  hitboxXOffset: number;
+  hitboxYOffset: number;
+  hitboxXCenter: number;
+  hitboxYCenter: number;
   images: AnimationSide | null;
+  lastAttack: number;
+  attackCooldown: number;
+  attackDuration: number;
 
-  constructor(game : Game) {
+  constructor(game: Game) {
     this.game = game;
-    this.states = [
-      new Still(this),
-      new Running(this),
-      new Jumping(this),
-      new Falling(this),
-    ];
-    this.currentState = this.states[0];
-    this.currentState.enter();
-    this.image = document.getElementById("imgGoblin") as HTMLImageElement;
     this.facing = "R"; // R = right, L = left
     this.animation = "still";
+    this.startingHealthpoints = 6;
+    this.healthpoints = this.startingHealthpoints;
     this.width = 66; // displayed width
     this.height = 61; // displayed height
     this.leftLimit = 0;
     this.rightLimit = this.game.width - this.width;
     this.yOffset = -22; // account for character position offset on spritesheet
     this.groundLimit = this.game.height - this.height + this.yOffset;
-    this.x = 0;
+    this.x = this.game.width/2 - this.width/2;
     this.y = this.groundLimit;
     this.speedX = 0;
     this.speedXModifier = 3;
+    this.speedXAirModifier = 5;
     this.traveledX = 0;
     this.speedY = 0;
+    this.jumpCooldown = 400;
+    this.lastJump = this.jumpCooldown;
     this.weight = 1.2;
     this.sourceWidth = 66; // width of each sprite on spritesheet
     this.sourceHeight = 61; // height of each sprite on spritesheet
@@ -79,7 +89,14 @@ export class Player {
     this.frameRow = Math.floor(this.frame / this.maxFrameCol);
     this.fps = 15;
     this.frameTimer = 0;
-    this.hitboxRadius = this.width / 2.7;
+    this.hitboxRadius = this.width / 3;
+    this.hitboxXOffset = 2.6;
+    this.hitboxYOffset = 1.8;
+    this.hitboxXCenter = this.x + this.width / this.hitboxXOffset;
+    this.hitboxYCenter = this.y + this.height / this.hitboxYOffset;
+    this.lastAttack = 0;
+    this.attackCooldown = 1000;
+    this.attackDuration = 500;
 
     this.images = {
       alerted: {
@@ -131,16 +148,24 @@ export class Player {
     this.images.still.R = new Image(60, 45);
     this.images.still.R.src =
       "assets/img/characters/goblin/goblin_still_R_spritesheet.png";
+
+    this.states = [
+      new Still(this.game),
+      new Running(this.game),
+      new Jumping(this.game),
+      new Falling(this.game),
+      new Attacking(this.game),
+    ];
+    this.currentState = this.states[0];
   }
 
-  draw(context) {
+  draw(context: CanvasRenderingContext2D) {
     // see https://www.youtube.com/watch?v=7JtLHJbm0kA&t=830s
     if (this.game.debug) {
-      // context.strokeRect(this.x, this.y, this.width, this.height);
       context.beginPath();
       context.arc(
-        this.x + this.width / 2.1,
-        this.y + this.height / 1.8,
+        this.hitboxXCenter,
+        this.hitboxYCenter,
         this.hitboxRadius,
         0,
         Math.PI * 2
@@ -160,22 +185,26 @@ export class Player {
     );
   }
 
-  update(input, deltaTime) {
-    this.checkCollision();
+  update(input: InputHandler, deltaTime: number) {
+    this.lastAttack += deltaTime;
+    this.lastJump += deltaTime;
+    if (this.healthpoints === 0) this.game.gameOver = true;
     if (this.game.debug) {
       console.log("this.currentState :>> ", this.currentState);
+      console.log("this.speedX :>> ", this.speedX);
+      console.log("this.speedY :>> ", this.speedY);
     }
     // ----- MOVEMENT
     // horizontal movement
     if (input.keys.includes("ArrowRight")) {
-      this.speedX = this.speedXModifier * this.game.speed;
       this.facing = "R";
     } else if (input.keys.includes("ArrowLeft")) {
-      this.speedX = -this.speedXModifier * this.game.speed;
       this.facing = "L";
     } else {
       this.speedX = 0;
     }
+
+    this.checkCollision();
     this.x += this.speedX;
     this.traveledX += this.speedX;
     this.currentState.handleInput(input);
@@ -191,8 +220,13 @@ export class Player {
       this.game.background.speedX = 0;
     }
     // vertical movement
-    if (input.keys.includes("ArrowUp") && this.onGround()) {
+    if (
+      input.keys.includes("ArrowUp") &&
+      this.onGround() &&
+      this.lastJump > this.jumpCooldown
+    ) {
       this.speedY -= 20;
+      this.lastJump = 0;
     }
     this.y += this.speedY;
 
@@ -201,6 +235,7 @@ export class Player {
     } else {
       this.speedY = 0;
     }
+
     // vertical boundaries
     if (this.y > this.groundLimit) this.y = this.groundLimit;
 
@@ -222,18 +257,45 @@ export class Player {
     }
   }
 
-  setState(state) {
+  setState(state: number) {
     this.currentState = this.states[state];
     this.currentState.enter();
   }
 
   checkCollision() {
-    this.game.enemies.forEach((enemy) => {
-      const dx = enemy.x - this.x;
-      const dy = enemy.y - this.y;
+    // change hitbox position depending on where player is facing
+    if (this.facing === "R") {
+      this.hitboxXCenter = this.x + this.width / this.hitboxXOffset;
+      this.hitboxYCenter = this.y + this.height / this.hitboxYOffset;
+    } else {
+      this.hitboxXCenter = this.x + 12 + this.width / this.hitboxXOffset;
+      this.hitboxYCenter = this.y + this.height / this.hitboxYOffset;
+    }
+
+    this.game.enemies.forEach((enemy: Enemy) => {
+      const dx =
+        enemy.x + enemy.width / enemy.hitboxXOffset - this.hitboxXCenter;
+      const dy =
+        enemy.y + enemy.height / enemy.hitboxYOffset - this.hitboxYCenter;
       const distance = Math.sqrt(dx * dx + dy * dy);
       if (distance < enemy.hitboxRadius + this.hitboxRadius) {
-        this.game.gameOver = true;
+        if (
+          this.currentState !== this.states[STATES.ATTACKING] &&
+          !enemy.hurt
+        ) {
+          this.healthpoints--;
+          this.speedX = -10;
+          this.speedY = -15;
+          this.game.displayHearts();
+        } else if (this.currentState === this.states[STATES.ATTACKING]) {
+          if(!enemy.hurt) this.game.score += 2;
+          enemy.hurt = true;
+          enemy.frame = 0;
+          enemy.animation = "dying";
+          while (enemy.speedX > enemy.weight) {
+            enemy.speedX -= (enemy.weight*0.9);
+          }
+        }
       }
     });
   }
