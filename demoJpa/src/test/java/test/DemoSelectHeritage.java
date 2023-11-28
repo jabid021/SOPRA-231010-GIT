@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import model.heritage.perClass.Animal;
+import model.heritage.superClass.Vehicule;
 
 public class DemoSelectHeritage {
 
@@ -35,9 +36,12 @@ public class DemoSelectHeritage {
 		*/
 		
 		
-		List<Animal> animaux = em.createQuery("from Animal").getResultList();
-		System.out.println(animaux);
+		//List<Animal> animaux = em.createQuery("from Animal").getResultList();
+		//System.out.println(animaux);
 		
+		
+		List<Vehicule> vehicules = em.createQuery("from Bateau").getResultList();
+		System.out.println(vehicules);
 		
 		em.close();
 		emf.close();

@@ -38,8 +38,16 @@ public class Test {
 		*/
 		
 		EntityManager em = emf.createEntityManager();
-
-		em.getTransaction().begin();
+		
+		Produit produit = em.find(Produit.class, 1);
+		em.close();
+		
+		System.out.println("Voici les infos du fournisseur de ce produit : "+produit.getFournisseur());
+		
+		System.out.println("Voici les ventes de ce produit :  (IMPOSSIBLE CAR LA LIST N'EST PAS LOAD (LAZY))");
+	//	System.out.println(produit.getVentes());
+		
+	/*	em.getTransaction().begin();
 
 		em.persist(client1);
 		em.persist(fournisseur1);
@@ -51,8 +59,8 @@ public class Test {
 		em.persist(a3);
 		
 		em.getTransaction().commit();
-
-		em.close();
+*/
+	
 
 		emf.close();
 	}

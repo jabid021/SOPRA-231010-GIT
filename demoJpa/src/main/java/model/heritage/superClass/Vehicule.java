@@ -3,8 +3,10 @@ package model.heritage.superClass;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-public class Vehicule {
+@MappedSuperclass
+public abstract class Vehicule {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

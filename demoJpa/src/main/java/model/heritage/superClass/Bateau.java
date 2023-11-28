@@ -1,7 +1,14 @@
 package model.heritage.superClass;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ship")
 public class Bateau extends Vehicule{
 	
+	@Column(nullable = false)
 	private String etatVoiles;
 	
 	public Bateau() {}

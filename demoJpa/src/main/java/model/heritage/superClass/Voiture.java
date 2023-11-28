@@ -1,5 +1,8 @@
 package model.heritage.superClass;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Voiture extends Vehicule {
 	
 	private String marque;

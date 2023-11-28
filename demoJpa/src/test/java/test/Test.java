@@ -19,6 +19,8 @@ import model.heritage.joined.Eleve;
 import model.heritage.joined.Professeur;
 import model.heritage.perClass.Chat;
 import model.heritage.perClass.Chien;
+import model.heritage.superClass.Bateau;
+import model.heritage.superClass.Voiture;
 
 public class Test {
 
@@ -60,7 +62,7 @@ public class Test {
 		
 		
 		
-		Eleve eleve = new Eleve("Potter","Harry",7);
+	/*	Eleve eleve = new Eleve("Potter","Harry",7);
 		Professeur prof = new Professeur("Rogue","Severus","Salle 7B");
 		
 		Chat chat = new Chat("gris",7);
@@ -68,25 +70,22 @@ public class Test {
 		Chien chien = new Chien("blanc",60);
 		
 		
+		Bateau bateau = new Bateau(80,"Neuves");
+		Voiture voiture = new Voiture(250,"Ferrari");
+		
+	*/	
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		
 		EntityManager em = emf.createEntityManager();
 		
 		
 		/*em.getTransaction().begin();
-		
-		em.persist(chat);
-		em.persist(chien);
-		em.persist(eleve);
-		em.persist(prof);
-		
-		
-		
-		
-		
-		
-		
-		
+		em.persist(bateau);
+		em.persist(voiture);
+		//em.persist(chat);
+		//em.persist(chien);
+		//em.persist(eleve);
+		//em.persist(prof);*/
 		
 		
 		
@@ -104,7 +103,7 @@ public class Test {
 			
 		em.getTransaction().commit();
 		
-		em.close();*/
+		em.close();
 		
 		
 	
