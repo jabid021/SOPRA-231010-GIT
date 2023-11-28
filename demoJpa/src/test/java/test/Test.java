@@ -56,7 +56,7 @@ public class Test {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		
-		/*EntityManager em = emf.createEntityManager();
+		EntityManager em = emf.createEntityManager();
 		
 		em.getTransaction().begin();
 		
@@ -77,7 +77,7 @@ public class Test {
 		em.close();
 		
 		
-	*/
+	
 		
 	/*	em = emf.createEntityManager();
 		

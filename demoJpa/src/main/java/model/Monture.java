@@ -5,14 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="mount")
+@SequenceGenerator(name = "montureSeqJava", sequenceName = "drink_id_seq" )
 public class Monture {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "montureSeqJava")
 	private Integer id;
 	private String nom;
 	private int vitesse;

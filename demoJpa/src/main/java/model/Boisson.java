@@ -10,16 +10,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity //Obligatoire
 @Table(name="drink",uniqueConstraints = @UniqueConstraint(columnNames = {"label","cl"},name = "UKLabelCl"))
+@SequenceGenerator(name = "boissonSeq", sequenceName = "drink_id_seq" )
 public class Boisson {
 	
 
 	@Id //Obligatoire
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //SEMI-Obligatoire (SI ON VEUT DE L'AUTO-INCREMENT)*
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "boissonSeq") //SEMI-Obligatoire (SI ON VEUT DE L'AUTO-INCREMENT)*
 	private Integer numero;
 	
 	@Column(name="label",nullable = false,length = 25)
