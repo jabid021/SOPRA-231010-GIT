@@ -3,13 +3,26 @@ package hopital.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+
+
+@Entity
+@DiscriminatorValue("medecin")
 public class Medecin extends Compte{
 
 	private int salle; 
+	
+	@OneToMany(mappedBy = "medecin")
 	private List<Visite> visites = new ArrayList();
 	
 	public Medecin(Integer id, String login, String password) {
 		super(id, login, password);
+	}
+	public Medecin() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getSalle() {

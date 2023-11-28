@@ -2,13 +2,34 @@ package hopital.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+
+@Entity
 public class Visite {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer numero;
+	
+	@OneToOne
 	private Patient patient;
+	
+	@ManyToOne
 	private Medecin medecin;
+	
+	@Column(columnDefinition = "DECIMAL(6,2)")
 	private double prix=20;
+	
+	@Column(name = "date_visite")
 	private LocalDate dateVisite;
+	
 	private int salle;
 	
 	public Visite(Integer numero, Patient patient, Medecin medecin, double prix, LocalDate dateVisite, int salle) {
@@ -25,6 +46,10 @@ public class Visite {
 		this.medecin = medecin;
 		this.dateVisite = LocalDate.now();
 		this.salle = medecin.getSalle();
+	}
+	
+	public Visite() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getNumero() {
