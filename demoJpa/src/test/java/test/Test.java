@@ -15,6 +15,10 @@ import model.Monture;
 import model.Orc;
 import model.Personnage;
 import model.TypeArme;
+import model.heritage.joined.Eleve;
+import model.heritage.joined.Professeur;
+import model.heritage.perClass.Chat;
+import model.heritage.perClass.Chien;
 
 public class Test {
 
@@ -54,11 +58,37 @@ public class Test {
 		//boisson1.getAmateurs().add(perso2);
 		
 		
+		
+		
+		Eleve eleve = new Eleve("Potter","Harry",7);
+		Professeur prof = new Professeur("Rogue","Severus","Salle 7B");
+		
+		Chat chat = new Chat("gris",7);
+		
+		Chien chien = new Chien("blanc",60);
+		
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
 		
 		EntityManager em = emf.createEntityManager();
 		
-		em.getTransaction().begin();
+		
+		/*em.getTransaction().begin();
+		
+		em.persist(chat);
+		em.persist(chien);
+		em.persist(eleve);
+		em.persist(prof);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 			em.persist(objet1);
 			em.persist(objet2);
@@ -74,7 +104,7 @@ public class Test {
 			
 		em.getTransaction().commit();
 		
-		em.close();
+		em.close();*/
 		
 		
 	
