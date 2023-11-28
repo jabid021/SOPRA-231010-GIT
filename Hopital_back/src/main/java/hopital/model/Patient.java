@@ -1,15 +1,36 @@
 package hopital.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+@Entity
+@Table(name="patient")
 public class Patient implements Serializable {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 	private String prenom;
 	
+	@OneToMany(mappedBy="patient")
+	private List<Visite> visites = new ArrayList<Visite>();
+	
+	public Patient() {}
+	
 	public Patient(Integer id, String nom, String prenom) {
 		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+	
+	public Patient(String nom, String prenom) {
 		this.nom = nom;
 		this.prenom = prenom;
 	}
@@ -30,6 +51,14 @@ public class Patient implements Serializable {
 		this.nom = login;
 	}
 
+	public List<Visite> getVisites() {
+		return visites;
+	}
+
+	public void setVisites(List<Visite> visites) {
+		this.visites = visites;
+	}
+	
 	public String getPrenom() {
 		return prenom;
 	}
