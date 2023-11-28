@@ -38,10 +38,11 @@ public class Test {
 		em.getTransaction().begin();
 
 		em.persist(client1);
+		em.persist(fournisseur1);
 		em.persist(produit1);
 		em.persist(produit2);
 		em.persist(produit3);
-		em.persist(fournisseur1);
+		
 		
 		em.getTransaction().commit();
 
