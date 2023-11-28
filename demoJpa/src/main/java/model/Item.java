@@ -1,9 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Item {
@@ -12,6 +16,9 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String libelle;
+	
+	@ManyToMany(mappedBy="inventaire")
+	private List<Personnage> possesseurs=new ArrayList();
 	
 	public Item() {
 	}
@@ -34,6 +41,15 @@ public class Item {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	
+	public List<Personnage> getPossesseurs() {
+		return possesseurs;
+	}
+
+	public void setPossesseurs(List<Personnage> possesseurs) {
+		this.possesseurs = possesseurs;
 	}
 
 	@Override

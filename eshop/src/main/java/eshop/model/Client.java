@@ -9,7 +9,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("customer")
 public class Client extends Personne {
@@ -20,13 +20,13 @@ public class Client extends Personne {
 	@Column(name="birthdate")
 	private LocalDate dateNaissance;
 	
-	@ManyToMany
+	@OneToMany
 	@JoinTable(
 			name="achats",
 			joinColumns = @JoinColumn(name="acheteur"), 
-			inverseJoinColumns = @JoinColumn(name="produit")
+			inverseJoinColumns = @JoinColumn(name="achat")
 			)
-	private List<Produit> achats = new ArrayList();
+	private List<Achat> achats = new ArrayList();
 	
 	public Client() {}
 	
@@ -53,11 +53,11 @@ public class Client extends Personne {
 	}
 
 	
-	public List<Produit> getAchats() {
+	public List<Achat> getAchats() {
 		return achats;
 	}
 
-	public void setAchats(List<Produit> achats) {
+	public void setAchats(List<Achat> achats) {
 		this.achats = achats;
 	}
 

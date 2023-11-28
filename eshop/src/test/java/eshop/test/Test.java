@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import eshop.model.Achat;
 import eshop.model.Adresse;
 import eshop.model.Client;
 import eshop.model.Fournisseur;
@@ -26,12 +27,15 @@ public class Test {
 		Produit produit1 = new Produit("Formation JPA",1600,fournisseur1);
 		Produit produit2 = new Produit("Formation SQL",1000,fournisseur1);
 		Produit produit3 = new Produit("Formation Angular",2200,fournisseur1);
-
 		
-		client1.getAchats().add(produit1);
-		client1.getAchats().add(produit2);
-		client1.getAchats().add(produit3);
-		client1.getAchats().add(produit3);
+		Achat a1 = new Achat(LocalDate.now(), 1, client1,produit1);
+		Achat a2 = new Achat(LocalDate.now(), 1, client1,produit2);
+		Achat a3 = new Achat(LocalDate.now(), 2, client1,produit3);
+		
+		/*client1.getAchats().add(a1);
+		client1.getAchats().add(a2);
+		client1.getAchats().add(a3);
+		*/
 		
 		EntityManager em = emf.createEntityManager();
 
@@ -42,7 +46,9 @@ public class Test {
 		em.persist(produit1);
 		em.persist(produit2);
 		em.persist(produit3);
-		
+		em.persist(a1);
+		em.persist(a2);
+		em.persist(a3);
 		
 		em.getTransaction().commit();
 

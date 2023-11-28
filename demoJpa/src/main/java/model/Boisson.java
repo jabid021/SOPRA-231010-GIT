@@ -33,9 +33,9 @@ public class Boisson {
 	private boolean alcool;
 	private Integer cl;
 
-	
-	/*@OneToMany
-	private List<Personnage> amateurs  = new ArrayList(); */
+
+	@OneToMany(mappedBy = "fav")
+	private List<Personnage> amateurs  = new ArrayList(); 
 	
 	
 	//Constructeur Obligatoire
@@ -107,13 +107,13 @@ public class Boisson {
 	}
 
 	
-	/*public List<Personnage> getAmateurs() {
+	public List<Personnage> getAmateurs() {
 		return amateurs;
 	}
 
 	public void setAmateurs(List<Personnage> amateurs) {
 		this.amateurs = amateurs;
-	}*/
+	}
 
 	@Override
 	public String toString() {

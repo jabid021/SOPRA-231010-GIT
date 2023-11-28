@@ -1,10 +1,10 @@
 package model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +16,9 @@ public class Monture {
 	private Integer id;
 	private String nom;
 	private int vitesse;
+	
+	@OneToOne(mappedBy = "monture")
+	private Personnage proprietaire;
 	
 	public Monture() {}
 	
@@ -62,10 +65,21 @@ public class Monture {
 	}
 
 
+	public Personnage getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Personnage proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
 	@Override
 	public String toString() {
 		return "Monture [id=" + id + ", nom=" + nom + ", vitesse=" + vitesse + "]";
 	}
+	
+
+	
 	
 	
 	

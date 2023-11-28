@@ -37,10 +37,18 @@ public class Test {
 		Item objet5 = new Item("Rappel");
 		
 		Personnage perso1 = new Orc("Jaxx",LocalDate.parse("2000-01-01"),arme1,150,monture1,boisson1);
+		
+
+		
 		Personnage perso2 = new Humain("Jdoe",LocalDate.now(),arme2,null,boisson2);
 		
 		Collections.addAll(perso1.getInventaire(), objet1,objet1,objet1,objet3,objet4);
 		Collections.addAll(perso2.getInventaire(), objet1,objet3,objet3,objet4);
+		
+		
+		Collections.addAll(objet1.getPossesseurs(), perso1,perso1,perso1,perso2);
+		Collections.addAll(objet3.getPossesseurs(), perso1,perso2,perso2);
+		Collections.addAll(objet4.getPossesseurs(), perso1,perso2);
 		
 		//boisson1.getAmateurs().add(perso1);
 		//boisson1.getAmateurs().add(perso2);
