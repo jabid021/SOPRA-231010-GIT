@@ -1,18 +1,15 @@
 package test;
 
-import dao.DAOFiliere;
 import dao.DAOMatiere;
-import dao.DAOOrdinateur;
-import dao.DAOStagiaire;
 
 public class App {
 
 	public static void main(String[] args) {
 
 		DAOMatiere daoM=new DAOMatiere();
-		DAOStagiaire daoS=new DAOStagiaire();
-		DAOOrdinateur daoO=new DAOOrdinateur();
-		DAOFiliere daoF=new DAOFiliere();
+	//	DAOStagiaire daoS=new DAOStagiaire();
+	//	DAOOrdinateur daoO=new DAOOrdinateur();
+	//	DAOFiliere daoF=new DAOFiliere();
 		
 		/*Filiere f1 = new Filiere("DIS-400-SOPRA-JAVA",LocalDate.parse("2022-01-01"),LocalDate.parse("2020-05-01"));
 		//daoF.insert(f1);

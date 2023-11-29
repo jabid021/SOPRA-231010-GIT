@@ -78,10 +78,9 @@ public class Test {
 		
 		EntityManager em = emf.createEntityManager();
 		
-		
-		/*em.getTransaction().begin();
-		em.persist(bateau);
-		em.persist(voiture);
+		em.getTransaction().begin();
+		//em.persist(bateau);
+		//em.persist(voiture);
 		//em.persist(chat);
 		//em.persist(chien);
 		//em.persist(eleve);
@@ -100,7 +99,7 @@ public class Test {
 			em.persist(perso1);
 			em.persist(perso2);
 			
-			
+		
 		em.getTransaction().commit();
 		
 		em.close();

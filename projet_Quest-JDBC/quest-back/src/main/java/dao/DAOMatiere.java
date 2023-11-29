@@ -1,124 +1,84 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import model.Matiere;
 
-public class DAOMatiere implements IDAO<Matiere,Integer> {
+public class DAOMatiere implements IDAOMatiere{
 
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("configJPA");
+	
 	@Override
 	public Matiere findById(Integer id) {
-		Matiere matiere=null;
+		Matiere matiere = null;
+		
+		EntityManager em = null;
+		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url+port+bdd,login,password);
-
-			PreparedStatement ps = conn.prepareStatement("SELECT * from matiere where id=?");
-			ps.setInt(1, id);
-
-			ResultSet rs =  ps.executeQuery();
-
-			while(rs.next()) 
-			{
-				matiere = new Matiere(rs.getInt("id"),rs.getString("libelle"),rs.getInt("quest"));
-			}
-
-			ps.close();
-			conn.close();
-
-		} catch (Exception e) {
+			em = emf.createEntityManager();
+			matiere = em.find(Matiere.class, id);
+		}
+		catch(Exception e) 
+		{
 			e.printStackTrace();
 		}
+		finally 
+		{
+			if(em!=null) 
+			{
+				em.close();
+			}
+		}
+	
 		return matiere;
 	}
 
 	@Override
 	public List<Matiere> findAll() {
-		Matiere matiere=null;
-		List<Matiere> matieres=new ArrayList();
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url+port+bdd,login,password);
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-			PreparedStatement ps = conn.prepareStatement("SELECT * from matiere");
-
-			ResultSet rs =  ps.executeQuery();
-
-			while(rs.next()) 
+	@Override
+	public Matiere save(Matiere matiere) {
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		
+		try 
+		{
+			em=emf.createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+				matiere = em.merge(matiere);
+			tx.commit();
+		}
+		catch(Exception e) 
+		{
+			if(tx!=null && tx.isActive()) 
 			{
-				matiere = new Matiere(rs.getInt("id"),rs.getString("libelle"),rs.getInt("quest"));
-				matieres.add(matiere);
+				tx.rollback();
 			}
-
-			ps.close();
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
-		return matieres;
-	}
-
-	@Override
-	public void insert(Matiere m) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url+port+bdd,login,password);
-
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO matiere (libelle,quest) VALUES (?,?)");
-			ps.setString(1, m.getLibelle());
-			ps.setInt(2, m.getQuest());
-
-			ps.executeUpdate();
-			ps.close();
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		finally 
+		{
+			if(em!=null) 
+			{
+				em.close();
+			}
 		}
-	}
-
-	@Override
-	public void update(Matiere m) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url+port+bdd,login,password);
-
-			PreparedStatement ps = conn.prepareStatement("UPDATE matiere set libelle=?,quest=? where id=?");
-			ps.setString(1, m.getLibelle());
-			ps.setInt(2, m.getQuest());
-			ps.setInt(3, m.getId());
-
-			ps.executeUpdate();
-			ps.close();
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+		return matiere;
 	}
 
 	@Override
 	public void delete(Integer id) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(url+port+bdd,login,password);
-
-			PreparedStatement ps = conn.prepareStatement("DELETE from matiere where id=?");
-			ps.setInt(1, id);
-
-			ps.executeUpdate();
-			ps.close();
-			conn.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }
