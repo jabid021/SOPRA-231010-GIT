@@ -1,4 +1,4 @@
-package model;
+package quest.model;
 
 import java.time.LocalDate;
 

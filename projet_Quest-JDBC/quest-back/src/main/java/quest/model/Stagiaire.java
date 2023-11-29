@@ -1,4 +1,4 @@
-package model;
+package quest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

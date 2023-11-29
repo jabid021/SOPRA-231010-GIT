@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DAOFiliere;
-import model.Filiere;
+import quest.context.Singleton;
+import quest.dao.IDAOFiliere;
+import quest.model.Filiere;
 
 @WebServlet("/filiere")
 public class FiliereController extends HttpServlet {
 
-	private DAOFiliere daoFiliere = new DAOFiliere();
+	private IDAOFiliere daoFiliere = Singleton.getInstance().getDaoFiliere();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll			
@@ -44,7 +45,8 @@ public class FiliereController extends HttpServlet {
 			else 
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
-				daoFiliere.delete(id);
+				Filiere f = daoFiliere.findById(id);
+				daoFiliere.deleteById(id);
 				response.sendRedirect("filiere");
 			}
 		}
@@ -59,7 +61,7 @@ public class FiliereController extends HttpServlet {
 			LocalDate fin = LocalDate.parse(request.getParameter("fin"));
 			
 			Filiere filiere  = new Filiere(libelle,debut,fin);
-			daoFiliere.insert(filiere);
+			daoFiliere.save(filiere);
 			response.sendRedirect("filiere");
 		}
 		//update
@@ -72,7 +74,7 @@ public class FiliereController extends HttpServlet {
 			
 			Filiere filiere  = new Filiere(id,libelle,debut,fin);
 			
-			daoFiliere.update(filiere);
+			daoFiliere.save(filiere);
 			response.sendRedirect("filiere");
 		}
 	}

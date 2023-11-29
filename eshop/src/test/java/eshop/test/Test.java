@@ -47,7 +47,7 @@ public class Test {
 		System.out.println("Voici les ventes de ce produit :  (IMPOSSIBLE CAR LA LIST N'EST PAS LOAD (LAZY))");
 	//	System.out.println(produit.getVentes());
 		
-	/*	em.getTransaction().begin();
+	/*em.getTransaction().begin();
 
 		em.persist(client1);
 		em.persist(fournisseur1);

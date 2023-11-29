@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DAOFiliere;
-import dao.DAOMatiere;
-import model.Filiere;
-import model.Matiere;
+import quest.context.Singleton;
+import quest.dao.IDAOMatiere;
+import quest.model.Matiere;
 
 @WebServlet("/matiere")
 public class MatiereController extends HttpServlet {
 
-	private DAOMatiere daoMatiere = new DAOMatiere();
+	private IDAOMatiere daoMatiere = Singleton.getInstance().getDaoMatiere();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll	
@@ -44,7 +43,7 @@ public class MatiereController extends HttpServlet {
 			else 
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
-				daoMatiere.delete(id);
+				daoMatiere.deleteById(id);
 				response.sendRedirect("matiere");
 			}
 		}
@@ -58,7 +57,7 @@ public class MatiereController extends HttpServlet {
 			Integer quest = Integer.parseInt(request.getParameter("quest"));
 			Matiere matiere = new Matiere(libelle,quest);
 
-			daoMatiere.insert(matiere);
+			daoMatiere.save(matiere);
 			response.sendRedirect("matiere");
 		}
 		//update
@@ -70,7 +69,7 @@ public class MatiereController extends HttpServlet {
 			Matiere matiere = new Matiere(id,libelle,quest);
 
 
-			daoMatiere.update(matiere);
+			daoMatiere.save(matiere);
 			response.sendRedirect("matiere");
 		}
 	}

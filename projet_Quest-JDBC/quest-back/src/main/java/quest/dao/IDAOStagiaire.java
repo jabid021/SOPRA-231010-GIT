@@ -1,6 +1,6 @@
-package dao;
+package quest.dao;
 
-import model.Stagiaire;
+import quest.model.Stagiaire;
 
 public interface IDAOStagiaire extends IDAO<Stagiaire,Integer> {
 

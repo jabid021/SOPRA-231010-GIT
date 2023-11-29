@@ -1,6 +1,6 @@
-package test;
+package quest.test;
 
-import dao.DAOMatiere;
+import quest.dao.DAOMatiere;
 
 public class App {
 

@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DAOOrdinateur;
-import dao.DAOStagiaire;
-import model.Ordinateur;
-import model.Stagiaire;
+import quest.context.Singleton;
+import quest.dao.IDAOOrdinateur;
+import quest.dao.IDAOStagiaire;
+import quest.model.Ordinateur;
+import quest.model.Stagiaire;
 
 @WebServlet("/ordinateur")
 public class OrdinateurController extends HttpServlet {
 
-	private DAOOrdinateur daoOrdinateur = new DAOOrdinateur();
-	private DAOStagiaire daoStagiaire = new DAOStagiaire();
+	private IDAOOrdinateur daoOrdinateur = Singleton.getInstance().getDaoOrdinateur();
+	private IDAOStagiaire daoStagiaire = Singleton.getInstance().getDaoStagiare();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll	
@@ -50,7 +51,7 @@ public class OrdinateurController extends HttpServlet {
 			else 
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
-				daoOrdinateur.delete(id);
+				daoOrdinateur.deleteById(id);
 				response.sendRedirect("ordinateur");
 			}
 		}
@@ -67,7 +68,7 @@ public class OrdinateurController extends HttpServlet {
 			
 			Ordinateur ordinateur = new Ordinateur(marque,ram,stagiaire);
 			
-			daoOrdinateur.insert(ordinateur);
+			daoOrdinateur.save(ordinateur);
 			response.sendRedirect("ordinateur");
 		}
 		//update
@@ -82,7 +83,7 @@ public class OrdinateurController extends HttpServlet {
 			Ordinateur ordinateur = new Ordinateur(id,marque,ram,stagiaire);
 			
 			
-			daoOrdinateur.update(ordinateur);
+			daoOrdinateur.save(ordinateur);
 			response.sendRedirect("ordinateur");
 		}
 	}

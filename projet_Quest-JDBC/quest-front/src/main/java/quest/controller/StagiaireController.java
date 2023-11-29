@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DAOFiliere;
-import dao.DAOStagiaire;
-import model.Filiere;
-import model.Stagiaire;
+import quest.context.Singleton;
+import quest.dao.IDAOFiliere;
+import quest.dao.IDAOStagiaire;
+import quest.model.Filiere;
+import quest.model.Stagiaire;
 
 @WebServlet("/stagiaire")
 public class StagiaireController extends HttpServlet {
 
-	private DAOStagiaire daoStagiaire = new DAOStagiaire();
-	private DAOFiliere daoFiliere = new DAOFiliere();
+	private IDAOStagiaire daoStagiaire = Singleton.getInstance().getDaoStagiare();
+	private IDAOFiliere daoFiliere = Singleton.getInstance().getDaoFiliere();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll	
@@ -50,7 +51,7 @@ public class StagiaireController extends HttpServlet {
 			else 
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
-				daoStagiaire.delete(id);
+				daoStagiaire.deleteById(id);
 				response.sendRedirect("stagiaire");
 			}
 		}
@@ -68,7 +69,7 @@ public class StagiaireController extends HttpServlet {
 			
 			Stagiaire stagiaire = new Stagiaire(nom, prenom, email, filiere);
 			
-			daoStagiaire.insert(stagiaire);
+			daoStagiaire.save(stagiaire);
 			response.sendRedirect("stagiaire");
 		}
 		//update
@@ -84,7 +85,7 @@ public class StagiaireController extends HttpServlet {
 			Stagiaire stagiaire = new Stagiaire(id,nom, prenom, email, filiere);
 			
 			
-			daoStagiaire.update(stagiaire);
+			daoStagiaire.save(stagiaire);
 			response.sendRedirect("stagiaire");
 		}
 	}

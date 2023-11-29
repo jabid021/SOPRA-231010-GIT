@@ -1,6 +1,6 @@
-package dao;
+package quest.dao;
 
-import model.Ordinateur;
+import quest.model.Ordinateur;
 
 public interface IDAOOrdinateur extends IDAO<Ordinateur,Integer> {
 

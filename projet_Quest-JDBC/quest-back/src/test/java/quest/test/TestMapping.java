@@ -1,4 +1,4 @@
-package test;
+package quest.test;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import model.Filiere;
-import model.Matiere;
-import model.Stagiaire;
+import quest.model.Filiere;
+import quest.model.Matiere;
+import quest.model.Stagiaire;
 
 public class TestMapping {
 
