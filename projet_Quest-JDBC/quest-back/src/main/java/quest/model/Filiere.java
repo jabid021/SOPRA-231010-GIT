@@ -1,12 +1,14 @@
 package quest.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="filiere")
@@ -21,6 +23,9 @@ public class Filiere {
 	private LocalDate debut;
 	@Column(nullable = false)
 	private LocalDate fin;
+	
+	@OneToMany(mappedBy = "filiere")
+	private List<Stagiaire> eleves; 
 	
 	public Filiere() {}
 	
@@ -67,6 +72,15 @@ public class Filiere {
 
 	public void setFin(LocalDate fin) {
 		this.fin = fin;
+	}
+
+	
+	public List<Stagiaire> getEleves() {
+		return eleves;
+	}
+
+	public void setEleves(List<Stagiaire> eleves) {
+		this.eleves = eleves;
 	}
 
 	@Override
