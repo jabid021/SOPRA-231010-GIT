@@ -14,23 +14,20 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        		
        		
-<bean id="guitare"  class="orchestre.model.Guitare"/>
-<bean id="piano"  class="orchestre.model.Piano"/>
-<bean id="flute"  class="orchestre.model.Flute"/>
-
-<bean id="guitariste" class="orchestre.model.Guitariste">
-	<property name="prenom" value="Jordan"/>
-	<property name="instrument" ref="guitare"/>
+  <context:component-scan base-package="demoSpring.dao" />
+       		
+  <!-- 
+ <bean id="DAOMatiere" class="demoSpring.dao.DAOMatiere"/>  
+ <bean id="DAOSorcier" class="demoSpring.dao.DAOSorcier"/> 	
+  --> 
+ <!--  
+<bean id="config" class="demoSpring.bean.JAPA">
+	<property name="url" value="localhost:3306/eshop"/>
+	<property name="login" value="root"/>
+	<property name="password" value=""/>
 </bean>
+-->
 
-
-<bean id="pianiste" class="orchestre.model.Pianiste">
-	<property name="instrument" ref="piano"/>
-</bean>
-
-<bean id="flutiste" class="orchestre.model.Flutiste">
-	<property name="flute" ref="flute"/>
-</bean>
 </beans>
 
 
