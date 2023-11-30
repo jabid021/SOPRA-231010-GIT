@@ -1,7 +1,8 @@
 package demoSpring.test;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import demoSpring.config.AppConfig;
 import demoSpring.dao.IDAO;
 import demoSpring.dao.JAPA;
 
@@ -9,9 +10,14 @@ public class Test {
 
 	static IDAO daoSorcier;
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:application-context.xml");
+		//Si config de base en XML : 
+		//ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:application-context.xml");
 
-		JAPA maConfigJPA = (JAPA) ctx.getBean("JAPA");
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+		JAPA maConfigJPA = (JAPA) ctx.getBean("demo");
+		
+		/*JAPA maConfigJPA = (JAPA) ctx.getBean("JAPA");*/
 		
 		System.out.println("Voici la config quiva etre use : ");
 		System.out.println("url : "+maConfigJPA.getUrl());

@@ -14,9 +14,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        		
        		
-  <context:component-scan base-package="demoSpring.dao" />
+   <!-- <context:component-scan base-package="demoSpring.dao" />
        		
-  <!-- 
+ 
  <bean id="DAOMatiere" class="demoSpring.dao.DAOMatiere"/>  
  <bean id="DAOSorcier" class="demoSpring.dao.DAOSorcier"/> 	
   --> 
