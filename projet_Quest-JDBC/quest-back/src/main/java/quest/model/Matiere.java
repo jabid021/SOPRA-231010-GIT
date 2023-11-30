@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="matiere")
@@ -15,7 +18,10 @@ public class Matiere {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(length = 25,nullable = false)
+	@NotNull
+	@Size(min = 5 , max = 25,message = "Le libelle doit faire entre 5 et 25 char")
 	private String libelle;
+	@Digits(integer = 4, fraction = 0)
 	private int quest;
 	
 	public Matiere() {}
