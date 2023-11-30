@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
@@ -26,6 +28,10 @@ public class Filiere {
 	
 	@OneToMany(mappedBy = "filiere")
 	private List<Stagiaire> eleves; 
+	
+	@ManyToMany
+	@JoinTable(name="module")
+	private List<Matiere> matieres;
 	
 	public Filiere() {}
 	
@@ -81,6 +87,14 @@ public class Filiere {
 
 	public void setEleves(List<Stagiaire> eleves) {
 		this.eleves = eleves;
+	}
+
+	public List<Matiere> getMatieres() {
+		return matieres;
+	}
+
+	public void setMatieres(List<Matiere> matieres) {
+		this.matieres = matieres;
 	}
 
 	@Override
