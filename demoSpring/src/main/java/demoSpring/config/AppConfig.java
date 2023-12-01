@@ -8,7 +8,8 @@ import org.springframework.context.annotation.ImportResource;
 import demoSpring.component.JAPA;
 
 @Configuration
-@ComponentScan("demoSpring.component")
+@ComponentScan({"demoSpring.component","demoSpring.aspect"})
+@ImportResource("classpath:application-context.xml")
 public class AppConfig {
 
 	//Par defaut, Spring va creer un bean de type JAPA sous le nom "config" (nom de la methode)

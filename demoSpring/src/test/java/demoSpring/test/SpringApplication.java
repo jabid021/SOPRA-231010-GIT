@@ -13,7 +13,7 @@ public class SpringApplication {
 	}
 	
 	public static void main(String[] args) {
-		demoFonctionParamOption();
+		//demoFonctionParamOption();
 		
 		//Si config de base en XML : 
 		//ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:application-context.xml");

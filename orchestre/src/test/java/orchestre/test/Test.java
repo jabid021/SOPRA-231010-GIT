@@ -33,11 +33,13 @@ public class Test {
 		IMusicien flutiste2 = (IMusicien) ctx.getBean("musicien");
 		IMusicien guitariste2 = (IMusicien) ctx.getBean("guitaristeXML");
 		 */	
-		guitariste.jouer();
+		/*guitariste.jouer();
 		pianiste.jouer();
 		flutiste.jouer();
 		flutiste2.jouer();
-		guitariste2.jouer();
+		guitariste2.jouer();*/
+		
+		guitariste.toString();
 	}
 
 }

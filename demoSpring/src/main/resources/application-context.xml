@@ -13,7 +13,26 @@
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        		
+       	
+       	
+       	<aop:config>
+       	
+       	<aop:pointcut id="monPointCutBlague" expression="execution(public void demoSpring.component.Canard.faireBlague())" />
+       	
+       	<aop:aspect id="monAspectDemo" ref="demoAspectCanard">
+       		<!--  <aop:before method="sePreparer" pointcut-ref="monPointCutBlague"/>
+       		<aop:after method="finBlague" pointcut-ref="monPointCutBlague"/>-->
+       		<aop:around method="autoursBlague" pointcut-ref="monPointCutBlague"/>
+       		<aop:after-returning method="rire"  pointcut-ref="monPointCutBlague"/>
        		
+       		<aop:after-returning method="demoApresReturn" returning="nb" pointcut="execution(public void demoSpring.component.Canard.fonctionQuiRetourneUnInt())"/>
+       		
+       		<aop:after-throwing method="pasContent" pointcut="execution(public void demoSpring.component.Canard.faireBlague())"/>
+       		<aop:after method="everywhere" pointcut="execution(public * *.*(..))"/>
+       	
+       	</aop:aspect>
+       	
+       	</aop:config>	
    <!-- <context:component-scan base-package="demoSpring.component" />
        		
  

@@ -2,6 +2,9 @@ package demoSpring.component;
 
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Canard {
 
 	
