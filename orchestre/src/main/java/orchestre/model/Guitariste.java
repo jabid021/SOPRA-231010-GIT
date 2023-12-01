@@ -14,7 +14,8 @@ public class Guitariste implements IMusicien {
 	private IInstrument instrument;
 	
 
-	public Guitariste() {}
+	public Guitariste() 
+	{}
 	
 	public String getPrenom() {
 		return prenom;

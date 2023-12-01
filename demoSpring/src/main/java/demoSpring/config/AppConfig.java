@@ -3,12 +3,12 @@ package demoSpring.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
-import demoSpring.dao.JAPA;
+import demoSpring.component.JAPA;
 
 @Configuration
-@ComponentScan("demoSpring.dao")
-
+@ComponentScan("demoSpring.component")
 public class AppConfig {
 
 	//Par defaut, Spring va creer un bean de type JAPA sous le nom "config" (nom de la methode)
@@ -22,5 +22,4 @@ public class AppConfig {
 		j.setPassword("");
 		return j;
 	}
-
 }

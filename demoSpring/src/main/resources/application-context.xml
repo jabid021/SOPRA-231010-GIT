@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        		
        		
-   <!-- <context:component-scan base-package="demoSpring.dao" />
+   <!-- <context:component-scan base-package="demoSpring.component" />
        		
  
  <bean id="DAOMatiere" class="demoSpring.dao.DAOMatiere"/>  

@@ -1,4 +1,4 @@
-package demoSpring.dao;
+package demoSpring.component;
 
 public interface IDAO {
 

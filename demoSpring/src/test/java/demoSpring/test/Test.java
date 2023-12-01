@@ -1,21 +1,21 @@
 package demoSpring.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import demoSpring.component.JAPA;
 import demoSpring.config.AppConfig;
-import demoSpring.dao.IDAO;
-import demoSpring.dao.JAPA;
 
 public class Test {
 
-	static IDAO daoSorcier;
-	public static void main(String[] args) {
-		//Si config de base en XML : 
-		//ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:application-context.xml");
-
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+	@Autowired
+	@Qualifier("nouveauNomDuBean")
+	JAPA maConfigJPA;
+	
+	public void run(String[] ...args) {
 		
-		JAPA maConfigJPA = (JAPA) ctx.getBean("demo");
+		
 		
 		/*JAPA maConfigJPA = (JAPA) ctx.getBean("JAPA");*/
 		
