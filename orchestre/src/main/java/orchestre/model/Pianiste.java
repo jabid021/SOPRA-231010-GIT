@@ -47,4 +47,10 @@ public class Pianiste implements IMusicien {
 		
 	}
 
+	@Override
+	public void playStyle(String styleMusique) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,8 +1,8 @@
 package orchestre.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
+import orchestre.model.Guitariste;
 import orchestre.model.IMusicien;
 
 public class Test {
@@ -15,14 +15,14 @@ public class Test {
 	@Autowired
 	IMusicien flutiste;
 
-	@Autowired
+	/*@Autowired
 	@Qualifier("musicien")
 	IMusicien flutiste2;
 
 	@Autowired
 	@Qualifier("guitaristeXML")
 	IMusicien guitariste2;
-
+*/
 
 	public void run(String[] ...args) {
 
@@ -37,9 +37,13 @@ public class Test {
 		pianiste.jouer();
 		flutiste.jouer();
 		flutiste2.jouer();
-		guitariste2.jouer();*/
+		guitariste2.jouer();
+		*/
 		
 		guitariste.toString();
+		
+		guitariste.playStyle("...");
+
 	}
 
 }

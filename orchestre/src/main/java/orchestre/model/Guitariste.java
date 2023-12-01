@@ -1,5 +1,7 @@
 package orchestre.model;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -47,10 +49,22 @@ public class Guitariste implements IMusicien {
 
 	@Override
 	public void jouer() {
-		System.out.println("Le guitariste "+prenom+" joue ! "+instrument.son());
+		Random random = new Random();
+		if(random.nextInt(3)==0) //1 chance sur trois de faire une fausse note
+		{
+			System.out.println("le guitariste "+prenom+" joue mais fait une fausse note !");
+			throw new RuntimeException("Fausse note....");
+		}
+		System.out.println("le guitariste "+prenom+" joue ! "+instrument.son());
 		
 	}
 
+	public void playStyle(String style) 
+	{
+		System.out.println("Le guitariste "+prenom+" joue dans le style : "+style+" ! "+instrument.son());
+	} 
+	
+	
 	@Override
 	public String toString() {
 		return "Guitariste [prenom=" + prenom + "]";
