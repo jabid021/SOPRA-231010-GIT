@@ -21,14 +21,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //@ImportResource("classpath:application-context.xml")
 public class AppConfig {
 
-	
+
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/quest_jsp");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		if(System.getProperty("os.name").equals("Mac OS X")) 
+		{
+			dataSource.setUrl("jdbc:mysql://localhost:8889/quest_jsp");
+			dataSource.setUsername("root");
+			dataSource.setPassword("root");
+		}
+		else 
+		{
+			dataSource.setUrl("jdbc:mysql://localhost:3306/quest_jsp");
+			dataSource.setUsername("root");
+			dataSource.setPassword("");
+		}
 		dataSource.setMaxTotal(10);
 		return dataSource;
 	}
