@@ -1,10 +1,16 @@
 package eshop.test;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import eshop.dao.IDAOAchat;
 import eshop.dao.IDAOPersonne;
 import eshop.dao.IDAOProduit;
+import eshop.model.Achat;
+import eshop.model.Adresse;
+import eshop.model.Client;
+import eshop.model.Fournisseur;
 import eshop.model.Produit;
 
 public class TestSpringJPA {
@@ -18,10 +24,8 @@ public class TestSpringJPA {
 	@Autowired
 	private IDAOAchat daoAchat;
 	
-	
-	public void run(String[] ...args) 
+	public void initBdd() 
 	{
-		/*
 		Adresse adresse1 = new Adresse("6","rue rougement","75009","Paris");
 		Adresse adresse2 = new Adresse("24","rue de paris","75001","Paris");
 
@@ -49,8 +53,13 @@ public class TestSpringJPA {
 		daoAchat.save(a1);
 		daoAchat.save(a2);
 		daoAchat.save(a3);
+	}
+	
+	
+	public void run(String[] ...args) 
+	{
+		//initBdd();
 		
-	*/
 		for(Produit p : daoProduit.findAll()) {
 		System.out.println(p);
 		}

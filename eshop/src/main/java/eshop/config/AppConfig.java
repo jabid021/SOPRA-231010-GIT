@@ -62,15 +62,15 @@ public class AppConfig {
 		emf.setJpaProperties(this.hibernateProperties());
 		return emf;
 	}
+	
 	private Properties hibernateProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.format_sql", "true");
+		properties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.mode"));
+		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		properties.setProperty("hibernate.show_sql", env.getProperty("hibernate.showsql"));
+		properties.setProperty("hibernate.format_sql", env.getProperty("hibernate.formatsql"));
 		return properties;
 	}
-
 	@Bean
 	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
