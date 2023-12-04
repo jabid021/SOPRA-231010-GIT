@@ -9,4 +9,5 @@ public interface IDAOFiliere extends IDAO<Filiere,Integer>{
 	
 	public List<Filiere> findByDebutBetween(LocalDate debutInterval, LocalDate finInterval);
 
+	public Filiere findByIdWithEleves(Integer id);
 }

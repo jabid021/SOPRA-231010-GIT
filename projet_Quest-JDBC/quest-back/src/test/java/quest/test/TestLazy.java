@@ -1,16 +1,7 @@
 package quest.test;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
-import quest.context.Singleton;
-import quest.model.Filiere;
-import quest.model.Stagiaire;
-
 public class TestLazy {
-
+/*
 	public static List<Stagiaire> StagiairesApple()
 	{
 		List<Stagiaire> stagiaires;
@@ -197,5 +188,5 @@ public class TestLazy {
 			System.out.println(f.getMatieres());
 		}
 	}
-
+*/
 }

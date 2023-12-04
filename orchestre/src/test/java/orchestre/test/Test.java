@@ -39,10 +39,17 @@ public class Test {
 		flutiste2.jouer();
 		guitariste2.jouer();
 		*/
+		try { 
+			guitariste.jouer();
+		}
+		catch(Exception e) 
+		{
+			//e.printStackTrace();
+		}
 		
-		guitariste.toString();
+	//	guitariste.toString();
 		
-		guitariste.playStyle("...");
+	//	guitariste.playStyle("...");
 
 	}
 

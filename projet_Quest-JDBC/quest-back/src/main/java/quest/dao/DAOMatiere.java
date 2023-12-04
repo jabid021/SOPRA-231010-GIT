@@ -1,157 +1,48 @@
 package quest.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import quest.context.Singleton;
+import org.springframework.stereotype.Repository;
+
 import quest.model.Matiere;
 
+@Repository
+@Transactional
 public class DAOMatiere implements IDAOMatiere{
+	@PersistenceContext
+	private EntityManager em;
 
-	
 	@Override
 	public Matiere findById(Integer id) {
-		Matiere matiere = null;
-
-		EntityManager em = null;
-
-		try {
-			em = Singleton.getInstance().getEmf().createEntityManager();
-			matiere = em.find(Matiere.class, id);
-		}
-		catch(Exception e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			if(em!=null) 
-			{
-				em.close();
-			}
-		}
-
-		return matiere;
+		return em.find(Matiere.class, id);
 	}
 
 	@Override
 	public List<Matiere> findAll() {
-		List<Matiere> matieres  = new ArrayList();
-
-		EntityManager em = null;
-
-		try {
-			em =  Singleton.getInstance().getEmf().createEntityManager();
-			matieres = em.createQuery("from Matiere").getResultList();
-		}
-		catch(Exception e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			if(em!=null) 
-			{
-				em.close();
-			}
-		}
-
-		return matieres;
+		return em.createQuery("from Matiere").getResultList();
 	}
 
 	@Override
 	public Matiere save(Matiere matiere) {
-		EntityManager em = null;
-		EntityTransaction tx = null;
-
-		try 
-		{
-			em= Singleton.getInstance().getEmf().createEntityManager();
-			tx = em.getTransaction();
-			tx.begin();
-			matiere = em.merge(matiere);
-			tx.commit();
-		}
-		catch(Exception e) 
-		{
-			if(tx!=null && tx.isActive()) 
-			{
-				tx.rollback();
-			}
-		}
-		finally 
-		{
-			if(em!=null) 
-			{
-				em.close();
-			}
-		}
-
-		return matiere;
+		return em.merge(matiere);
 	}
+
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em = null;
-		EntityTransaction tx = null;
-
-		try 
-		{
-			em= Singleton.getInstance().getEmf().createEntityManager();
-			tx = em.getTransaction();
-			tx.begin();
-			Matiere matiere = em.find(Matiere.class, id);
-			em.remove(matiere);
-			tx.commit();
-		}
-		catch(Exception e) 
-		{
-			if(tx!=null && tx.isActive()) 
-			{
-				tx.rollback();
-			}
-		}
-		finally 
-		{
-			if(em!=null) 
-			{
-				em.close();
-			}
-		}
+		em.remove(em.find(Matiere.class, id));
 	}
 
 	@Override
 	public void delete(Matiere matiere) {
-		EntityManager em = null;
-		EntityTransaction tx = null;
-
-		try 
-		{
-			em= Singleton.getInstance().getEmf().createEntityManager();
-			tx = em.getTransaction();
-			tx.begin();
-			matiere = em.merge(matiere);
-			em.remove(matiere);
-			tx.commit();
-		}
-		catch(Exception e) 
-		{
-			if(tx!=null && tx.isActive()) 
-			{
-				tx.rollback();
-			}
-		}
-		finally 
-		{
-			if(em!=null) 
-			{
-				em.close();
-			}
-		}
+	em.remove(em.merge(matiere));
 	}
+
+
 }
 
 
