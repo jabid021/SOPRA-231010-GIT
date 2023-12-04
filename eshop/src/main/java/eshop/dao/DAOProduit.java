@@ -3,81 +3,58 @@ package eshop.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import eshop.context.Singleton;
+import org.springframework.stereotype.Repository;
+
+import eshop.model.Client;
 import eshop.model.Produit;
 
+@Repository
+@Transactional
 public class DAOProduit implements IDAOProduit{
-
+	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public Produit findById(Integer id) {
-		Produit produit;
-
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-		produit = em.find(Produit.class, id);
-		em.close();
-		return produit;
+		return em.find(Produit.class, id);
 	}
 
 	@Override
 	public List<Produit> findAll() {
-		List<Produit> produits;
-
-		EntityManager em =  Singleton.getInstance().getEmf().createEntityManager();
-		produits = em.createQuery("from Produit").getResultList();
-		em.close();
-		return produits;
+		return em.createQuery("from Produit").getResultList();
 	}
 
 	@Override
 	public Produit save(Produit produit) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-
-		em.getTransaction().begin();
-		produit = em.merge(produit);
-		em.getTransaction().commit();
-		em.close();
-		return produit;
+		return em.merge(produit);
 	}
 
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		Produit produit = em.find(Produit.class, id);
-		em.remove(produit);
-		em.getTransaction().commit();
-		em.close();
+		em.remove(em.find(Produit.class, id));
 	}
 
 	@Override
 	public void delete(Produit produit) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		produit = em.merge(produit);
-		em.remove(produit);
-		em.getTransaction().commit();
-		em.close();
+	em.remove(em.merge(produit));
 	}
 
 	@Override
 	public List<Produit> findByLib(String libelle) {
-		List<Produit> produits;
+		return em.createQuery("from Produit p where p.libelle=:lib").setParameter("lib", libelle).getResultList();
 
-		EntityManager em =  Singleton.getInstance().getEmf().createEntityManager();
-		produits = em.createQuery("from Produit p where p.libelle=:lib").setParameter("lib",libelle).getResultList();
-		em.close();
-		return produits;
 	}
-	
+
 	@Override
 	public Produit findByIdWithVentes(Integer idProduit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 }

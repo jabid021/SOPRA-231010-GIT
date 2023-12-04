@@ -3,91 +3,61 @@ package eshop.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import eshop.context.Singleton;
+import org.springframework.stereotype.Repository;
+
 import eshop.model.Client;
 import eshop.model.Fournisseur;
 import eshop.model.Personne;
 
+@Repository
+@Transactional
 public class DAOPersonne implements IDAOPersonne{
-
+	
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public Personne findById(Integer id) {
-		Personne personne;
-
-		EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-		personne = em.find(Personne.class, id);
-		em.close();
-		return personne;
+		return em.find(Personne.class, id);
 	}
 
 	@Override
 	public List<Personne> findAll() {
-		List<Personne> personnes;
-
-		EntityManager em =  Singleton.getInstance().getEmf().createEntityManager();
-		personnes = em.createQuery("from Personne").getResultList();
-		em.close();
-		return personnes;
+		return em.createQuery("from Personne").getResultList();
 	}
 
 	@Override
 	public Personne save(Personne personne) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-
-		em.getTransaction().begin();
-		personne = em.merge(personne);
-		em.getTransaction().commit();
-		em.close();
-		return personne;
+		return em.merge(personne);
 	}
 
 
 	@Override
 	public void deleteById(Integer id) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		Personne personne = em.find(Personne.class, id);
-		em.remove(personne);
-		em.getTransaction().commit();
-		em.close();
+		em.remove(em.find(Personne.class, id));
 	}
 
 	@Override
 	public void delete(Personne personne) {
-		EntityManager em= Singleton.getInstance().getEmf().createEntityManager();
-		em.getTransaction().begin();
-		personne = em.merge(personne);
-		em.remove(personne);
-		em.getTransaction().commit();
-		em.close();
+	em.remove(em.merge(personne));
 	}
 
 	@Override
 	public List<Fournisseur> findAllFournisseur() {
-		List<Fournisseur> fournisseurs;
-
-		EntityManager em =  Singleton.getInstance().getEmf().createEntityManager();
-		fournisseurs = em.createQuery("from Fournisseur").getResultList();
-		em.close();
-		return fournisseurs;
+		return em.createQuery("from Fournisseur").getResultList();
 	}
 
 	@Override
 	public List<Client> findAllClient() {
-		List<Client> clients;
-
-		EntityManager em =  Singleton.getInstance().getEmf().createEntityManager();
-		clients = em.createQuery("from Client").getResultList();
-		em.close();
-		return clients;
+		return em.createQuery("from Client").getResultList();
 	}
 
 	@Override
 	public Client findByIdWithAchats(Integer idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Client) em.createQuery("from Client c left join fetch c.achats where c.id=:id").setParameter("id", idClient).getSingleResult();
 	}
 
 	@Override
@@ -95,7 +65,6 @@ public class DAOPersonne implements IDAOPersonne{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 }

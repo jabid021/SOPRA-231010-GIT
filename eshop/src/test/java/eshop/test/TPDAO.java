@@ -1,13 +1,8 @@
 package eshop.test;
 
-import eshop.context.Singleton;
-import eshop.dao.IDAOAchat;
-import eshop.dao.IDAOPersonne;
-import eshop.dao.IDAOProduit;
-
 public class TPDAO {
 
-	static IDAOProduit daoProduit = Singleton.getInstance().getDaoProduit();
+	/*static IDAOProduit daoProduit = Singleton.getInstance().getDaoProduit();
 	static IDAOPersonne daoPersonne = Singleton.getInstance().getDaoPersonne();
 	static IDAOAchat daoAchat = Singleton.getInstance().getDaoAchat();
 	
@@ -26,5 +21,5 @@ public class TPDAO {
 		System.out.println("-------------------");
 		
 		System.out.println(daoPersonne.findAllFournisseur());
-	}
+	}*/
 }

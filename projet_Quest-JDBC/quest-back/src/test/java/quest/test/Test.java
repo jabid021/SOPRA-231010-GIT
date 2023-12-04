@@ -14,7 +14,6 @@ public class Test {
 	private IDAOFiliere daoFiliere;
 
 	public void run(String[] ...args) {
-
 		Filiere f = daoFiliere.findByIdWithEleves(2);
 		System.out.println("Infos sur la filiere : "+f);
 		System.out.println("Liste de ses stagiaires : ");
