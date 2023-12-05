@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import eshop.model.Client;
 import eshop.model.Produit;
 
 @Repository

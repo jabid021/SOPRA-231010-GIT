@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -47,7 +48,9 @@ public class DAOFiliereTest {
 		Filiere filiere = new Filiere("libelle",debut,fin);	
 
 		filiere = daoFiliere.save(filiere);
-		Filiere filiereBdd = daoFiliere.findById(filiere.getId());
+		Optional<Filiere> opt = daoFiliere.findById(filiere.getId());
+		
+		Filiere filiereBdd = opt.get();
 
 		assertNotNull(filiereBdd);
 		assertNotNull(filiereBdd.getId());

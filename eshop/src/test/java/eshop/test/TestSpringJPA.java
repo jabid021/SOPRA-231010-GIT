@@ -64,5 +64,7 @@ public class TestSpringJPA {
 		System.out.println(p);
 		}
 		
+		System.out.println(daoProduit.findByLib("Formation SQL"));
+		
 	}
 }
