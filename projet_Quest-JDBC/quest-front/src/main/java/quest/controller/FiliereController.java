@@ -4,28 +4,39 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import quest.context.Singleton;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
+
 import quest.dao.IDAOFiliere;
 import quest.model.Filiere;
 
 @WebServlet("/filiere")
 public class FiliereController extends HttpServlet {
 
-	private IDAOFiliere daoFiliere = Singleton.getInstance().getDaoFiliere();
+	@Autowired
+	private IDAOFiliere daoFiliere;
 	
+	public void init(ServletConfig config) throws ServletException
+	{
+		super.init(config);
+		SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+	}
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//findAll			
 		if(request.getParameter("id")==null) 
 		{
 			List<Filiere> filieres = daoFiliere.findAll();
 			request.setAttribute("filieres", filieres);
-			
+
 			request.getRequestDispatcher("/WEB-INF/filieres.jsp").forward(request, response);
 		}
 		else 
@@ -35,8 +46,8 @@ public class FiliereController extends HttpServlet {
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
 
-				Filiere filiere = daoFiliere.findById(id);
-				
+				Filiere filiere = daoFiliere.findById(id).get();
+
 				request.setAttribute("filiere", filiere);
 
 				request.getRequestDispatcher("/WEB-INF/updateFiliere.jsp").forward(request, response);
@@ -45,7 +56,7 @@ public class FiliereController extends HttpServlet {
 			else 
 			{
 				Integer id = Integer.parseInt(request.getParameter("id"));
-				Filiere f = daoFiliere.findById(id);
+				Filiere f = daoFiliere.findById(id).get();
 				daoFiliere.deleteById(id);
 				response.sendRedirect("filiere");
 			}
@@ -59,7 +70,7 @@ public class FiliereController extends HttpServlet {
 			String libelle = request.getParameter("libelle");
 			LocalDate debut = LocalDate.parse(request.getParameter("debut"));
 			LocalDate fin = LocalDate.parse(request.getParameter("fin"));
-			
+
 			Filiere filiere  = new Filiere(libelle,debut,fin);
 			daoFiliere.save(filiere);
 			response.sendRedirect("filiere");
@@ -71,9 +82,9 @@ public class FiliereController extends HttpServlet {
 			String libelle = request.getParameter("libelle");
 			LocalDate debut = LocalDate.parse(request.getParameter("debut"));
 			LocalDate fin = LocalDate.parse(request.getParameter("fin"));
-			
+
 			Filiere filiere  = new Filiere(id,libelle,debut,fin);
-			
+
 			daoFiliere.save(filiere);
 			response.sendRedirect("filiere");
 		}

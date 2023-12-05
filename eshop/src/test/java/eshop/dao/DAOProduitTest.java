@@ -47,7 +47,7 @@ public class DAOProduitTest {
 	//Act
 	p = daoProduit.save(p);	
 	//Assert
-	Produit produitBdd =daoProduit.findById(p.getId());
+	Produit produitBdd =daoProduit.findById(p.getId()).get();
 	assertNotNull(produitBdd);
 	assertNotNull(produitBdd.getId());
 	assertEquals(p, produitBdd);
@@ -68,7 +68,7 @@ public class DAOProduitTest {
 		Produit p = new Produit("libelle",50,f);
 		p = daoProduit.save(p);	
 		//Act
-		Produit copieBdd  = daoProduit.findById(p.getId());
+		Produit copieBdd  = daoProduit.findById(p.getId()).get();
 		
 		//Assert
 		assertNotNull(copieBdd);
@@ -85,7 +85,7 @@ public class DAOProduitTest {
 		p = daoProduit.save(p);	
 		//Act
 		daoProduit.delete(p);
-		Produit copieBdd  = daoProduit.findById(p.getId());
+		Produit copieBdd  = daoProduit.findById(p.getId()).get();
 		//Assert
 		//assertNull(copieBdd);	
 		if(copieBdd!=null) 

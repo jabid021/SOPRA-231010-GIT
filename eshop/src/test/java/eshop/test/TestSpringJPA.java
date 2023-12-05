@@ -60,11 +60,11 @@ public class TestSpringJPA {
 	{
 		//initBdd();
 		
-		for(Produit p : daoProduit.findAll()) {
-		System.out.println(p);
-		}
+	
 		
 		System.out.println(daoProduit.findByLib("Formation SQL"));
+		System.out.println(daoProduit.findByLibelle("Formation SQL"));
+		System.out.println(daoProduit.findByPrixBetween(1500, 2100));
 		
 	}
 }

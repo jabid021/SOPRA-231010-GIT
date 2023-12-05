@@ -3,10 +3,7 @@ package quest.listener;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 
-/**
- * Application Lifecycle Listener implementation class RequestListener
- *
- */
+
 public class RequestListener implements ServletRequestListener {
 
  
