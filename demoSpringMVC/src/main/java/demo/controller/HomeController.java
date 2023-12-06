@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 
-	
-	@RequestMapping(value="/home",method = RequestMethod.GET)
-	public String demoGet(@RequestParam(required = true) String prenom,@RequestParam(defaultValue = "1")  Integer id,Model model,HttpSession session) 
+	@RequestMapping(method = RequestMethod.GET)
+	public String demoGet(@RequestParam(required = false) String prenom,@RequestParam(defaultValue = "1")  Integer id,Model model,HttpSession session) 
 	{
 		System.out.println(id+" - "+prenom);
 		System.out.println("On est dans la fonction demoGet()");
@@ -23,7 +23,7 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(value="/home",method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public String demoPost(String prenom,Integer id) 
 	{
 		System.out.println(id+" - "+prenom);
