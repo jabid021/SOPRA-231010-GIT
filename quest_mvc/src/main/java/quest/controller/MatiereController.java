@@ -29,7 +29,7 @@ public class MatiereController {
 		List<Matiere> matieresBdd = daoMatiere.findAll();
 		
 		model.addAttribute("matieres",matieresBdd);
-		return "/WEB-INF/matieres.jsp";
+		return "matieres/matieres";
 		
 	}
 	
@@ -46,7 +46,7 @@ public class MatiereController {
 	{
 		Matiere matiereBdd = daoMatiere.findById(id).get();
 		model.addAttribute("matiere",matiereBdd);
-		return "/WEB-INF/updateMatiere.jsp";
+		return "matieres/updateMatiere";
 	}
 	
 	@PostMapping

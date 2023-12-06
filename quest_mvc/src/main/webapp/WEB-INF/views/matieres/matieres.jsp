@@ -9,7 +9,7 @@
 <div id="content">
 <h1>Liste des Matieres</h1>
      <input id="btnAddMatiere" type="button" class ="btn btn-success" value="Ajouter">
-     <a href="index.html"><input type="button" class ="btn btn-info" value="Retour"></a>
+     <a href="index.jsp"><input type="button" class ="btn btn-info" value="Retour"></a>
 
      <table class="table table-striped">
        <thead>
