@@ -10,7 +10,7 @@
 <body>
 
 
-<h1>Datas du controller :  ${exemple}</h1>
+<h1>Datas du controller :  ${exemple} ${sessionScope.connected} ${demoSession}</h1>
 
 
 

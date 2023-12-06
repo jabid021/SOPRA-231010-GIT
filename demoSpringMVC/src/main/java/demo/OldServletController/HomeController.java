@@ -18,7 +18,6 @@ public class HomeController extends HttpServlet {
 		String prenom = request.getParameter("prenom");
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		System.out.println(prenom + " - "+ id);
-		
 		request.setAttribute("exemple",prenom + " - "+ id);
 		
 		request.getRequestDispatcher("/WEB-INF/demoData.jsp").forward(request, response);
