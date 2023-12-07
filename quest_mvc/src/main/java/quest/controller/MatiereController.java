@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import quest.dao.IDAOMatiere;
 import quest.model.Matiere;
@@ -50,18 +49,22 @@ public class MatiereController {
 	}
 	
 	@PostMapping
-	public String ajoutMatiere(String libelle, Integer quest) 
+	public String ajoutMatiere(@ModelAttribute Matiere matiere
+			//@RequestParam String libelle, Integer quest
+			) 
 	{
-		Matiere matiere = new Matiere(libelle,quest);
+		//Matiere matiere = new Matiere(libelle,quest);
 		daoMatiere.save(matiere);
 		
 		return "redirect:/matiere";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifierMatiere(@PathVariable Integer id, String libelle, Integer quest) 
+	public String modifierMatiere(@PathVariable Integer id, @ModelAttribute Matiere matiere
+			//String libelle, Integer quest
+		) 
 	{
-		Matiere matiere = new Matiere(id,libelle,quest);
+		//Matiere matiere = new Matiere(id,libelle,quest);
 		daoMatiere.save(matiere);
 		return "redirect:/matiere";
 	}

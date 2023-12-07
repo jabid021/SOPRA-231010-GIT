@@ -16,7 +16,7 @@ public class HomeController {
 	@RequestMapping(value={"/","/home"},method = RequestMethod.GET)
 	public String home() 
 	{
-		return "/WEB-INF/home.jsp";
+		return "home";
 	}
 	
 	
@@ -25,6 +25,6 @@ public class HomeController {
 	{
 		model.addAttribute("role","admin");
 		session.setAttribute("login", login);
-		return "/WEB-INF/menu.jsp";
+		return "menu";
 	}
 }

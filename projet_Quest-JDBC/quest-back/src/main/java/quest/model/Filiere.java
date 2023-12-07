@@ -97,6 +97,12 @@ public class Filiere {
 		this.matieres = matieres;
 	}
 
+	
+	public String getLabelSelect() 
+	{
+		return id+" - "+libelle+" ("+debut+" - "+fin+")";
+	} 
+	
 	@Override
 	public String toString() {
 		return "Filiere [id=" + id + ", libelle=" + libelle + ", debut=" + debut + ", fin=" + fin + "]";

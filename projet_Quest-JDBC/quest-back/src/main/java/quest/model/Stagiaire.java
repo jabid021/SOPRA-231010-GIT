@@ -107,6 +107,7 @@ public class Stagiaire {
 	public void setOrdinateur(Ordinateur ordinateur) {
 		this.ordinateur = ordinateur;
 	}
+	
 	@Override
 	public String toString() {
 		return "Stagiaire [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", filiere="

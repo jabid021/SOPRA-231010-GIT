@@ -32,7 +32,7 @@ public class ProduitController {
 	{
 		model.addAttribute("produits",daoProduit.findAll());
 		model.addAttribute("fournisseurs",daoPersonne.findAllFournisseur());
-		return "/WEB-INF/produits.jsp";
+		return "produits/produits";
 	}
 	
 	
@@ -41,7 +41,7 @@ public class ProduitController {
 	{
 		model.addAttribute("produit",daoProduit.findById(id).get());
 		model.addAttribute("fournisseurs",daoPersonne.findAllFournisseur());
-		return "/WEB-INF/updateProduit.jsp";
+		return "produits/updateProduit";
 	}
 	
 	@PostMapping
