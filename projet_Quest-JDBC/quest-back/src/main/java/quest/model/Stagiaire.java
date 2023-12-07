@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="stagiaire")
@@ -18,10 +21,15 @@ public class Stagiaire {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(length = 25, nullable = false)
+	@NotBlank(message="Le nom ne peut pas etre vide")
+	@NotEmpty(message="Le nom ne peut pas etre null...") 
+	@Size(min=5, max = 25 , message = "Le nom doit faire entre 5 et 25 lettres")
 	private String nom;
+	
 	@Column(length = 25, nullable = false)
 	private String prenom;
 	@Column(length = 25, nullable = false)
+	@Size(min=8)
 	private String email;
 	
 	@Version

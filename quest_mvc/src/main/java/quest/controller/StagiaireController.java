@@ -2,9 +2,12 @@ package quest.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import quest.dao.IDAOFiliere;
 import quest.dao.IDAOStagiaire;
-import quest.model.Filiere;
 import quest.model.Stagiaire;
 
 @Controller
@@ -55,8 +57,19 @@ public class StagiaireController {
 	}
 	
 	@PostMapping
-	public String saveStagiaire(@ModelAttribute Stagiaire stagiaire) 
+
+	public String saveStagiaire(@Valid @ModelAttribute Stagiaire stagiaire,BindingResult result,Model model) 
 	{
+		if(result.hasErrors()) 
+		{
+			model.addAttribute("filieres",daoFiliere.findAll());
+			if(stagiaire.getId()==null) 
+			{
+				model.addAttribute("stagiaires",daoStagiaire.findAll());
+				return "stagiaires/stagiaires";
+			}
+			return "stagiaires/updateStagiaire";
+		}
 		daoStagiaire.save(stagiaire);
 		
 		return "redirect:/stagiaire";

@@ -2,9 +2,12 @@ package quest.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +52,7 @@ public class MatiereController {
 	}
 	
 	@PostMapping
-	public String ajoutMatiere(@ModelAttribute Matiere matiere
+	public String ajoutMatiere(@Valid @ModelAttribute Matiere matiere, BindingResult result
 			//@RequestParam String libelle, Integer quest
 			) 
 	{
@@ -60,11 +63,16 @@ public class MatiereController {
 	}
 	
 	@PostMapping("/{id}")
-	public String modifierMatiere(@PathVariable Integer id, @ModelAttribute Matiere matiere
+	public String modifierMatiere(@PathVariable Integer id, @Valid @ModelAttribute Matiere matiere, BindingResult result
 			//String libelle, Integer quest
 		) 
 	{
 		//Matiere matiere = new Matiere(id,libelle,quest);
+		if(result.hasErrors()) 
+		{
+			return "matieres/updateMatiere";
+		}
+		
 		daoMatiere.save(matiere);
 		return "redirect:/matiere";
 	}

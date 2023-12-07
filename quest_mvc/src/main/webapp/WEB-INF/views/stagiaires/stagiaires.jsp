@@ -49,9 +49,11 @@
    
   <form:hidden path="version"/>
   <form:hidden path="id"/>
-  <form:label path="nom">Nom : </form:label> <form:input path="nom" placeholder="Saisir votre nom" /><br>
+  <form:label path="nom">Nom : </form:label> <form:input path="nom" placeholder="Saisir votre nom" /><form:errors path="nom" cssClass="error"></form:errors>
+  <br>
    <form:label path="prenom">Prenom : </form:label> <form:input path="prenom"  placeholder="Saisir votre prenom" /><br>
-   <form:label path="email">Email : </form:label> <form:input path="email" type="email" placeholder="Saisir votre email" /><br> 
+   <form:label path="email">Email : </form:label> <form:input path="email" type="email" placeholder="Saisir votre email" />    <form:errors path="email" cssClass="error"><span class="error">CE MESSAGE A LA PLACE</span></form:errors>
+   <br> 
 	<form:label path="filiere.id">Filiere : </form:label>
  <form:select required="required" path="filiere.id">
  	<form:option value="">Choisir une filiere</form:option>

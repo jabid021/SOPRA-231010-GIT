@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +17,15 @@
    
   <form:hidden path="version"/>
   <form:hidden path="id"/>
-  <form:label path="nom">Nom : </form:label> <form:input path="nom" placeholder="Saisir votre nom" /><br>
-   <form:label path="prenom">Prenom : </form:label> <form:input path="prenom"  placeholder="Saisir votre prenom" /><br>
-   <form:label path="email">Email : </form:label> <form:input path="email" type="email" placeholder="Saisir votre email" /><br> 
+  <form:label path="nom">Nom : </form:label> <form:input path="nom" placeholder="Saisir votre nom" />
+  <form:errors path="nom" cssClass="error"></form:errors>
+  <br>
+   <form:label path="prenom">Prenom : </form:label> <form:input path="prenom"  placeholder="Saisir votre prenom" />
+    <form:errors path="prenom" cssClass="error"/>
+   <br>
+   <form:label path="email">Email : </form:label> <form:input path="email" type="email" placeholder="Saisir votre email" />
+    <form:errors path="email" cssClass="error"><span class="error">CE MESSAGE A LA PLACE</span></form:errors>
+   <br> 
   <!-- <form:input path="email" type="password" placeholder="Saisir votre password" /><br>--> 
  <!--<form:input path="id" type="number" placeholder="Saisir votre age" /><br>--> 
  <!--<form:input path="filiere.debut" value="${stagiaire.filiere.debut}" type="date" /><br>--> 
