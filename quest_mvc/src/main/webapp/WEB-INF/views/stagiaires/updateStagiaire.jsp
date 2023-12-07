@@ -14,7 +14,11 @@
 <div id="content">
   <h3>Modifier Stagiaire ${stagiaire.id}</h3>
   <form:form action="stagiaire" method="post" modelAttribute="stagiaire" >
-   
+  <form:errors path="*" cssClass="error" element="div"/>
+  
+  
+  <br>
+
   <form:hidden path="version"/>
   <form:hidden path="id"/>
   <form:label path="nom">Nom : </form:label> <form:input path="nom" placeholder="Saisir votre nom" />
