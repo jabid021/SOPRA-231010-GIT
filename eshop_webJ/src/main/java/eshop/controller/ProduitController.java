@@ -1,18 +1,19 @@
 package eshop.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import eshop.dao.IDAOPersonne;
 import eshop.dao.IDAOProduit;
-import eshop.model.Fournisseur;
 import eshop.model.Produit;
 
 @Controller
@@ -44,21 +45,27 @@ public class ProduitController {
 	}
 	
 	@PostMapping
-	public String ajoutProduit(@ModelAttribute Produit produit) 
+	public String ajoutProduit(@Valid @ModelAttribute Produit produit,BindingResult result,Model model) 
 	{
-		//Fournisseur fournisseur = (Fournisseur) daoPersonne.findById(idFournisseur).get();
-		/*Fournisseur fournisseur = new Fournisseur();
-		fournisseur.setId(idFournisseur);*/
-		//Produit produit = new Produit(libelle,prix,fournisseur);
+
+		if(result.hasErrors()) 
+		{
+			model.addAttribute("fournisseurs",daoPersonne.findAllFournisseur());
+			model.addAttribute("produits",daoProduit.findAll());
+			return "produits/produits";
+		}
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}
 	
 	@PostMapping("/{id}")
-	public String modifierProduit(Produit produit) 
+	public String modifierProduit(@Valid Produit produit,BindingResult result,Model model) 
 	{
-		//Fournisseur fournisseur = (Fournisseur) daoPersonne.findById(idFournisseur).get();
-		//Produit produit = new Produit(id,libelle,prix,fournisseur);
+		if(result.hasErrors()) 
+		{
+			model.addAttribute("fournisseurs",daoPersonne.findAllFournisseur());
+			return "produits/updateProduit";
+		}
 		daoProduit.save(produit);
 		return "redirect:/produit";
 	}

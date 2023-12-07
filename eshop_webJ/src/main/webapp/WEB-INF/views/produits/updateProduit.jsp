@@ -12,11 +12,11 @@
 		<table>
 				<tr>
 					<td><form:label path="libelle">Libelle :</form:label></td>
-					<td><form:input required="required" path="libelle" placeholder="Saisir votre libelle"/></td>
+					<td><form:input required="required" path="libelle" placeholder="Saisir votre libelle"/><form:errors cssClass="error" path="libelle"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="prix">Prix :</form:label></td>
-					<td><form:input required="required" path="prix" type="number" placeholder="Saisir prix" step="0.01"/></td>
+					<td><form:input required="required" path="prix" type="number" placeholder="Saisir prix" step="0.01"/><form:errors cssClass="error" path="prix"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="fournisseur.id">Fournisseur :</form:label></td>

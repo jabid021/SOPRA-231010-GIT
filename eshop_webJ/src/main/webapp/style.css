@@ -9,3 +9,8 @@ body {
 .formAjout {
 	display: none;
 }
+
+.error
+{
+	color:red;
+}

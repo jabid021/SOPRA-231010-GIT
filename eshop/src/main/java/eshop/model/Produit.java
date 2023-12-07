@@ -11,7 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 //JPA Va creer une table "produit" (pour Windows / Linux), "Produit" 
@@ -23,9 +26,13 @@ public class Produit {
 	private Integer id; // col int id
 	
 	@Column(name="label", nullable = false, length = 50)
+	@NotEmpty(message = "Le libelle ne peut pas etre null")
+	@NotBlank(message = "Le libelle ne peut pas etre vide")
 	private String libelle; //varchar (255) libelle 
 	
 	@Column(name="price", nullable=false,columnDefinition = "DECIMAL(6,2)")
+	@Min(value=100, message = "Prix trop bas (minimum 100€)")
+	@Max(value=10000, message = "Prix trop bas (maximum 10.000€)")
 	private double prix; // double  prix
 	
 	@ManyToOne
