@@ -24,8 +24,6 @@ public class MatiereRestController {
 
 	@Autowired
 	private IDAOMatiere daoMatiere;
-	@Autowired
-	private IDAOStagiaire daoStagiaire;
 
 
 	@GetMapping("/{id}")

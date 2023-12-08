@@ -18,4 +18,10 @@ public interface IDAOFiliere extends JpaRepository<Filiere,Integer>{
 	
 	@Query("SELECT f from Filiere f left join fetch f.eleves where f.id=:id ")
 	public Filiere findByIdWithEleves(@Param("id") Integer id);
+	
+	@Query("Select f from Filiere f left join fetch f.eleves")
+	public List<Filiere> findAllWithStagiaires();
+	
+	@Query("Select f from Filiere f left join fetch f.matieres")
+	public List<Filiere> findAllWithMatieres();
 }

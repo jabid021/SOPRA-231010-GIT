@@ -9,20 +9,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import quest.view.Views;
+
 @Entity
 @Table(name="ordinateur")
 public class Ordinateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@JsonView(Views.Common.class)
 	private Integer id;
+	
 	@Column(length = 15, nullable = false)
+	@JsonView(Views.Common.class)
 	private String marque;
+	
+	@JsonView(Views.Common.class)
 	private int ram;
 	
 	
 	@OneToOne
 	@JoinColumn(name="stagiaire",nullable = false)
+	@JsonView(Views.Ordinateur.class)
 	private Stagiaire stagiaire;
 	
 	public Ordinateur() {}

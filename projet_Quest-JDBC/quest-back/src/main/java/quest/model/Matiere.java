@@ -10,18 +10,27 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import quest.view.Views;
+
 @Entity
 @Table(name="matiere")
 public class Matiere {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Integer id;
+	
 	@Column(length = 25,nullable = false)
 	@NotNull
 	@Size(min = 5 , max = 25,message = "Le libelle doit faire entre 5 et 25 char")
+	@JsonView(Views.Common.class)
 	private String libelle;
+	
 	@Digits(integer = 4, fraction = 0)
+	@JsonView(Views.Common.class)
 	private int quest;
 	
 	public Matiere() {}

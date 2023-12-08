@@ -14,33 +14,49 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import quest.view.Views;
+
 @Entity
 @Table(name="stagiaire")
 public class Stagiaire {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Integer id;
+	
 	@Column(length = 25, nullable = false)
 	@NotBlank(message="Le nom ne peut pas etre vide")
 	@NotEmpty(message="Le nom ne peut pas etre null...") 
 	@Size(min=5, max = 25 , message = "Le nom doit faire entre 5 et 25 lettres")
+	@JsonView(Views.Common.class)
 	private String nom;
 	
 	@Column(length = 25, nullable = false)
+	@JsonView(Views.Common.class)
 	private String prenom;
+	
 	@Column(length = 25, nullable = false)
 	@Size(min=8)
+	@JsonView(Views.Common.class)
 	private String email;
 	
 	@Version
+	@JsonView(Views.Stagiaire.class)
 	private int version;
 	
 	
 	@ManyToOne
 	@JoinColumn(name="filiere",nullable = false)
+	@JsonView(Views.Stagiaire.class)
 	private Filiere filiere;
 	
+	
 	@OneToOne(mappedBy = "stagiaire")
+	@JsonView(Views.Stagiaire.class)
 	private Ordinateur ordinateur;
 	
 	public Stagiaire() {}

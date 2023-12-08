@@ -12,25 +12,38 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import quest.view.Views;
 @Entity
 @Table(name="filiere")
 public class Filiere {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Integer id;
+	
 	@Column(length = 50,nullable = false)
+	@JsonView(Views.Common.class)
 	private String libelle;
+	
 	@Column(nullable = false)
+	@JsonView(Views.Common.class)
 	private LocalDate debut;
+	
 	@Column(nullable = false)
+	@JsonView(Views.Common.class)
 	private LocalDate fin;
 	
 	@OneToMany(mappedBy = "filiere")
+	@JsonView(Views.FiliereWithStagiaires.class)
 	private List<Stagiaire> eleves; 
 	
 	@ManyToMany
 	@JoinTable(name="module")
+	@JsonView(Views.FiliereWithMatieres.class)
 	private List<Matiere> matieres;
 	
 	public Filiere() {}
