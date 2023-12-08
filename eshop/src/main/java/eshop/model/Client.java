@@ -10,14 +10,22 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import eshop.view.Views;
 @Entity
 @DiscriminatorValue("customer")
 public class Client extends Personne {
 
 	@Column(columnDefinition = "int(3)")
+	@JsonView(Views.Common.class)
 	private int age;
 	
 	@Column(name="birthdate")
+	@JsonView(Views.Common.class)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateNaissance;
 	
 	@OneToMany(mappedBy = "client")
@@ -26,6 +34,7 @@ public class Client extends Personne {
 			joinColumns = @JoinColumn(name="acheteur"), 
 			inverseJoinColumns = @JoinColumn(name="achat")
 			)*/
+	@JsonView(Views.ClientWithAchats.class)
 	private List<Achat> achats = new ArrayList();
 	
 	public Client() {}
