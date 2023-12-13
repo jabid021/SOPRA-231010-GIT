@@ -24,6 +24,10 @@ public class TestLazy {
 		filieres= em.createQuery("SELECT f from Filiere f").getResultList();
 
 		em.close();
+		
+		
+		
+		
 		return filieres;
 	} 
 

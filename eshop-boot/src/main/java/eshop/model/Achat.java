@@ -26,7 +26,7 @@ public class Achat {
 	private Integer id;
 	@Column(name="date_achat")
 	@JsonView(Views.Common.class)
-	@JsonFormat(pattern = "yyyy-MM-dd")
+//	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dateAchat;
 	@JsonView(Views.Common.class)
 	private int quantite;

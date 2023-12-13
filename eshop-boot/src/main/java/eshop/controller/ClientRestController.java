@@ -19,30 +19,29 @@ public class ClientRestController {
 
 	@Autowired
 	private IDAOPersonne daoPersonne;
-	
+
 	@GetMapping("{id}/facture")
-	public ClientResponse facture(@PathVariable Integer id) 
-	{
+	public ClientResponse facture(@PathVariable Integer id) {
 		Client client = daoPersonne.findByIdWithAchats(id);
-		ClientResponse c = new ClientResponse();
-		BeanUtils.copyProperties(client, c);
-		c.setNumero(client.getAdresse().getNumero());
-		c.setVoie(client.getAdresse().getVoie());
-		c.setVille(client.getAdresse().getVille());
-		c.setCp(client.getAdresse().getCp());
-		
-		AchatResponse a;
-		for(Achat achat : client.getAchats()) 
-		{
-			a=new AchatResponse();
-			BeanUtils.copyProperties(achat, a);
-			a.setLibelle(achat.getProduit().getLibelle());
-			a.setPrix(achat.getProduit().getPrix());
-			a.setDate(achat.getDateAchat().toString());
-			a.calculTotal();
-			c.getAchats().add(a);
+		ClientResponse clientResp = new ClientResponse();
+		BeanUtils.copyProperties(client, clientResp);
+		BeanUtils.copyProperties(client.getAdresse(), clientResp);
+//		clientResp.setNumero(client.getAdresse().getNumero());
+//		clientResp.setVoie(client.getAdresse().getVoie());
+//		clientResp.setVille(client.getAdresse().getVille());
+//		clientResp.setCp(client.getAdresse().getCp());
+
+		for (Achat achat : client.getAchats()) {
+			AchatResponse achatResp = new AchatResponse();
+			BeanUtils.copyProperties(achat, achatResp);
+			BeanUtils.copyProperties(achat.getProduit(), achatResp);
+//			achatResp.setLibelle(achat.getProduit().getLibelle());
+//			achatResp.setPrix(achat.getProduit().getPrix());
+//			achatResp.setDate(achat.getDateAchat().toString());
+			achatResp.calculTotal();
+			clientResp.getAchats().add(achatResp);
 		}
-		
-		return c;
+
+		return clientResp;
 	}
 }

@@ -7,7 +7,7 @@ public class ClientResponse {
 
 	private Integer id;
 	private String nom,prenom,numero,voie,ville,cp;
-	private List<AchatResponse> achats = new ArrayList();
+	private List<AchatResponse> achats = new ArrayList<>();
 	
 	public ClientResponse() {
 	}

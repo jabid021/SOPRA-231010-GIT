@@ -58,7 +58,7 @@ public class TestSpringJPA {
 	
 	public void run(String[] ...args) 
 	{
-		//initBdd();
+		initBdd();
 		
 	
 		
