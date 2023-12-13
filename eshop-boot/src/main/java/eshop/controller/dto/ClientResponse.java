@@ -3,6 +3,11 @@ package eshop.controller.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
+
+import eshop.model.Achat;
+import eshop.model.Client;
+
 public class ClientResponse {
 
 	private Integer id;
@@ -76,5 +81,16 @@ public class ClientResponse {
 		this.achats = achats;
 	}
 	
-	
+	public void fromClient(Client client) {
+		BeanUtils.copyProperties(client, this);
+		BeanUtils.copyProperties(client.getAdresse(), this);
+
+		for (Achat achat : client.getAchats()) {
+			AchatResponse achatResp = new AchatResponse();
+			achatResp.fromAchat(achat);
+			achatResp.calculTotal();
+			
+			this.getAchats().add(achatResp);
+		}
+	}
 }

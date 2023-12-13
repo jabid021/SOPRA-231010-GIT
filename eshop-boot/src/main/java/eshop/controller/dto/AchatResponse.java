@@ -2,6 +2,10 @@ package eshop.controller.dto;
 
 import java.time.LocalDate;
 
+import org.springframework.beans.BeanUtils;
+
+import eshop.model.Achat;
+
 public class AchatResponse {
 
 	private Integer id;
@@ -36,6 +40,12 @@ public class AchatResponse {
 
 	public void setDateAchat(LocalDate dateAchat) {
 		this.dateAchat = dateAchat;
+	}
+	
+	public void fromAchat(Achat achat) {
+		BeanUtils.copyProperties(achat, this);
+		BeanUtils.copyProperties(achat.getProduit(), this);
+		this.calculTotal();
 	}
 
 	public String getLibelle() {
