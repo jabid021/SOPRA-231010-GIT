@@ -1,5 +1,7 @@
 package quest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import quest.dao.IDAOMatiere;
-import quest.dao.IDAOStagiaire;
 import quest.model.Matiere;
 
 @RestController
@@ -25,7 +26,12 @@ public class MatiereRestController {
 	@Autowired
 	private IDAOMatiere daoMatiere;
 
-
+	@GetMapping("/by-filiere/{idFiliere}")
+	public List<Matiere> findAllByFiliere(@PathVariable Integer idFiliere) {
+		return daoMatiere.findAllByFiliere(idFiliere);
+	}
+	
+	
 	@GetMapping("/{id}")
 	public Matiere affiche(@PathVariable Integer id,@RequestParam String texte) 
 	{
