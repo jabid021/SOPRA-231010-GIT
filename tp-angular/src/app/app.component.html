@@ -18,10 +18,40 @@
 
 <hr/>
 
-<fieldset>
+<fieldset bg-black>
   Id : <input type="number" [(ngModel)]="todo.id"/><br/>
   Titre : <input type="text" [(ngModel)]="todo.title"/><br/>
   Complété : <input type="checkbox" [(ngModel)]="todo.completed"/><br/>
 </fieldset>
 
 <p *ngIf="todo.title && todo.id != 0" [ngClass]="{'notCompleted':!todo.completed}">{{todo.title}}</p> 
+
+
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titre</th>
+      <th>Complet ?</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button>Valider</button></td>
+    </tr>
+  </tfoot>
+</table>

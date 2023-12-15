@@ -11,6 +11,12 @@ export class AppComponent {
   couleur: string = "#FF0000";
   todo: Todo = new Todo();
 
+  todos: Todo[] = new Array<Todo>();
+
+  constructor() {
+    this.todos.push(new Todo(2, "Faire la lessive", false));
+  }
+
   resetPrenom() {
     this.prenom = this.prenom.toUpperCase();
   }
