@@ -1,0 +1,27 @@
+<p [style.color]="couleur">{{prenom}}</p>
+<input type="text" [value]="prenom" (change)="changePrenom($event)"/>
+
+<button (click)="resetPrenom()">CHANGER</button><br/><br/>
+
+<input type="text" [(ngModel)]="prenom"/><br/><br/>
+
+<input type="text" [ngModel]="prenom" (ngModelChange)="modelChange($event)"/><br/><br/>
+
+<select [(ngModel)]="couleur">
+  <option value="#000000">Noir</option>
+  <option value="#008000">Vert</option>
+  <option value="#FFFF00">Jaune</option>
+  <option value="#0000FF">Bleu</option>
+  <option value="#FF0000">Rouge</option>
+</select><br />
+<input type="color" [(ngModel)]="couleur">
+
+<hr/>
+
+<fieldset>
+  Id : <input type="number" [(ngModel)]="todo.id"/><br/>
+  Titre : <input type="text" [(ngModel)]="todo.title"/><br/>
+  Complété : <input type="checkbox" [(ngModel)]="todo.completed"/><br/>
+</fieldset>
+
+<p *ngIf="todo.title && todo.id != 0" [ngClass]="{'notCompleted':!todo.completed}">{{todo.title}}</p> 
