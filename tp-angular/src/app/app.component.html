@@ -62,7 +62,10 @@ Recherche : <input type="text" [(ngModel)]="recherche"/>
 
 <hr/>
 
-<hello-world>Bonjour Corentin</hello-world>
+<hello-world>
+  <div contenu1>Bonjour Corentin !</div>
+  <div contenu2>Bonjour Emilie !</div>
+</hello-world>
 
 <hr/>
 
@@ -72,4 +75,7 @@ Recherche : <input type="text" [(ngModel)]="recherche"/>
 
 <div hello>Hello Vincent</div>
 
-<asc-bold>le texte que vous voulez</asc-bold>
+<asc-bold (click)="alerteTexte('J\'ai cliqué sur asc-bold')">
+  <span standard>voici le texte :</span>
+  <span gras>que vous voulez mettre en gras</span>
+</asc-bold>

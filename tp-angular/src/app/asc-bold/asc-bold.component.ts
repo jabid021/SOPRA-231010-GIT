@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'asc-bold',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./asc-bold.component.css']
 })
 export class AscBoldComponent {
+  cpt: number = 0;
 
+  alerteSurLeGras() {
+    alert("j'ai cliqué sur le texte en gras");
+  }
+
+  @HostListener("click", ["$event"])
+  alerteSurToutLeComposant(event: any) {
+    console.log(++this.cpt);
+    alert("j'ai cliqué sur mon composant");
+  }
 }

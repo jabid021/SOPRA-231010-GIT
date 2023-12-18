@@ -1,3 +1,4 @@
-<span style="font-weight: bold;">
-    <ng-content></ng-content>
+<ng-content select="[standard]"></ng-content>
+<span style="font-weight: bold;" (click)="alerteSurLeGras()">
+    <ng-content select="[gras]"></ng-content>
 </span>

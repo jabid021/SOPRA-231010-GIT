@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Todo } from './todo';
 
 @Component({
@@ -45,5 +45,14 @@ export class AppComponent {
     // }
 
     // return this.todos;
+  }
+
+  alerteTexte(text : string) {
+    alert(text);
+  }
+
+  @HostListener("click")
+  alerteGlobalApp() {
+    alert("mon click sur app component")
   }
 }
