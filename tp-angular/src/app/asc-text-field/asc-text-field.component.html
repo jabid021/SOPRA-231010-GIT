@@ -1,0 +1,3 @@
+<label>{{leLabel}}</label>
+<!-- <input type="text" [value]="laValue" (change)="changementInput($event)"/> -->
+<input type="text" [ngModel]="laValue" (ngModelChange)="changementInput($event)"/>

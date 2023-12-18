@@ -51,8 +51,12 @@ export class AppComponent {
     alert(text);
   }
 
-  @HostListener("click")
-  alerteGlobalApp() {
-    alert("mon click sur app component")
+  // @HostListener("click")
+  // alerteGlobalApp() {
+  //   alert("mon click sur app component")
+  // }
+
+  majPrenom(value: string) {
+    this.prenom = value;
   }
 }

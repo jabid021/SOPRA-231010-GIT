@@ -75,7 +75,14 @@ Recherche : <input type="text" [(ngModel)]="recherche"/>
 
 <div hello>Hello Vincent</div>
 
-<asc-bold (click)="alerteTexte('J\'ai cliqué sur asc-bold')">
+<asc-bold (click)="alerteTexte('J\'ai cliqué sur asc-bold')" param1="mon texte à envoyer dans param1" [param2]="prenom">
   <span standard>voici le texte :</span>
   <span gras>que vous voulez mettre en gras</span>
 </asc-bold>
+
+<hr/>
+
+
+<asc-text-field label="Prénom : " [value]="prenom" (emetteur)="majPrenom($event)"></asc-text-field>
+
+

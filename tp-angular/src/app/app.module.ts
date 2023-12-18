@@ -7,6 +7,7 @@ import { BackgroundBlackDirective } from './background-black.directive';
 import { TodoStatePipe } from './todo-state.pipe';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { AscBoldComponent } from './asc-bold/asc-bold.component';
+import { AscTextFieldComponent } from './asc-text-field/asc-text-field.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AscBoldComponent } from './asc-bold/asc-bold.component';
     BackgroundBlackDirective,
     TodoStatePipe,
     HelloWorldComponent,
-    AscBoldComponent
+    AscBoldComponent,
+    AscTextFieldComponent
   ],
   imports: [
     BrowserModule,
