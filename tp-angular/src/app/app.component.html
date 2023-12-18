@@ -42,7 +42,8 @@ Recherche : <input type="text" [(ngModel)]="recherche"/>
     <tr *ngFor="let item of search()">
       <td>{{item.id}}</td>
       <td>{{item.title}}</td>
-      <td><span *ngIf="item.completed;else sinon">Terminé</span></td>
+      <td [style.color]="item.completed | todoState">{{item.completed | todoState:"description"}}</td>
+      <!-- <td><span *ngIf="item.completed;else sinon">Terminé</span></td> -->
       <td></td>
     </tr>
   </tbody>
@@ -58,3 +59,17 @@ Recherche : <input type="text" [(ngModel)]="recherche"/>
     </tr>
   </tfoot>
 </table>
+
+<hr/>
+
+<hello-world>Bonjour Corentin</hello-world>
+
+<hr/>
+
+<hi>Bien le bonjour Thi Tham</hi>
+
+<hr/>
+
+<div hello>Hello Vincent</div>
+
+<asc-bold>le texte que vous voulez</asc-bold>
