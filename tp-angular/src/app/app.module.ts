@@ -8,6 +8,8 @@ import { TodoStatePipe } from './todo-state.pipe';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { AscBoldComponent } from './asc-bold/asc-bold.component';
 import { AscTextFieldComponent } from './asc-text-field/asc-text-field.component';
+import { AscListComponent } from './asc-list/asc-list.component';
+import { AscTooltipComponent } from './asc-tooltip/asc-tooltip.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AscTextFieldComponent } from './asc-text-field/asc-text-field.component
     TodoStatePipe,
     HelloWorldComponent,
     AscBoldComponent,
-    AscTextFieldComponent
+    AscTextFieldComponent,
+    AscListComponent,
+    AscTooltipComponent
   ],
   imports: [
     BrowserModule,
