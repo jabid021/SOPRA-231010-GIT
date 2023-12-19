@@ -14,4 +14,16 @@ export class TodoComponent {
     this.todos.push(new Todo(50, "Vaisselle", false, true, 4));
     this.todos.push(new Todo(15, "Repassage", true, false, 4));
   }
+
+  add() {
+
+  }
+
+  edit(id?: number) {
+
+  }
+
+  cancel() {
+    
+  }
 }

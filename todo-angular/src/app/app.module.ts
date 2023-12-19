@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { ListComponent } from './list/list.component';
 import { TodoComponent } from './todo/todo.component';
+import { CheckPipe } from './check.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TodoComponent } from './todo/todo.component';
     HomeComponent,
     UserComponent,
     ListComponent,
-    TodoComponent
+    TodoComponent,
+    CheckPipe
   ],
   imports: [
     BrowserModule,
