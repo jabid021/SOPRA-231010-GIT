@@ -16,7 +16,8 @@
                 <tr *ngFor="let l of list()">
                     <td>{{l.id}}</td>
                     <td>{{l.name}}</td>
-                    <td>{{l.userId}}</td>
+                    <td>{{findUserById(l.userId)?.firstname}} {{findUserById(l.userId)?.lastname}}</td>
+                    <!-- <td>{{(l.userId! | user)?.firstname}}</td> -->
                     <td><div class="btn-group btn-group-sm">
                         <a (click)="edit(l.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
                         <a (click)="remove(l.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
@@ -48,9 +49,7 @@
             <label for="utilisateur" class="form-label">Utilisateur:</label>
             <select class="form-select" id="utilisateur" name="utilisateur" [(ngModel)]="listForm.userId">
                 <option></option>
-                <option value="3">Eric</option>
-                <option value="8">Pierre</option>
-                <option value="10">Vincent</option>
+                <option *ngFor="let u of listUsers()" [value]="u.id">{{u.firstname}} {{u.lastname}}</option>
             </select>
         </div>
     </div>

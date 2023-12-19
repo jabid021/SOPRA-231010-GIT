@@ -1,3 +1,69 @@
-<p>user works!</p>
-<p>Login (Path Variable) : {{loginByPathVariable}}</p>
-<p>Login (Query Param): {{loginByQueryParam}}</p>
+<div class="card mt-3">
+    <div class="card-header text-white bg-primary">
+        Liste des utilisateurs
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Login</th>
+                    <th>Mot de passe</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of list()">
+                    <td>{{u.id}}</td>
+                    <td>{{u.firstname}}</td>
+                    <td>{{u.lastname}}</td>
+                    <td>{{u.login}}</td>
+                    <td>{{u.password}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a (click)="edit(u.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                        <a (click)="remove(u.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      </div></td>
+                </tr>
+             
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a (click)="add()" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="userForm">
+    <div class="card-header text-white bg-primary">
+        Edition d'un utilisateur
+    </div>
+    <div class="card-body"> 
+        <div class="mb-3 mt-3">
+            <label for="id" class="form-label">Identifiant:</label>
+            <input type="number" class="form-control" id="id" name="id" readonly [(ngModel)]="userForm.id">
+        </div>
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Prénom:</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="userForm.firstname">
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Nom:</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="userForm.lastname">
+        </div>
+        <div class="mb-3">
+            <label for="login" class="form-label">Login:</label>
+            <input type="text" class="form-control" id="login" name="login" [(ngModel)]="userForm.login">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe:</label>
+            <input type="text" class="form-control" id="password" name="password" [(ngModel)]="userForm.password">
+        </div>
+    </div>
+    <div class="card-footer">
+        <a (click)="save()" class="btn btn-success btn-lg mx-2"><i class="bi bi-check-lg"></i></a>
+        <a (click)="cancel()" class="btn btn-warning btn-lg mx-2"><i class="bi bi-backspace"></i></a>
+    </div>
+</div>

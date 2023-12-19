@@ -10,6 +10,7 @@ import { ListComponent } from './list/list.component';
 import { TodoComponent } from './todo/todo.component';
 import { CheckPipe } from './check.pipe';
 import { FormsModule } from '@angular/forms';
+import { UserPipe } from './user/user.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     ListComponent,
     TodoComponent,
-    CheckPipe
+    CheckPipe,
+    UserPipe
   ],
   imports: [
     BrowserModule,
