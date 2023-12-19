@@ -1,14 +1,14 @@
 <ul class="nav nav-pills mt-3">
     <li class="nav-item">
-      <a class="nav-link active" [routerLink]="['home']">Accueil</a>
+      <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Accueil</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Liste</a>
+      <a class="nav-link" [routerLink]="['list']" routerLinkActive="active">Liste</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Todo</a>
+      <a class="nav-link" [routerLink]="['todo']" routerLinkActive="active">Todo</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" (click)="goToUser()">Utilisateur</a>
+      <a class="nav-link" [routerLink]="['user']" routerLinkActive="active">Utilisateur</a>
     </li>
   </ul>

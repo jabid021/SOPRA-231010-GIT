@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
+
+  loginByPathVariable?: string;
+  loginByQueryParam?: string;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.loginByPathVariable = params['login'];
+    });
+
+    this.route.queryParams.subscribe(params => {
+      this.loginByQueryParam = params['login'];
+    });
+  }
 
 }
