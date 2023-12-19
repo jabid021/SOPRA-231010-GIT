@@ -1,1 +1,61 @@
-<p>list works!</p>
+<div class="card mt-3">
+    <div class="card-header text-white bg-primary">
+        Liste des listes de TODO
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Utilisateur</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of list()">
+                    <td>{{l.id}}</td>
+                    <td>{{l.name}}</td>
+                    <td>{{l.userId}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a (click)="edit(l.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                        <a (click)="remove(l.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      </div></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a (click)="add()" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="listForm">
+    <div class="card-header text-white bg-primary">
+        Edition d'une liste de TODO
+    </div>
+    <div class="card-body"> 
+        <div class="mb-3 mt-3">
+            <label for="id" class="form-label">Identifiant:</label>
+            <input type="number" class="form-control" id="id" name="id" disabled [(ngModel)]="listForm.id">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom:</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="listForm.name">
+        </div>
+        <div class="mb-3">
+            <label for="utilisateur" class="form-label">Utilisateur:</label>
+            <select class="form-select" id="utilisateur" name="utilisateur" [(ngModel)]="listForm.userId">
+                <option></option>
+                <option value="3">Eric</option>
+                <option value="8">Pierre</option>
+                <option value="10">Vincent</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a (click)="save()" class="btn btn-success btn-lg"><i class="bi bi-check-lg"></i></a>
+        <a (click)="cancel()" class="btn btn-warning btn-lg mx-2"><i class="bi bi-backspace"></i></a>
+    </div>
+</div>
