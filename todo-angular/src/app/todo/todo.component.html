@@ -37,30 +37,30 @@
     </div>
 </div>
 
-<div class="card mt-3">
+<div class="card mt-3" *ngIf="todoForm">
     <div class="card-header text-white bg-primary">
         Edition d'un Todo
     </div>
     <div class="card-body"> 
         <div class="mb-3 mt-3">
             <label for="id" class="form-label">Identifiant:</label>
-            <input type="number" class="form-control" id="id" name="id" disabled>
+            <input type="number" class="form-control" id="id" name="id" disabled [(ngModel)]="todoForm.id">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description:</label>
-            <input type="text" class="form-control" id="description" name="description">
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="todoForm.description">
         </div>
         <div class="mb-3 form-check">
-            <input class="form-check-input" type="checkbox" id="isImportant">
+            <input class="form-check-input" type="checkbox" id="isImportant" [(ngModel)]="todoForm.isImportant">
             <label class="form-check-label">Important</label>
         </div>
         <div class="mb-3 form-check">
-            <input class="form-check-input" type="checkbox" id="isDone">
+            <input class="form-check-input" type="checkbox" id="isDone" [(ngModel)]="todoForm.isDone">
             <label class="form-check-label">Fini</label>
         </div>
         <div class="mb-3">
             <label for="listId" class="form-label">Liste (id):</label>
-            <input type="number" class="form-control" id="listId" name="listId">
+            <input type="number" class="form-control" id="listId" name="listId" [(ngModel)]="todoForm.listId">
         </div>
     </div>
     <div class="card-footer">

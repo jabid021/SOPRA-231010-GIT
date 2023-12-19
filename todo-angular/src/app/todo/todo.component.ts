@@ -8,6 +8,8 @@ import { Todo } from '../model';
 })
 export class TodoComponent {
   todos: Todo[] = new Array<Todo>();
+
+  todoForm: Todo | null = null;
   
   constructor() {
     this.todos.push(new Todo(5, "Ménage", true, false, 4));
@@ -16,14 +18,19 @@ export class TodoComponent {
   }
 
   add() {
-
+    this.todoForm = new Todo();
   }
 
   edit(id?: number) {
-
+    for(let todo of this.todos) {
+      if(todo.id == id) {
+        this.todoForm = todo;
+        break;    
+      }
+    }
   }
 
   cancel() {
-    
+    this.todoForm = null;
   }
 }

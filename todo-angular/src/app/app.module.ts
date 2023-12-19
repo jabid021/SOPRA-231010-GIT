@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { ListComponent } from './list/list.component';
 import { TodoComponent } from './todo/todo.component';
 import { CheckPipe } from './check.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CheckPipe } from './check.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
