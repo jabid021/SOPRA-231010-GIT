@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Todo } from '../model';
+import { List, Todo } from '../model';
 import { TodoService } from './todo.service';
+import { ListService } from '../list/list.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,18 +9,21 @@ import { TodoService } from './todo.service';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent {
-  todos: Todo[] = new Array<Todo>();
-
   todoForm?: Todo = undefined;
   
-  constructor(private todoService: TodoService) {
-    this.todos.push(new Todo(5, "Ménage", true, false, 4));
-    this.todos.push(new Todo(50, "Vaisselle", false, true, 4));
-    this.todos.push(new Todo(15, "Repassage", true, false, 4));
+  constructor(private todoService: TodoService, private listService: ListService) {
   }
 
   list(): Todo[] {
-    return this.todos;
+    return this.todoService.findAll();
+  }
+
+  listLists(): List[] {
+    return this.listService.findAll();
+  }
+
+  findListById(id: any): List | undefined{
+    return this.listService.findById(id);
   }
 
   add() {
@@ -27,39 +31,17 @@ export class TodoComponent {
   }
 
   edit(id?: number) {
-    for(let todo of this.todos) {
-      if(todo.id == id) {
-        this.todoForm = {...todo};
-        break;    
-      }
-    }
+    this.todoForm = {...this.todoService.findById(id!)};
   }
 
   save() {
-    if(this.todoForm?.id) {
-      let position = this.todos.findIndex(todo => todo.id == this.todoForm?.id);
-
-      this.todos[position] = this.todoForm;
-    } else {
-      let max: number = 0;
-      this.todos.forEach(todo => {
-        if(todo.id && todo.id > max) {
-          max = todo.id;
-        }
-      });
-
-      this.todoForm!.id = max+1;
-
-      this.todos.push(this.todoForm!);
-    }
+    this.todoService.save(this.todoForm);
 
     this.cancel();
   }
 
   remove(id?: number) {
-    let position = this.todos.findIndex(todo => todo.id == id);
-
-    this.todos.splice(position,1);
+    this.todoService.delete(id!);
   }
 
   cancel() {

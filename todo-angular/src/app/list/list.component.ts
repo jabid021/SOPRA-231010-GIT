@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { List, User } from '../model';
 import { UserService } from '../user/user.service';
+import { ListService } from './list.service';
 
 @Component({
   selector: 'app-list',
@@ -8,19 +9,14 @@ import { UserService } from '../user/user.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  lists: List[] = new Array<List>();
-  
   listForm?: List = undefined;
 
 
-  constructor(private userService: UserService) {
-    this.lists.push(new List(4, "Tâche ménagère", 3));
-    this.lists.push(new List(5, "Liste de Noël", 3));
-    this.lists.push(new List(7, "Liste de mariage", 8));
+  constructor(private userService: UserService, private listService: ListService) {
   }
 
   list(): List[] {
-    return this.lists;
+    return this.listService.findAll();
   }
 
   listUsers(): User[] {
@@ -36,34 +32,17 @@ export class ListComponent {
   }
 
   edit(id?: number) {
-    this.listForm = {...this.lists.find(list => list.id == id)??undefined};
+    this.listForm = {...this.listService.findById(id!)};
   }
 
   save() {
-    if(this.listForm?.id) {
-      let position = this.lists.findIndex(l => l.id == this.listForm?.id);
-
-      this.lists[position] = this.listForm;
-    } else {
-      let max: number = 0;
-      this.lists.forEach(l => {
-        if(l.id && l.id > max) {
-          max = l.id;
-        }
-      });
-
-      this.listForm!.id = max+1;
-
-      this.lists.push(this.listForm!);
-    }
+    this.listService.save(this.listForm);
 
     this.cancel();
   }
 
   remove(id?: number) {
-    let position = this.lists.findIndex(l => l.id == id);
-
-    this.lists.splice(position,1);
+    this.listService.delete(id!);
   }
 
   cancel() {

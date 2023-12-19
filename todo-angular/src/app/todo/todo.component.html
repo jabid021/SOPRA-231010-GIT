@@ -20,7 +20,7 @@
                     <td>{{t.description}}</td>
                     <td><i class="bi bi-check" *ngIf="t.isImportant; else sinon"></i></td>
                     <td>{{t.isDone | check}}</td>
-                    <td>{{t.listId}}</td>
+                    <td>{{findListById(t.listId)?.name}}</td>
                     <td><div class="btn-group btn-group-sm">
                         <a (click)="edit(t.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
                         <a (click)="remove(t.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
@@ -60,7 +60,10 @@
         </div>
         <div class="mb-3">
             <label for="listId" class="form-label">Liste (id):</label>
-            <input type="number" class="form-control" id="listId" name="listId" [(ngModel)]="todoForm.listId">
+            <select class="form-select" id="listId" name="listId" [(ngModel)]="todoForm.listId">
+                <option></option>
+                <option *ngFor="let l of listLists()" [value]="l.id">{{l.name}}</option>
+            </select>
         </div>
     </div>
     <div class="card-footer">
