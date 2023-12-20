@@ -51,7 +51,7 @@ public class Stagiaire {
 	private Filiere filiere;
 
 	@OneToOne(mappedBy = "stagiaire")
-	@JsonView(Views.Stagiaire.class)
+//	@JsonView(Views.Stagiaire.class)
 	private Ordinateur ordinateur;
 
 	public Stagiaire() {
