@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -32,54 +31,46 @@ public class MatiereRestController {
 	public List<Matiere> findAll() {
 		return daoMatiere.findAll();
 	}
-	
+
 	@GetMapping("/by-filiere/{idFiliere}")
 	public List<Matiere> findAllByFiliere(@PathVariable Integer idFiliere) {
 		return daoMatiere.findAllByFiliere(idFiliere);
 	}
-	
-	
+
 	@GetMapping("/{id}")
-	public Matiere affiche(@PathVariable Integer id) 
-	{
+	public Matiere affiche(@PathVariable Integer id) {
 		return daoMatiere.findById(id).get();
 	}
 
 	@GetMapping("/new")
-	public Matiere newMatiere() 
-	{
-		return new Matiere(1,"Libelle matiere",7889);
+	public Matiere newMatiere() {
+		return new Matiere(1, "Libelle matiere", 7889);
 	}
 
 	@PostMapping
-	public Matiere insertMatiere(@RequestBody Matiere matiere)
-	{
+	public Matiere insertMatiere(@RequestBody Matiere matiere) {
 		daoMatiere.save(matiere);
 		return matiere;
 	}
 
-
 	@PutMapping("/{id}")
-	public Matiere updateMatiere(@RequestBody Matiere matiere, @PathVariable Integer id)
-	{
-		if(id != matiere.getId() || !daoMatiere.existsById(id)) {
+	public Matiere updateMatiere(@RequestBody Matiere matiere, @PathVariable Integer id) {
+		if (id != matiere.getId() || !daoMatiere.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		
+
 		daoMatiere.save(matiere);
-		
+
 		return matiere;
 	}
 
 	@PatchMapping
-	public void updatePartMatiere()
-	{
+	public void updatePartMatiere() {
 		System.out.println("On est en patch");
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteMatiere(@PathVariable Integer id)
-	{
+	public void deleteMatiere(@PathVariable Integer id) {
 		daoMatiere.deleteById(id);
 	}
 }

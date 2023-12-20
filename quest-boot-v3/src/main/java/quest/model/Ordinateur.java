@@ -20,7 +20,7 @@ public class Ordinateur {
 	@JsonView(Views.Common.class)
 	private Integer id;
 
-	@Column(length = 15, nullable = false)
+	@Column(length = 100, nullable = false)
 	@JsonView(Views.Common.class)
 	private String marque;
 
@@ -28,7 +28,7 @@ public class Ordinateur {
 	private int ram;
 
 	@OneToOne
-	@JoinColumn(name = "stagiaire", nullable = false)
+	@JoinColumn(name = "stagiaire")
 	@JsonView(Views.Ordinateur.class)
 	private Stagiaire stagiaire;
 

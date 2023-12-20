@@ -25,18 +25,18 @@ public class Stagiaire {
 	@JsonView(Views.Common.class)
 	private Integer id;
 
-	@Column(length = 25, nullable = false)
+	@Column(length = 100, nullable = false)
 	@NotBlank(message = "Le nom ne peut pas etre vide")
 	@NotEmpty(message = "Le nom ne peut pas etre null...")
-	@Size(min = 5, max = 25, message = "Le nom doit faire entre 5 et 25 lettres")
+	@Size(min = 5, max = 100, message = "Le nom doit faire entre 5 et 100 lettres")
 	@JsonView(Views.Common.class)
 	private String nom;
 
-	@Column(length = 25, nullable = false)
+	@Column(length = 100, nullable = false)
 	@JsonView(Views.Common.class)
 	private String prenom;
 
-	@Column(length = 25, nullable = false)
+	@Column(length = 255, nullable = false)
 	@Size(min = 8)
 	@JsonView(Views.Common.class)
 	private String email;

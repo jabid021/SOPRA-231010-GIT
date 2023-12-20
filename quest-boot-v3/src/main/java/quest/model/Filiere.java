@@ -25,15 +25,15 @@ public class Filiere {
 	@JsonView(Views.Common.class)
 	private Integer id;
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 100, nullable = false)
 	@JsonView(Views.Common.class)
 	private String libelle;
 
-	@Column(nullable = false)
+	@Column
 	@JsonView(Views.Common.class)
 	private LocalDate debut;
 
-	@Column(nullable = false)
+	@Column
 	@JsonView(Views.Common.class)
 	private LocalDate fin;
 

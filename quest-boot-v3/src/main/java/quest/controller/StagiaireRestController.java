@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,54 +25,46 @@ public class StagiaireRestController {
 
 	@Autowired
 	private IDAOStagiaire daoStagiaire;
-	
-	
+
 	@GetMapping("/{id}")
 	@JsonView(Views.Stagiaire.class)
-	public Stagiaire findById(@PathVariable Integer id) 
-	{
+	public Stagiaire findById(@PathVariable Integer id) {
 		Optional<Stagiaire> opt = daoStagiaire.findById(id);
-		if(opt.isEmpty()) 
-		{
+		if (opt.isEmpty()) {
 			return null;
 		}
 		return opt.get();
 	}
-	
+
 	@GetMapping
 	@JsonView(Views.Common.class)
-	public List<Stagiaire> findAll() 
-	{
+	public List<Stagiaire> findAll() {
 		return daoStagiaire.findAll();
 	}
-	
+
 	@GetMapping("/all")
 	@JsonView(Views.Stagiaire.class)
-	public List<Stagiaire> findAllWithOrdinateurAndFiliere() 
-	{
+	public List<Stagiaire> findAllWithOrdinateurAndFiliere() {
 		return daoStagiaire.findAll();
 	}
-	
+
 	@PostMapping
 	@JsonView(Views.Stagiaire.class)
 //	@PreAuthorize("hasRole('SUPER_ADMIN')")
-	public Stagiaire insert(@RequestBody Stagiaire stagiaire) 
-	{
+	public Stagiaire insert(@RequestBody Stagiaire stagiaire) {
 		return daoStagiaire.save(stagiaire);
 	}
-	
+
 	@PutMapping("/{id}")
 	@JsonView(Views.Stagiaire.class)
-	public Stagiaire update(@RequestBody Stagiaire stagiaire) 
-	{
-	
+	public Stagiaire update(@RequestBody Stagiaire stagiaire) {
+
 		return daoStagiaire.save(stagiaire);
 	}
-	
+
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Integer id) 
-	{
+	public void delete(@PathVariable Integer id) {
 		daoStagiaire.deleteById(id);
 	}
-	
+
 }

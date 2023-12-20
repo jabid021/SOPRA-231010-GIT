@@ -22,9 +22,9 @@ public class Matiere {
 	@JsonView(Views.Common.class)
 	private Integer id;
 
-	@Column(length = 25, nullable = false)
+	@Column(length = 100, nullable = false)
 	@NotNull
-	@Size(min = 5, max = 25, message = "Le libelle doit faire entre 5 et 25 char")
+	@Size(min = 5, max = 100, message = "Le libelle doit faire entre 5 et 100 char")
 	@JsonView(Views.Common.class)
 	private String libelle;
 
