@@ -50,8 +50,9 @@ public class SecurityConfig {
 		http.httpBasic(Customizer.withDefaults());
 
 		http.authorizeHttpRequests(auth -> {
-			auth.requestMatchers("/api/filiere/**").hasRole("ADMIN");
-			auth.requestMatchers("/**").authenticated();
+			auth.requestMatchers("/**").permitAll();
+//			auth.requestMatchers("/api/filiere/**").hasRole("ADMIN");
+//			auth.requestMatchers("/**").authenticated();
 		});
 
 		// Désactiver la protection CSRF
