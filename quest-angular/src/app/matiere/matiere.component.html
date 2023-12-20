@@ -1,0 +1,57 @@
+<div class="card mt-3">
+    <div class="card-header text-white bg-primary">
+        Liste des Matières
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Libellé</th>
+                    <th>Quest</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of list()">
+                    <td>{{m.id}}</td>
+                    <td>{{m.libelle}}</td>
+                    <td>{{m.quest}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a (click)="edit(m.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                        <a (click)="remove(m.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      </div></td>
+                </tr>
+             
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a (click)="add()" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="matiereForm">
+    <div class="card-header text-white bg-primary">
+        Edition d'une matière
+    </div>
+    <div class="card-body"> 
+        <div class="mb-3 mt-3">
+            <label for="id" class="form-label">Identifiant:</label>
+            <input type="number" class="form-control" id="id" name="id" disabled [(ngModel)]="matiereForm.id">
+        </div>
+        <div class="mb-3">
+            <label for="libelle" class="form-label">Libellé:</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" [(ngModel)]="matiereForm.libelle">
+        </div>
+        <div class="mb-3">
+            <label for="quest" class="form-label">Quest:</label>
+            <input type="number" class="form-control" id="quest" name="quest" [(ngModel)]="matiereForm.quest">
+        </div>
+    </div>
+    <div class="card-footer">
+        <a (click)="save()" class="btn btn-success btn-lg"><i class="bi bi-check-lg"></i></a>
+        <a (click)="cancel()" class="btn btn-warning btn-lg mx-2"><i class="bi bi-backspace"></i></a>
+    </div>
+</div>
