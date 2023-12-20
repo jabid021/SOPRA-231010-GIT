@@ -4,6 +4,12 @@ export class Matiere {
     }
 }
 
+export class Stagiaire {
+    constructor(public id?: number, public nom?: string, public prenom?: string, public email?: string) {
+
+    }
+}
+
 export class FiliereResponse {
     
 }

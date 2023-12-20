@@ -15,10 +15,10 @@ export class MatiereService {
   }
 
   load() {
-    let obs : Observable<any> = this.http.get("http://localhost:8080/api/matiere");
+    let obs: Observable<Matiere[]> = this.http.get<Matiere[]>("http://localhost:8080/api/matiere");
 
-    obs.subscribe(response => {
-      this.matieres = response;
+    obs.subscribe(retour => {
+      this.matieres = retour;
     });
   }
 

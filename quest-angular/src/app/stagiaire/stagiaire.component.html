@@ -1,1 +1,63 @@
-<p>stagiaire works!</p>
+<div class="card mt-3">
+    <div class="card-header text-white bg-primary">
+        Liste des Stagiaires
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of list() | async">
+                    <td>{{s.id}}</td>
+                    <td>{{s.nom}}</td>
+                    <td>{{s.prenom}}</td>
+                    <td>{{s.email}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a (click)="edit(s.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                        <a (click)="remove(s.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      </div></td>
+                </tr>
+             
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a (click)="add()" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="stagiaireForm">
+    <div class="card-header text-white bg-primary">
+        Edition d'un stagiaire
+    </div>
+    <div class="card-body"> 
+        <div class="mb-3 mt-3">
+            <label for="id" class="form-label">Identifiant:</label>
+            <input type="number" class="form-control" id="id" name="id" disabled [(ngModel)]="stagiaireForm.id">
+        </div>
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom:</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="stagiaireForm.nom">
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom:</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="stagiaireForm.prenom">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="stagiaireForm.email">
+        </div>
+    </div>
+    <div class="card-footer">
+        <a (click)="save()" class="btn btn-success btn-lg"><i class="bi bi-check-lg"></i></a>
+        <a (click)="cancel()" class="btn btn-warning btn-lg mx-2"><i class="bi bi-backspace"></i></a>
+    </div>
+</div>
