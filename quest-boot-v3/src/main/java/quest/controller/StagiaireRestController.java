@@ -56,7 +56,7 @@ public class StagiaireRestController {
 	
 	@PostMapping
 	@JsonView(Views.Stagiaire.class)
-	@PreAuthorize("hasRole('SUPER_ADMIN')")
+//	@PreAuthorize("hasRole('SUPER_ADMIN')")
 	public Stagiaire insert(@RequestBody Stagiaire stagiaire) 
 	{
 		return daoStagiaire.save(stagiaire);
