@@ -1,1 +1,76 @@
-<p>utilisateur works!</p>
+<div class="card mt-3">
+    <div class="card-header text-white bg-primary">
+        Liste des utilisateurs
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Login</th>
+                    <th>Mot de passe</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Actif ?</th>
+                    <th>Roles</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of list() | async">
+                    <td>{{u.id}}</td>
+                    <td>{{u.username}}</td>
+                    <td>{{u.password}}</td>
+                    <td>{{u.nom}}</td>
+                    <td>{{u.prenom}}</td>
+                    <td>{{!u.disabled}}</td>
+                    <td>{{u.roles}}</td>
+                    <td><div class="btn-group btn-group-sm">
+                        <a (click)="edit(u.id)" class="btn btn-primary"><i class="bi bi-pen"></i></a>
+                        <a (click)="remove(u.id)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                      </div></td>
+                </tr>
+             
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a (click)="add()" class="btn btn-success btn-lg"><i class="bi bi-plus-lg"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="showForm">
+    <form (ngSubmit)="save()" [formGroup]="userForm">
+    <div class="card-header text-white bg-primary">
+        Edition d'un utilisateur
+    </div>
+    <div class="card-body"> 
+        <div class="mb-3 mt-3">
+            <label for="id" class="form-label">Identifiant:</label>
+            <input type="number" class="form-control" id="id" name="id" readonly formControlName="id">
+        </div>
+        <div class="mb-3">
+            <label for="prenom" class="form-label">Prénom:</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" formControlName="prenom">
+        </div>
+        <div class="mb-3">
+            <label for="nom" class="form-label">Nom:</label>
+            <input type="text" class="form-control" id="nom" name="nom" formControlName="nom">
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Login:</label>
+            <input type="text" class="form-control" id="username" name="username" formControlName="username">
+            <span class="text-danger" *ngIf="userForm.get('username')?.dirty && userForm.get('username')?.hasError('required')">Le login est obligatoire</span>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe:</label>
+            <input type="text" class="form-control" id="password" name="password" formControlName="password">
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="submit" [disabled]="userForm.invalid" class="btn btn-success btn-lg"><i class="bi bi-check-lg"></i></button>
+        <a (click)="cancel()" class="btn btn-warning btn-lg mx-2"><i class="bi bi-backspace"></i></a>
+    </div>
+    </form>
+</div>

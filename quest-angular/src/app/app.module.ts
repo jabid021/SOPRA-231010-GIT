@@ -9,8 +9,10 @@ import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import { FiliereComponent } from './filiere/filiere.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import { AuthInterceptor } from './auth.interceptor';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,23 @@ import { HttpClientModule } from '@angular/common/http'
     StagiaireComponent,
     MatiereComponent,
     FiliereComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

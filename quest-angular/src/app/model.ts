@@ -13,3 +13,9 @@ export class Stagiaire {
 export class FiliereResponse {
     
 }
+
+export class Utilisateur {
+    constructor(public id?: number, public version?: number, public username?: string, public password?: string, public nom?: string, public prenom?: string, public disabled?: boolean, public roles?: string[]) {
+
+    }
+}
