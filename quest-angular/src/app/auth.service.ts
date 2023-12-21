@@ -37,7 +37,8 @@ export class AuthService {
     } else {
       const user = localStorage.getItem("user")
       if(user) {
-        return JSON.parse(user);
+        this.utilisateur = JSON.parse(user);
+        return this.utilisateur;
       }
     }
 

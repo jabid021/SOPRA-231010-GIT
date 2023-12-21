@@ -7,6 +7,7 @@ import { FiliereComponent } from './filiere/filiere.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [{path: "accueil", component: HomeComponent},
 {path: "stagiaire", component: StagiaireComponent, canActivate: [AuthGuard]},
@@ -14,6 +15,7 @@ const routes: Routes = [{path: "accueil", component: HomeComponent},
 {path: "filiere", component: FiliereComponent, canActivate: [AuthGuard]},
 {path: "utilisateur", component: UtilisateurComponent, canActivate: [AuthGuard]},
 {path: "login", component: LoginComponent},
+{path: "inscription", component: InscriptionComponent},
 {path: "", pathMatch: "full", redirectTo: "accueil"}];
 
 @NgModule({

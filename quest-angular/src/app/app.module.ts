@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AuthInterceptor } from './auth.interceptor';
 import { LoginComponent } from './login/login.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     MatiereComponent,
     FiliereComponent,
     UtilisateurComponent,
-    LoginComponent
+    LoginComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

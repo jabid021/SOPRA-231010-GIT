@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UtilisateurService } from './utilisateur.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { Utilisateur } from '../model';
   templateUrl: './utilisateur.component.html',
   styleUrls: ['./utilisateur.component.css']
 })
-export class UtilisateurComponent {
+export class UtilisateurComponent implements OnInit {
   userForm!: FormGroup;
 
   idCtrl!: FormControl;

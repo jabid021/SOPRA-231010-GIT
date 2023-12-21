@@ -30,4 +30,8 @@ export class UtilisateurService {
   delete(id?: number): Observable<void> {
     return this.http.delete<void>(environment.apiUrl + "/utilisateur/"+id);
   }
+
+  inscription(inscriptionUser: any): Observable<Utilisateur> {
+     return this.http.post<Utilisateur>(environment.apiUrl + "/utilisateur/inscription", inscriptionUser);
+  }
 }
